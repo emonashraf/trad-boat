@@ -1,0 +1,68 @@
+@@include('../partials/_template-top.html')
+<main>
+  <section class="account">
+    <div class="account__inner">
+      <div class="account__left">
+        <a href="index.html" class="account__logo logo"><img src="assets/images/logo/white-log.png" alt="logo"></a>
+        <h1 class="account__left-title">Welcome to FormBuilder</h1>
+      </div>
+      <div class="account__form-wrap">
+        <form class="account__form">
+          <div class="row">
+            <div class="col-12">
+              <div class="account__header">
+                <h6 class="account__subtitle">Welcome back!</h6>
+                <h2 class="account__title">Sign in your account</h2>
+                <p class="account__desc">It only takes a minute to start earning with surveys you’ll actually enjoy.</p>
+              </div>
+            </div>
+          </div>
+          <div class="row  gx-3 gy-4">
+            <div class="col-12">
+              <input type="text" class="form--control" placeholder="Email Address" required>
+            </div>
+            <div class="col-12">
+              <div class="overflow-hidden">
+                <div class="position-relative">
+                  <input id="password" type="password" class="form--control" placeholder="Password">
+                  <span class="password-show-hide ti ti-eye toggle-password" id="#password"></span>
+                </div>
+              </div>
+            </div>
+            <div class="col-12">
+              <div class="flex-between gap-2">
+                <div class="form--check">
+                  <label class="form-check-label"><input class="form-check-input" type="checkbox">Remember Me</label>
+                </div>
+                <a href="forgot-password.html" class="btn--unstyle text--base">Forgot Password?</a>
+              </div>
+            </div>
+            <div class="col-12">
+              <button type="submit" class="btn btn--base  w-100">Sign In</button>
+            </div>
+            <div class="col-12">
+              <ul class="social-list">
+                <li class="social-list__item"><a href="https://www.facebook.com"
+                    class="social-list__link flex-center"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li class="social-list__item"><a href="https://www.twitter.com" class="social-list__link flex-center">
+                    <i class="fab fa-twitter"></i></a>
+                </li>
+                <li class="social-list__item"><a href="https://www.linkedin.com" class="social-list__link flex-center">
+                    <i class="fab fa-linkedin-in"></i></a>
+                </li>
+                <li class="social-list__item"><a href="https://www.pinterest.com" class="social-list__link flex-center">
+                    <i class="fab fa-instagram"></i></a></li>
+              </ul>
+            </div>
+            <div class="col-sm">
+              <p class="account__already text-center">Don't have an account? <a href="register.html"
+                  class="btn--unstyle text--base">Register Now</a></p>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+@@include('../partials/_template-bottom.html')

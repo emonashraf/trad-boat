@@ -1,0 +1,107 @@
+/* ======================  Login Section Start  ======================*/
+.account {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  background-color: hsl(var(--black)/ 0.85);
+  z-index: 2;
+
+  @include md-screen {
+    padding-block: clamp(1.875rem, 0.469rem + 7.031vw, 7.5rem);
+    padding-inline: clamp(0.625rem, 0.469rem + 0.781vw, 1.25rem);
+  }
+
+  &.register {
+    .account__form {
+      max-width: 100%;
+    }
+  }
+
+  &__subtitle {
+    letter-spacing: 5px;
+    margin-bottom: rem(16px);
+  }
+
+  &__title {
+    margin-bottom: clamp(0.75rem, 0.563rem + 0.938vw, 1.5rem);
+  }
+
+  &__desc {
+    margin-bottom: clamp(1.5rem, 1.188rem + 1.563vw, 2.75rem);
+  }
+
+  &__inner {
+    display: flex;
+    gap: clamp(0.938rem, 0.547rem + 1.953vw, 2.5rem);
+    justify-content: space-between;
+
+    @include md-screen {
+      flex-wrap: wrap;
+    }
+  }
+
+  &__left {
+    flex: 1 1 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    &-title {
+      color: hsl(var(--white));
+      margin: 0;
+    }
+
+    &-logo {
+      margin-bottom: rem(32px);
+    }
+
+  }
+
+
+  &__form-wrap {
+    flex: 1 1 40%;
+    width: 100%;
+    min-height: 100vh;
+    max-width: rem(700px);
+    min-width: rem(450px);
+    background-color: hsl(var(--base-l-900)/0.9);
+    padding-inline: clamp(1.25rem, 1.094rem + 0.781vw, 1.875rem);
+    padding-block: clamp(1.5rem, 1.25rem + 1.25vw, 2.5rem);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-inline: auto;
+
+    @include md-screen {
+      border-radius: var(--b-radius);
+      min-height: 100%;
+      max-width: rem(550px);
+      min-width: rem(300px);
+    }
+
+  }
+
+  &__form {
+    max-width: 500px;
+    margin-inline: auto;
+
+  }
+
+  .social-list {
+    justify-content: center;
+
+    &__link {
+      background-color: hsl(var(--white));
+      color: hsl(var(--body-color));
+      transition: 0.3s;
+
+      &:hover {
+        background-color: hsl(var(--base));
+      }
+    }
+  }
+}
+
+/* ======================  Login Section End  ======================*/

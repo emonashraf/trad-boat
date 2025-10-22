@@ -1,0 +1,193 @@
+/* ================================= Button Css Start =========================== */
+.btn-check:checked+.btn,
+.btn.active,
+.btn.show,
+.btn:first-child:active,
+:not(.btn-check)+.btn:active {
+  color: none;
+  background-color: none;
+  border-color: none;
+}
+
+.pill {
+  border-radius: 40px !important;
+}
+
+.btn {
+  color: hsl(var(--white)) !important;
+  font-size: 14px;
+  font-weight: 700;
+  padding: clamp(0.938rem, 0.859rem + 0.391vw, 1.25rem);
+  border-radius: clamp(0.25rem, 0.188rem + 0.313vw, 0.5rem);
+  position: relative;
+  z-index: 1;
+  border: 1px solid transparent;
+  font-family: var(--body-font);
+  display: inline-block !important;
+  line-height: 1;
+  transition: 0.3s;
+
+  i {
+    &::before {
+      transition: 0.3s;
+    }
+
+  }
+
+  &:hover,
+  &:focus,
+  &:focus-visible {
+    box-shadow: none !important;
+  }
+
+  &:active {
+    top: 1px;
+  }
+
+  &.btn--white {
+    background-color: hsl(var(--white));
+    color: hsl(var(--base)) !important;
+    border: 1px solid hsl(var(--border-color));
+
+    &:hover {
+      background-color: hsl(var(--base)/ 0.5) !important;
+      border: 1px solid hsl(var(--border-color));
+      backdrop-filter: blur(10px);
+      color: hsl(var(--heading-color)) !important;
+    }
+  }
+
+  &.btn-outline--white {
+    background-color: transparent;
+    color: hsl(var(--white)) !important;
+    border: 1px solid hsl(var(--white));
+
+    &:hover {
+      background-color: hsl(var(--white)) !important;
+      backdrop-filter: blur(10px);
+      color: hsl(var(--heading-color)) !important;
+    }
+  }
+
+  &.btn--base-two {
+    color: hsl(var(--heading-color)) !important;
+  }
+
+  &.btn-outline--base-two {
+    color: hsl(var(--base-two-d-200)) !important;
+
+    &:hover {
+      color: hsl(var(--heading-color)) !important;
+    }
+  }
+
+  &.btn-lite--base {
+    color: hsl(var(--base-d-300)) !important;
+  }
+
+
+  &-light {
+    color: hsl(var(--heading-color)) !important;
+  }
+
+  &--lg {
+    padding: 20px 35px;
+
+    @include md-screen {
+      padding: 18px 30px;
+    }
+
+    @include sm-screen {
+      padding: 16px 25px;
+    }
+  }
+
+  &--sm {
+    padding: 10px 18px;
+    font-weight: 600;
+    font-size: rem(14px);
+    border-radius: 8px;
+
+    @include sm-screen {
+      padding: 8px 12px;
+    }
+
+    @include msm-screen {
+      padding: 5px 10px;
+    }
+  }
+
+  &--icon {
+    width: 35px;
+    height: 35px;
+    line-height: 35px;
+    font-size: 15px;
+    padding: 0;
+  }
+
+  &--outline-light {
+    color: hsl(var(--heading-color)) !important;
+    border: 1px solid hsl(var(--black)/ 0.08);
+    transition: 0.3s;
+
+
+    &:hover {
+      background-color: hsl(var(--base-l-900));
+      border: 1px solid transparent;
+    }
+  }
+
+
+
+  // ============= Gradient Button End =======================
+
+  // ============= Different Color Button Start ==================
+  @include btn-style(--base);
+  @include btn-style(--base-two);
+  @include btn-style(--primary);
+  @include btn-style(--secondary);
+  @include btn-style(--danger);
+  @include btn-style(--success);
+  @include btn-style(--warning);
+  @include btn-style(--info);
+}
+
+
+
+.btn--underline {
+  text-decoration: underline;
+  transition: 0.3s;
+
+  &:hover {
+    color: hsl(var(--base-d-100)) !important;
+
+  }
+
+}
+
+.btn--unstyle {
+  position: relative;
+  transition: 0.3s;
+  font-size: 14px;
+
+  &:hover {
+    color: hsl(var(--base-d-200));
+
+    &::before {
+      width: 100%;
+    }
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background-color: hsl(var(--base));
+    transition: 0.3s;
+  }
+}
+
+/* ================================= Button Css End =========================== */

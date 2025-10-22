@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title -->
+  <title>Qbots</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/images/logo/favicon.png">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+  <!-- line awesome -->
+  <link rel="stylesheet" href="assets/css/line-awesome.min.css">
+  <!-- Magnific Popup -->
+  <link rel="stylesheet" href="assets/css/magnific-popup.css">
+  <!-- bx slider -->
+  <link rel="stylesheet" href="assets/css/jquery.bxslider.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="assets/css/select2.min.css">
+  <!-- Main css -->
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+
+  <!--==================== Preloader Start ====================-->
+<div class="preloader">
+    <div class="loader__text" data-text="wStacks"></div>
+</div>
+<!--==================== Preloader End ====================-->
+
+
+  <!-- ==================== Scroll to Top Start ==================== -->
+  <a class="scroll-top"><i class="fas fa-angle-double-up"></i></a>
+  <!-- ==================== Scroll to Top End ==================== -->
+
+
+  <!--==========================  Overlay Start  ==========================-->
+  <div class="overlay"></div>
+  <!--==========================  Overlay End  ==========================-->
+
+
+<!-- ==================== Header Start Here ==================== -->
+<header class="header__area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="header__main">
+          <a href="index.html" class="main__logo"><img src="assets/images/logo/logo.png" alt="logo"></a>
+          <div class="header__menu">
+            <ul>
+              <li><a href="index.html" class="active">About Us</a></li>
+              <li><a href="about.html">Features</a></li>
+              <li><a href="features.html">Tread Boat</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="header__widgets">
+            <div class="dropdown">
+              <div role="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="language__item">
+                  <img src="assets/images/english.png" alt="image">
+                  <p>English</p>
+                </div>
+              </div>
+              <ul class="dropdown-menu">
+                <li>
+                  <div class="language__item dropdown-item">
+                    <img src="assets/images/english.png" alt="image">
+                    <p>English</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="language__item dropdown-item">
+                    <img src="assets/images/bangla.png" alt="image">
+                    <p>Bangla</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="language__item dropdown-item">
+                    <img src="assets/images/hindi.png" alt="image">
+                    <p>Hindi</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="header__login">
+              <!-- <a href="login.html" class="btn btn--base">Sign in</a> -->
+              <div class="dropdown">
+                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Account
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="user-dashboard.html">Dashboard</a></li>
+                  <li><a class="dropdown-item" href="#">Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <span class="menu__open"><i class="fa-solid fa-bars"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="trad__card">
+    <span class="badge"></span>
+  </div>
+</header>
+<!-- ==================== Header End Here ==================== -->
+
+<!--==========================  Offcanvas Section Start  ==========================-->
+<div class="offcanvas__area">
+  <div class="offcanvas__topbar">
+    <a href="index.html"><img src="assets/images/logo/logo.png" alt="logo"></a>
+    <span class="menu__close"><i class="las la-times"></i></span>
+  </div>
+  <div class="offcanvas__main">
+    <div class="offcanvas__widgets">
+      <div class="offcanvas__language">
+        <div class="dropdown">
+          <div role="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="language__item">
+              <img src="assets/images/english.png" alt="image">
+              <p>English</p>
+            </div>
+          </div>
+          <ul class="dropdown-menu">
+            <li>
+              <div class="language__item dropdown-item">
+                <img src="assets/images/english.png" alt="image">
+                <p>English</p>
+              </div>
+            </li>
+            <li>
+              <div class="language__item dropdown-item">
+                <img src="assets/images/bangla.png" alt="image">
+                <p>Bangla</p>
+              </div>
+            </li>
+            <li>
+              <div class="language__item dropdown-item">
+                <img src="assets/images/hindi.png" alt="image">
+                <p>Hindi</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="offcanvas__login">
+        <!-- <a href="#" class="btn btn--base">Sign in</a> -->
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Account
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Dashboard</a></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="offcanvas__menu">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--==========================  Offcanvas Section End  ==========================-->
+
+<main>
+    <!-- ==================== Breadcrumb Start Here ==================== -->
+<section class="breadcrumb">
+  <div class="breadcrumb__shape">
+    <img src="assets/images/shape.png" alt="img">
+  </div>
+  <div class="breadcrumb__shape">
+    <img src="assets/images/shape.png" alt="img">
+  </div>
+  <div class="glove--base"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="breadcrumb__wrapper">
+          <h2 class="breadcrumb__title">About</h2>
+          <ul class="breadcrumb__list">
+            <li class="breadcrumb__item"><a href="index.html" class="breadcrumb__link">Home</a></li>
+            <li class="breadcrumb__item">//</li>
+            <li class="breadcrumb__item"><span class="breadcrumb__item-text">About</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ==================== Breadcrumb End Here ==================== -->
+    <!--==========================   About Start  ==========================-->
+<section class="about my-120">
+    <div class="container">
+        <div class="row gy-4 justify-content-between align-items-center">
+            <div class="col-lg-5">
+                <div class="section-heading style-left">
+                    <span class="section-heading__name">Who We Are</span>
+                    <h2 class="section-heading__title">Can I track form submissions in real-time?</h2>
+                    <p class="section-heading__desc">Streamline data collection, automate workflows, and gain real-time
+                        insights effortlessly</p>
+                </div>
+                <ul class="about__list">
+                    <li class="about__list-item">Run campaigns for each segment, measure success, and refine strategies.
+                    </li>
+                    <li class="about__list-item">Nights guide the creation of products/services that meet audience
+                        demands.</li>
+                    <li class="about__list-item">Based on user behavior, such as purchasing habits, product usage, or
+                        brand loyalty.</li>
+                </ul>
+            </div>
+            <div class="col-lg-6">
+                <div class="about__banner"> 
+                    <div class="about__shape">
+                        <img src="assets/images/shape.png" alt="img">
+                    </div>
+                    <div class="about__thumb">
+                        <img src="assets/images/about/1.png" alt="img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--==========================  About End  ==========================-->
+    <!--==========================   Work-process Start  ==========================-->
+<section class="work-process py-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading style-white">
+                    <span class="section-heading__name">How It Works</span>
+                    <h2 class="section-heading__title">How Our Platform Works</h2>
+                    <p class="section-heading__desc">Build smarter forms and unlock insights without switching
+                        platforms.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center gy-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="work-process__card left-reveal">
+                    <h4 class="work-process__title">Create form</h4>
+                    <p class="work-process__desc">Drag, drop, and customize your perfect form effortlessly.</p>
+                    <span class="work-process__count">01</span>
+                    <div class="work-process__shape">
+                        <img src="assets/images/shape.png" alt="img">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="work-process__card bottom-reveal">
+                    <h4 class="work-process__title">Share Link</h4>
+                    <p class="work-process__desc">Drag, drop, and customize your perfect form effortlessly.</p>
+                    <span class="work-process__count">02</span>
+                    <div class="work-process__shape">
+                        <img src="assets/images/shape.png" alt="img">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="work-process__card right-reveal">
+                    <h4 class="work-process__title">Analyze</h4>
+                    <p class="work-process__desc">Visualize insights with dashboards and charts</p>
+                    <span class="work-process__count">03</span>
+                    <div class="work-process__shape">
+                        <img src="assets/images/shape.png" alt="img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--==========================  Work-process End  ==========================-->
+    <!--========================== Service Section Start ==========================-->
+<section class="use-case my-120">
+  <div class="useCase__bg bg-img" data-background-image="assets/images/thumbs/service-bg.png"></div>
+  <div class="container">
+    <div class="row g-4 justify-content-between align-items-center">
+      <div class="col-md-5">
+        <div class="section-heading style-left">
+          <span class="section-heading__name">Use Cases</span>
+          <h2 class="section-heading__title">Empowering Businesses with Smarter Forms</h2>
+          <p class="section-heading__desc">Streamline data collection, automate workflows, and gain real-time insights
+            effortlessly</p>
+        </div>
+        <div class="use-case__list">
+          <div class="use-case__list-item active" data-use-case-id="useCase_1">
+            <span class="use-case__list-icon"><i class="fa-solid fa-rocket"></i></span>
+            <h4 class="use-case__list-title">Marketing Campaigns</h4>
+          </div>
+          <div class="use-case__list-item" data-use-case-id="useCase_2">
+            <span class="use-case__list-icon"><i class="fa-solid fa-magnet"></i></span>
+            <h4 class="use-case__list-title">Lead Generation</h4>
+          </div>
+          <div class="use-case__list-item" data-use-case-id="useCase_3">
+            <span class="use-case__list-icon"><i class="fa-solid fa-calendar-check"></i> </span>
+            <h4 class="use-case__list-title">Premium Quality Survey Solutions</h4>
+          </div>
+          <div class="use-case__list-item" data-use-case-id="useCase_4">
+            <span class="use-case__list-icon"><i class="fa-solid fa-list-check"></i> </span>
+            <h4 class="use-case__list-title">Surveys & Feedback</h4>
+          </div>
+          <div class="use-case__list-item" data-use-case-id="useCase_5">
+            <span class="use-case__list-icon"><i class="fa-solid fa-users"></i></span>
+            <h4 class="use-case__list-title">Job Application</h4>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="use-case__banner-wrap">
+          <div class="use-case__banner show" id="useCase_1">
+            <div class="use-case__offer-thumb">
+              <img src="assets/images/use-case/discount-1.png" alt="img">
+            </div>
+            <div class="use-case__shape">
+              <img src="assets/images/shape.png" alt="img">
+            </div>
+            <div class="use-case__thumb">
+              <img src="assets/images/use-case/1.png" alt="image">
+            </div>
+          </div>
+          <div class="use-case__banner" id="useCase_2">
+            <div class="use-case__offer-thumb">
+              <img src="assets/images/use-case/discount-1.png" alt="img">
+            </div>
+            <div class="use-case__shape">
+              <img src="assets/images/shape.png" alt="img">
+            </div>
+            <div class="use-case__thumb">
+              <img src="assets/images/use-case/2.png" alt="image">
+            </div>
+          </div>
+          <div class="use-case__banner" id="useCase_3">
+            <div class="use-case__offer-thumb">
+              <img src="assets/images/use-case/discount-1.png" alt="img">
+            </div>
+            <div class="use-case__shape">
+              <img src="assets/images/shape.png" alt="img">
+            </div>
+            <div class="use-case__thumb">
+              <img src="assets/images/use-case/1.png" alt="image">
+            </div>
+          </div>
+          <div class="use-case__banner" id="useCase_4">
+            <div class="use-case__offer-thumb">
+              <img src="assets/images/use-case/discount-1.png" alt="img">
+            </div>
+            <div class="use-case__shape">
+              <img src="assets/images/shape.png" alt="img">
+            </div>
+            <div class="use-case__thumb">
+              <img src="assets/images/use-case/2.png" alt="image">
+            </div>
+          </div>
+          <div class="use-case__banner" id="useCase_5">
+            <div class="use-case__offer-thumb">
+              <img src="assets/images/use-case/discount-1.png" alt="img">
+            </div>
+            <div class="use-case__shape">
+              <img src="assets/images/shape.png" alt="img">
+            </div>
+            <div class="use-case__thumb">
+              <img src="assets/images/use-case/1.png" alt="image">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!--========================== Service Section End ==========================-->
+    <!--==========================   Pricing Start  ==========================-->
+<section class="pricing my-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <span class="section-heading__name">Pricing</span>
+                    <h2 class="section-heading__title">Everything You Need in One Platform</h2>
+                    <p class="section-heading__desc">Build smarter forms and unlock insights without switching
+                        platforms.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <ul class="nav custom--tab nav--pills" id="pills-tab" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active" id="pills-monthly-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-monthly" type="button" role="tab" aria-controls="pills-monthly"
+                            aria-selected="true">Monthly</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link" id="pills-yearly-tab" data-bs-toggle="pill"
+                            data-bs-target="#pills-yearly" type="button" role="tab" aria-controls="pills-yearly"
+                            aria-selected="false">Yearly</button>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-monthly" role="tabpanel"
+                        aria-labelledby="pills-monthly-tab">
+                        <div class="row justify-content-center gy-4">
+                            <div class="col-md-6 col-lg-4 col-xxl-3">
+                                <div class="pricing__card">
+                                    <h4 class="pricing__name">Free Plan</h4>
+                                    <h3 class="pricing__price">$00.<span class="">00</span><span>/month</span></h3>
+                                    <p class="pricing__desc">Seamless review and approval designed for freelancer</p>
+                                    <a href="#" class="btn btn-outline--base w--100">GET START</a>
+                                    <ul class="pricing__list">
+                                        <li>24/5 Email, Chat Support</li>
+                                        <li>Multiple Workspaces</li>
+                                        <li>50 apps (Hosted in 6 locations)</li>
+                                        <li>No Feature Caps</li>
+                                        <li>Minimum 25 users</li>
+                                        <li>Extra Security and Compliance</li>
+                                    </ul>
+                                    <div class="pricing__shape">
+                                        <img src="assets/images/shape.png" class="fit--img" alt="img">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 col-xxl-3">
+                                <div class="pricing__card active">
+                                    <span class="badge bg--success popular-card">Most Popular</span>
+                                    <h4 class="pricing__name">Free Plan</h4>
+                                    <h3 class="pricing__price">$00.<span class="">00</span><span>/month</span></h3>
+                                    <p class="pricing__desc">Seamless review and approval designed for freelancer</p>
+                                    <a href="#" class="btn btn-outline--base w--100">GET START</a>
+                                    <ul class="pricing__list">
+                                        <li>24/5 Email, Chat Support</li>
+                                        <li>Multiple Workspaces</li>
+                                        <li>50 apps (Hosted in 6 locations)</li>
+                                        <li>No Feature Caps</li>
+                                        <li>Minimum 25 users</li>
+                                        <li>Extra Security and Compliance</li>
+                                    </ul>
+                                    <div class="pricing__shape">
+                                        <img src="assets/images/shape.png" class="fit--img" alt="img">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 col-xxl-3">
+                                <div class="pricing__card">
+                                    <h4 class="pricing__name">Free Plan</h4>
+                                    <h3 class="pricing__price">$00.<span class="">00</span><span>/month</span></h3>
+                                    <p class="pricing__desc">Seamless review and approval designed for freelancer</p>
+                                    <a href="#" class="btn btn-outline--base w--100">GET START</a>
+                                    <ul class="pricing__list">
+                                        <li>24/5 Email, Chat Support</li>
+                                        <li>Multiple Workspaces</li>
+                                        <li>50 apps (Hosted in 6 locations)</li>
+                                        <li>No Feature Caps</li>
+                                        <li>Minimum 25 users</li>
+                                        <li>Extra Security and Compliance</li>
+                                    </ul>
+                                    <div class="pricing__shape">
+                                        <img src="assets/images/shape.png" class="fit--img" alt="img">
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-6 col-lg-4 col-xxl-3">
+                                <div class="pricing__card">
+                                    <h4 class="pricing__name">Free Plan</h4>
+                                    <h3 class="pricing__price">$00.<span class="">00</span><span>/month</span></h3>
+                                    <p class="pricing__desc">Seamless review and approval designed for freelancer</p>
+                                    <a href="#" class="btn btn-outline--base w--100">GET START</a>
+                                    <ul class="pricing__list">
+                                        <li>24/5 Email, Chat Support</li>
+                                        <li>Multiple Workspaces</li>
+                                        <li>50 apps (Hosted in 6 locations)</li>
+                                        <li>No Feature Caps</li>
+                                        <li>Minimum 25 users</li>
+                                        <li>Extra Security and Compliance</li>
+                                    </ul>
+                                    <div class="pricing__shape">
+                                        <img src="assets/images/shape.png" class="fit--img" alt="img">
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="pills-yearly" role="tabpanel" aria-labelledby="pills-yearly-tab">
+                        <div class="row justify-content-center gy-4">
+                            <div class="col-md-6 col-lg-4 col-xxl-3">
+                                <div class="pricing__card">
+                                    <h4 class="pricing__name">Free Plan</h4>
+                                    <h3 class="pricing__price">$00.<span class="">00</span><span>/month</span></h3>
+                                    <p class="pricing__desc">Seamless review and approval designed for freelancer</p>
+                                    <a href="#" class="btn btn-outline--base w--100">GET START</a>
+                                    <ul class="pricing__list">
+                                        <li>24/5 Email, Chat Support</li>
+                                        <li>Multiple Workspaces</li>
+                                        <li>50 apps (Hosted in 6 locations)</li>
+                                        <li>No Feature Caps</li>
+                                        <li>Minimum 25 users</li>
+                                        <li>Extra Security and Compliance</li>
+                                    </ul>
+                                    <div class="pricing__shape">
+                                        <img src="assets/images/shape.png" class="fit--img" alt="img">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6 col-lg-4 col-xxl-3">
+                                <div class="pricing__card active">
+                                    <span class="badge bg--success popular-card">Most Popular</span>
+                                    <h4 class="pricing__name">Free Plan</h4>
+                                    <h3 class="pricing__price">$00.<span class="">00</span><span>/month</span></h3>
+                                    <p class="pricing__desc">Seamless review and approval designed for freelancer</p>
+                                    <a href="#" class="btn btn-outline--base w--100">GET START</a>
+                                    <ul class="pricing__list">
+                                        <li>24/5 Email, Chat Support</li>
+                                        <li>Multiple Workspaces</li>
+                                        <li>50 apps (Hosted in 6 locations)</li>
+                                        <li>No Feature Caps</li>
+                                        <li>Minimum 25 users</li>
+                                        <li>Extra Security and Compliance</li>
+                                    </ul>
+                                    <div class="pricing__shape">
+                                        <img src="assets/images/shape.png" class="fit--img" alt="img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!--==========================  Pricing End  ==========================-->
+    <!--==========================   Testimonial Start  ==========================-->
+<div class="testimonial ">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="testimonial__inner py-120">
+          <div class="testimonial__shape">
+            <img src="assets/images/shape.png" class="fit--img" alt="img">
+          </div>
+          <div class="testimonial__shape">
+            <img src="assets/images/shape.png" class="fit--img" alt="img">
+          </div>
+          <div class="testimonial__slider ">
+            <div class="testimonial__item">
+              <div class="testimonial__thumb">
+                <img src="assets/images/testimonial/1.jpg" alt="img">
+              </div>
+              <div>
+                <p class="testimonial__desc">“This tool changed everything—data collection and analysis became faster,
+                  easier, and incredibly efficient for our team.”</p>
+                <span class="testimonial__designation">Brooklyn Simmons, USA</span>
+              </div>
+
+            </div>
+            <div class="testimonial__item">
+              <div class="testimonial__thumb">
+                <img src="assets/images/testimonial/3.jpg" class="fit--img" alt="img">
+              </div>
+              <p class="testimonial__desc">“This tool changed everything—data collection and analysis became faster,
+                easier, and incredibly efficient for our team.”</p>
+              <span class="testimonial__designation">Brooklyn Simmons, USA</span>
+            </div>
+            <div class="testimonial__item">
+              <div class="testimonial__thumb">
+                <img src="assets/images/testimonial/4.jpg" class="fit--img" alt="img">
+              </div>
+              <p class="testimonial__desc">“This tool changed everything—data collection and analysis became faster,
+                easier, and incredibly efficient for our team.”</p>
+              <span class="testimonial__designation">Brooklyn Simmons, USA</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+<!--==========================  Testimonial End  ==========================-->
+    <!--========================== Faq Section Start ==========================-->
+<section class="faq my-120">
+    <div class="container">
+        <div class="row justify-content-between align-items-center g-5">
+            <div class="col-xl-5">
+                <div class="row gy-4">
+                    <div class="col-12">
+                        <div class="section-heading style-left">
+                            <span class="section-heading__name">Faq</span>
+                            <h2 class="section-heading__title">Can I track form submissions in real-time?</h2>
+                            <p class="section-heading__desc">Our analytics dashboard provides live updates on
+                                submissions, conversion rates, and drop-offs</p>
+                        </div>
+                        <div class="faq__content-wrap">
+                            <div class="faq__content-wrap">
+                                <div class="faq__item open">
+                                    <div class="faq__number"><span>01</span></div>
+                                    <div class="faq__content">
+                                        <h5 class="faq__title">Do I need coding skills to create forms?</h5>
+                                        <div class="faq__body">
+                                            <p class="faq__desc">Our analytics dashboard provides live updates on
+                                                submissions, conversion rates, and drop-offs</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="faq__item">
+                                    <div class="faq__number"><span>02</span></div>
+                                    <div class="faq__content">
+                                        <h5 class="faq__title">Can I integrate forms with third-party apps?</h5>
+                                        <div class="faq__body">
+                                            <p class="faq__desc">Yes, you can connect forms to popular tools like
+                                                Zapier, Slack, and Google Sheets.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="faq__item">
+                                    <div class="faq__number"><span>03</span></div>
+                                    <div class="faq__content">
+                                        <h5 class="faq__title">Is there a limit on form submissions?</h5>
+                                        <div class="faq__body">
+                                            <p class="faq__desc">The free plan has a monthly limit, while premium plans
+                                                allow unlimited submissions.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="faq__item">
+                                    <div class="faq__number"><span>04</span></div>
+                                    <div class="faq__content">
+                                        <h5 class="faq__title">Can I customize the form design?</h5>
+                                        <div class="faq__body">
+                                            <p class="faq__desc">Absolutely! You can customize colors, fonts, and
+                                                layouts easily.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="faq__item">
+                                    <div class="faq__number"><span>05</span></div>
+                                    <div class="faq__content">
+                                        <h5 class="faq__title">Is there a way to collect payments?</h5>
+                                        <div class="faq__body">
+                                            <p class="faq__desc">Yes, our forms can be integrated with payment gateways
+                                                like Stripe and PayPal.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="faq__thumb-wrap">
+                    <h3 class="faq__thumb-title">ASKUS</h3>
+                    <div class="faq__shape">
+                        <img src="assets/images/shape.png" alt="img">
+                    </div>
+                    <div class="faq__thumb">
+                        <img src="assets/images/faq/bg.png" alt="img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--========================== Faq Section End ==========================-->
+    <!--==========================   Brand Start  ==========================-->
+<div class="brand-logo my-120">
+    <div class="container">
+        <div class="brand-logo__header">
+            <h4>Join 10,000+ Teams Achieving Goals Efficiently</h4>
+        </div>
+        <div class="brand-logo__slider">
+            <div class="brand-logo__item">
+                <img src="assets/images/brand/1.png" alt="img">
+            </div>
+            <div class="brand-logo__item">
+                <img src="assets/images/brand/1.png" alt="img">
+            </div>
+            <div class="brand-logo__item">
+                <img src="assets/images/brand/1.png" alt="img">
+            </div>
+
+            <div class="brand-logo__item">
+                <img src="assets/images/brand/1.png" alt="img">
+            </div>
+            <div class="brand-logo__item">
+                <img src="assets/images/brand/1.png" alt="img">
+            </div>
+        </div>
+    </div>
+</div>
+<!--==========================  Brand End  ==========================-->
+</main>
+<!-- ==================== Footer Start Here ==================== -->
+<footer class="footer">
+    <div class="footer__shape">
+        <img src="assets/images/shape.png" class="fit--image" alt="img">
+    </div>
+    <div class="footer__shape">
+        <img src="assets/images/shape.png" class="fit--img" alt="img">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 footer__item_left pb-60 pt-120">
+                <div class="footer__item footer__first-item">
+                    <div class="footer__logo">
+                        <a href="index.html" class="main__logo"> <img src="assets/images/logo/white-log.png" alt="img"></a>
+                    </div>
+                    <p class="footer__desc">Download the Alister Bank app and simplify your banking. Discover quick</p>
+                    <ul class="social-list">
+                        <li class="social-list__item"><a href="https://www.facebook.com"
+                                class="social-list__link flex-center"><i class="fab fa-facebook-f"></i></a> </li>
+                        <li class="social-list__item"><a href="https://www.twitter.com"
+                                class="social-list__link flex-center"> <i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li class="social-list__item"><a href="https://www.linkedin.com"
+                                class="social-list__link flex-center"> <i class="fab fa-linkedin-in"></i></a></li>
+                        <li class="social-list__item"><a href="https://www.pinterest.com"
+                                class="social-list__link flex-center"> <i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-9 footer__item_right pb-60  ps-xl-5 ">
+                <div class="footer__inner">
+                    <div class="footer__item left-reveal">
+                        <div class="footer__item-inner ">
+                            <h5 class="footer__title">Company</h5>
+                            <ul class="footer__menu">
+                                <li class="footer__menu-item"><a href="#" class="footer__menu-link">Features</a></li>
+                                <li class="footer__menu-item"><a href="#" class="footer__menu-link">Pricing</a></li>
+                                <li class="footer__menu-item"><a href="#" class="footer__menu-link">Blog</a></li>
+                                <li class="footer__menu-item"><a href="#" class="footer__menu-link">About Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer__item">
+                         <div class="footer__item-inner">
+                             <h5 class="footer__title">Legal</h5>
+                             <ul class="footer__menu">
+                                 <li class="footer__menu-item"><a href="sign-in.html" class="footer__menu-link">Sign in</a>
+                                 </li>
+                                 <li class="footer__menu-item"><a href="register.html" class="footer__menu-link">Register</a>
+                                 </li>
+                                 <li class="footer__menu-item"><a href="#" class="footer__menu-link">Terms of Services</a>
+                                 </li>
+                                 <li class="footer__menu-item"><a href="#" class="footer__menu-link">Privacy Policy</a></li>
+                             </ul>
+                         </div>
+                    </div>
+                    <div class="footer__item footer__newsletter right-reveal">
+                         <div class="footer__item-inner">
+                             <h5 class="footer__title">Newsletter</h5>
+                             <p class="footer__desc">Subscribe to get account listings & deals</p>
+                             <form action="/" class="footer__form">
+                                 <div class="input--group">
+                                     <input type="email" class="form--control" name="email"
+                                         placeholder="Enter email address">
+                                     <button class="btn" type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+                                 </div>
+                             </form>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Top End-->
+    <!-- bottom Footer -->
+    <div class="footer__bottom ">
+        <div class="container">
+            <div class="row gy-3">
+                <div class="col-md-12 text-center">
+                    <div class="bottom-footer-text"> &copy; Copyright 2025 . All rights reserved.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- ==================== Footer End Here ==================== -->
+<!-- Jquery js -->
+<script src="assets/js/jquery-3.7.1.min.js"></script>
+<!-- Bootstrap Bundle Js -->
+<script src="assets/js/boostrap.bundle.min.js"></script>
+<!-- Magnific Popup Js -->
+<script src="assets/js/magnific-popup.min.js"></script>
+<!-- Scrollreveal Js -->
+<script src="assets/js/scrollreveal.min.js"></script>
+<!-- bx slider -->
+<script src="assets/js/jquery.bxslider.min.js"></script>
+<!-- Odometer Js -->
+<script src="assets/js/odometer.min.js"></script>
+<!-- Select2 Js -->
+<script src="assets/js/select2.min.js"></script>
+<!-- main js -->
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Title -->
+  <title>Qbots</title>
+  <!-- Favicon -->
+  <link rel="shortcut icon" href="assets/images/logo/favicon.png">
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <!-- Font awesome -->
+  <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+  <!-- line awesome -->
+  <link rel="stylesheet" href="assets/css/line-awesome.min.css">
+  <!-- Magnific Popup -->
+  <link rel="stylesheet" href="assets/css/magnific-popup.css">
+  <!-- bx slider -->
+  <link rel="stylesheet" href="assets/css/jquery.bxslider.min.css">
+  <!-- Select2 -->
+  <link rel="stylesheet" href="assets/css/select2.min.css">
+  <!-- Main css -->
+  <link rel="stylesheet" href="assets/css/main.css">
+</head>
+
+<body>
+
+  <!--==================== Preloader Start ====================-->
+<div class="preloader">
+    <div class="loader__text" data-text="wStacks"></div>
+</div>
+<!--==================== Preloader End ====================-->
+
+
+  <!-- ==================== Scroll to Top Start ==================== -->
+  <a class="scroll-top"><i class="fas fa-angle-double-up"></i></a>
+  <!-- ==================== Scroll to Top End ==================== -->
+
+
+  <!--==========================  Overlay Start  ==========================-->
+  <div class="overlay"></div>
+  <!--==========================  Overlay End  ==========================-->
+
+
+<!-- ==================== Header Start Here ==================== -->
+<header class="header__area">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="header__main">
+          <a href="index.html" class="main__logo"><img src="assets/images/logo/logo.png" alt="logo"></a>
+          <div class="header__menu">
+            <ul>
+              <li><a href="index.html" class="active">About Us</a></li>
+              <li><a href="about.html">Features</a></li>
+              <li><a href="features.html">Tread Boat</a></li>
+              <li><a href="pricing.html">Pricing</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
+            </ul>
+          </div>
+          <div class="header__widgets">
+            <div class="dropdown">
+              <div role="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <div class="language__item">
+                  <img src="assets/images/english.png" alt="image">
+                  <p>English</p>
+                </div>
+              </div>
+              <ul class="dropdown-menu">
+                <li>
+                  <div class="language__item dropdown-item">
+                    <img src="assets/images/english.png" alt="image">
+                    <p>English</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="language__item dropdown-item">
+                    <img src="assets/images/bangla.png" alt="image">
+                    <p>Bangla</p>
+                  </div>
+                </li>
+                <li>
+                  <div class="language__item dropdown-item">
+                    <img src="assets/images/hindi.png" alt="image">
+                    <p>Hindi</p>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="header__login">
+              <!-- <a href="login.html" class="btn btn--base">Sign in</a> -->
+              <div class="dropdown">
+                <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Account
+                </button>
+                <ul class="dropdown-menu">
+                  <li><a class="dropdown-item" href="user-dashboard.html">Dashboard</a></li>
+                  <li><a class="dropdown-item" href="#">Logout</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <span class="menu__open"><i class="fa-solid fa-bars"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="trad__card">
+    <span class="badge"></span>
+  </div>
+</header>
+<!-- ==================== Header End Here ==================== -->
+
+<!--==========================  Offcanvas Section Start  ==========================-->
+<div class="offcanvas__area">
+  <div class="offcanvas__topbar">
+    <a href="index.html"><img src="assets/images/logo/logo.png" alt="logo"></a>
+    <span class="menu__close"><i class="las la-times"></i></span>
+  </div>
+  <div class="offcanvas__main">
+    <div class="offcanvas__widgets">
+      <div class="offcanvas__language">
+        <div class="dropdown">
+          <div role="button" class="dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <div class="language__item">
+              <img src="assets/images/english.png" alt="image">
+              <p>English</p>
+            </div>
+          </div>
+          <ul class="dropdown-menu">
+            <li>
+              <div class="language__item dropdown-item">
+                <img src="assets/images/english.png" alt="image">
+                <p>English</p>
+              </div>
+            </li>
+            <li>
+              <div class="language__item dropdown-item">
+                <img src="assets/images/bangla.png" alt="image">
+                <p>Bangla</p>
+              </div>
+            </li>
+            <li>
+              <div class="language__item dropdown-item">
+                <img src="assets/images/hindi.png" alt="image">
+                <p>Hindi</p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="offcanvas__login">
+        <!-- <a href="#" class="btn btn--base">Sign in</a> -->
+        <div class="dropdown">
+          <button class="dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Account
+          </button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">Dashboard</a></li>
+            <li><a class="dropdown-item" href="#">Logout</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="offcanvas__menu">
+      <ul>
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="features.html">Features</a></li>
+        <li><a href="pricing.html">Pricing</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!--==========================  Offcanvas Section End  ==========================-->
+
+<main>
+    <!-- ==================== Breadcrumb Start Here ==================== -->
+<section class="breadcrumb">
+  <div class="breadcrumb__shape">
+    <img src="assets/images/shape.png" alt="img">
+  </div>
+  <div class="breadcrumb__shape">
+    <img src="assets/images/shape.png" alt="img">
+  </div>
+  <div class="glove--base"></div>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-8">
+        <div class="breadcrumb__wrapper">
+          <h2 class="breadcrumb__title">Blog</h2>
+          <ul class="breadcrumb__list">
+            <li class="breadcrumb__item"><a href="index.html" class="breadcrumb__link">Home</a></li>
+            <li class="breadcrumb__item">//</li>
+            <li class="breadcrumb__item"><span class="breadcrumb__item-text">Blog</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ==================== Breadcrumb End Here ==================== -->
+
+    <section class="blog section-bg-2 my-120">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-sm-6 col-lg-4">
+                    <div class="blog__card">
+                        <div class="blog__thumb-wrap">
+                            <a href="blog-details.html" class="blog__thumb">
+                                <img src="assets/images/blog/1.jpg" class="fit--image" alt="Img">
+                            </a>
+                        </div>
+                        <div class="blog__body">
+                            <span class="blog__date"><i class="ti ti-calendar-month"></i> 21 April 2025</span>
+                            <h4 class="blog__title"><a href="blog-details.html">Designing Forms That Users Actually
+                                    Complete</a></h4>
+                            <p class="blog__desc">In today’s fast-paced healthcare environment, efficiency and accuracy
+                                aren’t just...</p>
+                            <a href="blog-details.html" class="btn--unstyle">Read More <i
+                                    class="ti ti-arrow-up-right"></i></a>
+                            <div class="blog__shape">
+                                <img src="assets/images/shape.png" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="blog__card">
+                        <div class="blog__thumb-wrap">
+                            <a href="blog-details.html" class="blog__thumb">
+                                <img src="assets/images/blog/2.jpg" class="fit--image" alt="Img">
+                            </a>
+                        </div>
+                        <div class="blog__body">
+                            <span class="blog__date"><i class="ti ti-calendar-month"></i> 10 May 2025</span>
+                            <h4 class="blog__title"><a href="blog-details.html">Creating Seamless User Experiences with
+                                    Microinteractions</a></h4>
+                            <p class="blog__desc">Microinteractions are the subtle design details that make users feel
+                                connected...</p>
+                            <a href="blog-details.html" class="btn--unstyle">Read More <i
+                                    class="ti ti-arrow-up-right"></i></a>
+                            <div class="blog__shape">
+                                <img src="assets/images/shape.png" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="blog__card">
+                        <div class="blog__thumb-wrap">
+                            <a href="blog-details.html" class="blog__thumb">
+                                <img src="assets/images/blog/3.jpg" class="fit--image" alt="Img">
+                            </a>
+                        </div>
+                        <div class="blog__body">
+                            <span class="blog__date"><i class="ti ti-calendar-month"></i> 28 May 2025</span>
+                            <h4 class="blog__title"><a href="blog-details.html">How to Improve Website Performance with
+                                    Modern CSS</a></h4>
+                            <p class="blog__desc">Learn how to boost page speed using CSS Grid, Flexbox, and
+                                hardware-accelerated animations...</p>
+                            <a href="blog-details.html" class="btn--unstyle">Read More <i
+                                    class="ti ti-arrow-up-right"></i></a>
+                            <div class="blog__shape">
+                                <img src="assets/images/shape.png" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="blog__card">
+                        <div class="blog__thumb-wrap">
+                            <a href="blog-details.html" class="blog__thumb">
+                                <img src="assets/images/blog/4.jpg" class="fit--image" alt="Img">
+                            </a>
+                        </div>
+                        <div class="blog__body">
+                            <span class="blog__date"><i class="ti ti-calendar-month"></i> 12 June 2025</span>
+                            <h4 class="blog__title"><a href="blog-details.html">Building Responsive Layouts with Flexbox
+                                    & Grid</a></h4>
+                            <p class="blog__desc">Discover the power of combining CSS Grid and Flexbox to create fluid,
+                                adaptive web layouts...</p>
+                            <a href="blog-details.html" class="btn--unstyle">Read More <i
+                                    class="ti ti-arrow-up-right"></i></a>
+                            <div class="blog__shape">
+                                <img src="assets/images/shape.png" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="blog__card">
+                        <div class="blog__thumb-wrap">
+                            <a href="blog-details.html" class="blog__thumb">
+                                <img src="assets/images/blog/5.jpg" class="fit--image" alt="Img">
+                            </a>
+                        </div>
+                        <div class="blog__body">
+                            <span class="blog__date"><i class="ti ti-calendar-month"></i> 1 July 2025</span>
+                            <h4 class="blog__title"><a href="blog-details.html">Why Dark Mode Design Matters More Than
+                                    Ever</a></h4>
+                            <p class="blog__desc">Dark mode isn’t just a trend — it’s about comfort, battery life, and
+                                visual accessibility...</p>
+                            <a href="blog-details.html" class="btn--unstyle">Read More <i
+                                    class="ti ti-arrow-up-right"></i></a>
+                            <div class="blog__shape">
+                                <img src="assets/images/shape.png" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-sm-6 col-lg-4">
+                    <div class="blog__card">
+                        <div class="blog__thumb-wrap">
+                            <a href="blog-details.html" class="blog__thumb">
+                                <img src="assets/images/blog/6.jpg" class="fit--image" alt="Img">
+                            </a>
+                        </div>
+                        <div class="blog__body">
+                            <span class="blog__date"><i class="ti ti-calendar-month"></i> 20 August 2025</span>
+                            <h4 class="blog__title"><a href="blog-details.html">Enhancing Web Accessibility for All
+                                    Users</a></h4>
+                            <p class="blog__desc">From color contrast to keyboard navigation — here’s how to make your
+                                website truly inclusive...</p>
+                            <a href="blog-details.html" class="btn--unstyle">Read More <i
+                                    class="ti ti-arrow-up-right"></i></a>
+                            <div class="blog__shape">
+                                <img src="assets/images/shape.png" alt="img">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <nav aria-label="navigation">
+                        <ul class="pagination">
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Previous">
+                                    <span aria-hidden="true">&laquo;</span>
+                                </a>
+                            </li>
+                            <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Next">
+                                    <span aria-hidden="true">&raquo;</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+<!-- ==================== Footer Start Here ==================== -->
+<footer class="footer">
+    <div class="footer__shape">
+        <img src="assets/images/shape.png" class="fit--image" alt="img">
+    </div>
+    <div class="footer__shape">
+        <img src="assets/images/shape.png" class="fit--img" alt="img">
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-3 footer__item_left pb-60 pt-120">
+                <div class="footer__item footer__first-item">
+                    <div class="footer__logo">
+                        <a href="index.html" class="main__logo"> <img src="assets/images/logo/white-log.png" alt="img"></a>
+                    </div>
+                    <p class="footer__desc">Download the Alister Bank app and simplify your banking. Discover quick</p>
+                    <ul class="social-list">
+                        <li class="social-list__item"><a href="https://www.facebook.com"
+                                class="social-list__link flex-center"><i class="fab fa-facebook-f"></i></a> </li>
+                        <li class="social-list__item"><a href="https://www.twitter.com"
+                                class="social-list__link flex-center"> <i class="fab fa-twitter"></i></a>
+                        </li>
+                        <li class="social-list__item"><a href="https://www.linkedin.com"
+                                class="social-list__link flex-center"> <i class="fab fa-linkedin-in"></i></a></li>
+                        <li class="social-list__item"><a href="https://www.pinterest.com"
+                                class="social-list__link flex-center"> <i class="fab fa-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-9 footer__item_right pb-60  ps-xl-5 ">
+                <div class="footer__inner">
+                    <div class="footer__item left-reveal">
+                        <div class="footer__item-inner ">
+                            <h5 class="footer__title">Company</h5>
+                            <ul class="footer__menu">
+                                <li class="footer__menu-item"><a href="#" class="footer__menu-link">Features</a></li>
+                                <li class="footer__menu-item"><a href="#" class="footer__menu-link">Pricing</a></li>
+                                <li class="footer__menu-item"><a href="#" class="footer__menu-link">Blog</a></li>
+                                <li class="footer__menu-item"><a href="#" class="footer__menu-link">About Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="footer__item">
+                         <div class="footer__item-inner">
+                             <h5 class="footer__title">Legal</h5>
+                             <ul class="footer__menu">
+                                 <li class="footer__menu-item"><a href="sign-in.html" class="footer__menu-link">Sign in</a>
+                                 </li>
+                                 <li class="footer__menu-item"><a href="register.html" class="footer__menu-link">Register</a>
+                                 </li>
+                                 <li class="footer__menu-item"><a href="#" class="footer__menu-link">Terms of Services</a>
+                                 </li>
+                                 <li class="footer__menu-item"><a href="#" class="footer__menu-link">Privacy Policy</a></li>
+                             </ul>
+                         </div>
+                    </div>
+                    <div class="footer__item footer__newsletter right-reveal">
+                         <div class="footer__item-inner">
+                             <h5 class="footer__title">Newsletter</h5>
+                             <p class="footer__desc">Subscribe to get account listings & deals</p>
+                             <form action="/" class="footer__form">
+                                 <div class="input--group">
+                                     <input type="email" class="form--control" name="email"
+                                         placeholder="Enter email address">
+                                     <button class="btn" type="submit"><i class="fa-solid fa-arrow-right"></i></button>
+                                 </div>
+                             </form>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer Top End-->
+    <!-- bottom Footer -->
+    <div class="footer__bottom ">
+        <div class="container">
+            <div class="row gy-3">
+                <div class="col-md-12 text-center">
+                    <div class="bottom-footer-text"> &copy; Copyright 2025 . All rights reserved.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- ==================== Footer End Here ==================== -->
+<!-- Jquery js -->
+<script src="assets/js/jquery-3.7.1.min.js"></script>
+<!-- Bootstrap Bundle Js -->
+<script src="assets/js/boostrap.bundle.min.js"></script>
+<!-- Magnific Popup Js -->
+<script src="assets/js/magnific-popup.min.js"></script>
+<!-- Scrollreveal Js -->
+<script src="assets/js/scrollreveal.min.js"></script>
+<!-- bx slider -->
+<script src="assets/js/jquery.bxslider.min.js"></script>
+<!-- Odometer Js -->
+<script src="assets/js/odometer.min.js"></script>
+<!-- Select2 Js -->
+<script src="assets/js/select2.min.js"></script>
+<!-- main js -->
+<script src="assets/js/main.js"></script>
+</body>
+
+</html>

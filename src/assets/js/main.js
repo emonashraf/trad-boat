@@ -289,16 +289,18 @@
   // ========================= Scroll Reveal Js End ===================
 
   // ========================== Table Data Label Js Start =====================
-  Array.from(document.querySelectorAll('table')).forEach(table => {
-    let heading = table.querySelectorAll('thead tr th');
-    Array.from(table.querySelectorAll('tbody tr')).forEach((row) => {
-      let columArray = Array.from(row.querySelectorAll('td'));
-      if (columArray.length <= 1) return;
-      columArray.forEach((colum, i) => {
-        colum.setAttribute('data-label', heading[i].innerText)
+   if ($('th').length) {
+      Array.from(document.querySelectorAll('table')).forEach(table => {
+        let heading = table.querySelector('thead') ? table.querySelectorAll('thead tr th') : null;
+        Array.from(table.querySelectorAll('tbody tr')).forEach((row) => {
+          Array.from(row.querySelectorAll('td')).forEach((column, i) => {
+            if (heading && heading[i]) {
+              column.setAttribute('data-label', heading[i].innerText);
+            }
+          });
+        });
       });
-    });
-  });
+    }
   // ========================== Table Data Label Js End =====================
 
 

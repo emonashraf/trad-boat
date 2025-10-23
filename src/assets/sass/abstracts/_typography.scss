@@ -33,14 +33,10 @@ h3,
 h4,
 h5,
 h6 {
-  margin: 0 0 15px 0;
+  margin-bottom: 0;
   font-family: var(--heading-font);
   color: hsl(var(--heading-color));
   font-weight: 600;
-
-  @include sm-screen {
-    margin: 0 0 10px 0;
-  }
 }
 
 h1 {

@@ -1,0 +1,82 @@
+/* ======================  Trad Start  ======================*/
+.trad {
+    position: relative;
+    z-index: 2;
+    .col-md-6{
+        &:nth-child(2){
+            .trad__graph{
+                background-color: hsl(var(--aqua));
+            }
+            .badge{
+                background-color: hsl(var(--aqua));
+            }
+        }
+         &:nth-child(3){
+            .trad__graph{
+                background-color: hsl(var(--warning-l-300));
+            }
+            .badge{
+                background-color: hsl(var(--warning-l-300));
+            }
+        }
+    }
+
+    &__card {
+        padding: rem(28px);
+        background-color: hsl(var(--base-two));
+        border-radius: var(--b-radius-16);
+    }
+
+    &__header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    &__rio{
+        display: flex;
+        align-items: center;
+        gap: rem(14px);
+        .badge{
+            font-size: rem(16px);
+            font-weight: 600;
+            background-color: hsl(var(--purple));
+        }
+    }
+
+    &__graph {
+        background-color: hsl(var(--purple));
+        width: 90px;
+        height: 40px;
+    }
+
+    &__list {
+        margin-top: rem(20px);
+    }
+
+    &__list-item {
+        &:not(:last-child) {
+            margin-bottom: rem(12px);
+            padding-bottom: rem(12px);
+            border-bottom: 1px dashed hsl(var(--white)/ 0.13);
+        }
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+    }
+
+    &__label {
+       padding-bottom: 12px;
+       display: inline-block;
+    }
+
+    &__range {
+        font-size: rem(14px);
+    }
+
+
+
+}
+
+/* ======================  Trad End  ======================*/

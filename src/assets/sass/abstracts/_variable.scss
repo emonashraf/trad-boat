@@ -6,11 +6,14 @@
   /* Font Family */
   --heading-font: "Outfit", sans-serif;                              
   --body-font: "Inter", sans-serif;
-  --b-radius: clamp(0.5rem, 0.321rem + 0.476vw, 0.75rem);
-  --b-radius-v2: clamp(0.25rem, 0.071rem + 0.476vw, 0.5rem);
+  --b-radius-16: clamp(0.625rem, 0.531rem + 0.469vw, 1rem);
+  --b-radius-12: clamp(0.5rem, 0.321rem + 0.476vw, 0.75rem);
+  --b-radius-8: clamp(0.5rem, 0.321rem + 0.476vw, 0.75rem);
+
 
   /* ========================= Theme Color Start ============================= */
   @include colorVariable(--base, #2934FF, 10);
+  @include colorVariable(--base-two, #040519, 5);
   /* ========================= Theme Color End ============================= */
 
   /* ========================= Color Variables Start =========================== */
@@ -18,7 +21,7 @@
   @include colorVariable(--white, #fff);
 
   // Body Color
-  @include colorVariable(--body-color, rgba(255, 255, 255, 0.8));
+  @include colorVariable(--body-color, #ccc                    );
 
   // Body BG
   @include colorVariable(--body-bg, #fff);

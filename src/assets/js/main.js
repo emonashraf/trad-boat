@@ -122,7 +122,7 @@
 
 
   // ========================== Add Attribute For Bg Image Js Start =====================
-  $('.bg--img').css('background-image', function () {
+  $('.bg-img').css('background-image', function () {
     var bg = 'url(' + $(this).data('background-image') + ')';
     return bg;
   });
@@ -157,7 +157,6 @@
     return elementBottom > viewportTop && elementTop < viewportBottom;
   };
   // ========================= Odometer Js End ===================
-
 
   // ========================= Magnific Popup Js Start ===================
   $('.promo__video__play').magnificPopup({
@@ -289,18 +288,18 @@
   // ========================= Scroll Reveal Js End ===================
 
   // ========================== Table Data Label Js Start =====================
-   if ($('th').length) {
-      Array.from(document.querySelectorAll('table')).forEach(table => {
-        let heading = table.querySelector('thead') ? table.querySelectorAll('thead tr th') : null;
-        Array.from(table.querySelectorAll('tbody tr')).forEach((row) => {
-          Array.from(row.querySelectorAll('td')).forEach((column, i) => {
-            if (heading && heading[i]) {
-              column.setAttribute('data-label', heading[i].innerText);
-            }
-          });
+  if ($('th').length) {
+    Array.from(document.querySelectorAll('table')).forEach(table => {
+      let heading = table.querySelector('thead') ? table.querySelectorAll('thead tr th') : null;
+      Array.from(table.querySelectorAll('tbody tr')).forEach((row) => {
+        Array.from(row.querySelectorAll('td')).forEach((column, i) => {
+          if (heading && heading[i]) {
+            column.setAttribute('data-label', heading[i].innerText);
+          }
         });
       });
-    }
+    });
+  }
   // ========================== Table Data Label Js End =====================
 
 
@@ -312,7 +311,76 @@
   });
   // ========================== Label Required Js End =====================
 
+  // ========================= Apex chart Js Start =====================
+ if ($('#profitChart').length) {
+  var profitChart = {
+    series: [
+      {
+        name: "Buy", 
+        data: [10, 41, 35, 51, 49, 62, 69, 91, 148, 100, 55, 40],
+        color: 'hsl(var(--danger))' 
+      },
+      {
+        name: "Sell", 
+        data: [5, 46, 20, 64, 45, 88, 23, 46, 65, 50, 150, 30],
+        color: 'hsl(var(--success))'
+      },
+    ],
+    chart: {
+      height: 362,
+      type: 'line',
+      zoom: { enabled: false },
+      toolbar: { show: false }
+    },
+    dataLabels: { enabled: false },
+    fill: { type: 'solid' },
+    markers: {
+      size: 5,
+      strokeColors: 'inherit',
+      strokeWidth: 1,
+      fill: '#ffffff',
+      hover: { sizeOffset: 1.5 }
+    },
+    stroke: {
+      width: 1.5,
+      curve: 'smooth'
+    },
+    legend: {
+      show: true,
+      position: 'top',
+      horizontalAlign: 'right',
+      fontSize: '14px',
+      labels: {
+        colors: 'hsl(var(--white))'
+      },
+      markers: {
+        width: 12,
+        height: 12,
+        radius: 12
+      },
+      itemMargin: {
+        horizontal: 10,
+        vertical: 5
+      }
+    },
+    grid: {
+      strokeDashArray: 5,
+      row: { colors: ['transparent'] }
+    },
+    xaxis: {
+      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+      labels: { style: { colors: 'hsl(var(--white))' } }
+    },
+    yaxis: {
+      labels: { style: { colors: 'hsl(var(--white))' } }
+    }
+  };
 
+  var chart = new ApexCharts(document.querySelector("#profitChart"), profitChart);
+  chart.render();
+}
+
+  // ========================= Apex chart Js End =====================
   // ========================= Preloader Js Start =====================
   $(window).on("load", function () {
     $(".preloader").fadeOut();

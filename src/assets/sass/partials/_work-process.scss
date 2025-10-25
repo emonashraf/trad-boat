@@ -1,24 +1,44 @@
 /* ======================  Work-process Start  ======================*/
 .work-process {
-    position: relative;
-    z-index: 1;
-    overflow-x: hidden;
+    --indicator-size: 130px;
+    --icon-width: 50px;
 
     &__inner {
+        position: relative;
         display: flex;
         justify-content: space-between;
         gap: rem(210px);
         border-radius: var(--b-radius-16);
-        background: linear-gradient(180deg, hsl(var(--base-two-l-100)), transparent);
+        background-image: linear-gradient(180deg, hsl(var(--base-two-l-100)), transparent);
+        background-color: hsl(var(--black));
         padding-top: rem(80px);
-        padding-inline: rem(55px)
+        padding-inline: rem(55px);
+        
+        &::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            background-image: linear-gradient(180deg, hsl(var(--base)/ 0.31), 70%, transparent);
+            border-radius: inherit;
+            z-index: -1;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: -5px 20px 30px 20px;
+            border-radius: inherit;
+            background-color: hsl(var(--base));
+            filter: blur(10px);
+            z-index: -1;
+        }
     }
 
     &__card {
         position: relative;
-        overflow: hidden;
-        z-index: 2;
+
         height: 100%;
+
 
         &:hover {
 
@@ -45,23 +65,45 @@
     &__title {
         margin-bottom: rem(20px);
     }
-    &__indicator{
+
+    &__indicator {
+        display: block;
         position: absolute;
         right: 0;
-        top: 10%;
-        i{
+        top: 15%;
+        width: 100%;
+
+        i {
+            display: inline-block;
             font-size: 20px;
-        }
-        &::before{
-            content: '';
             position: absolute;
-            left: 0;
+            right: 0;
             top: 50%;
             transform: translateY(-50%);
-            width: 100px;
-            height: 1px;
-            background-color: red;
+            width: var(--icon-width);
+            display: grid;
+            place-items: center;
+        }
 
+        &::after {
+            content: '';
+            position: absolute;
+            right: -100%;
+            top: 50%;
+            transform: translateX(-100%);
+            width: var(--indicator-size);
+            height: 1px;
+            background-color: hsl(var(--body-color)/ 0.5);
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            right: 40px;
+            top: 50%;
+            width: var(--indicator-size);
+            height: 1px;
+            background-color: hsl(var(--body-color)/ 0.5);
         }
     }
 

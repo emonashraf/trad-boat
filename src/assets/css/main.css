@@ -181,13 +181,13 @@
     color: hsl(var(--white)/0.6) !important;
 }
 
-.bg--img {
+.bg-img {
     background-size: cover !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
 }
 
-.bg--img-2 {
+.bg-img-2 {
     background-repeat: no-repeat !important;
     background-position: top !important;
     background-size: cover !important;
@@ -457,35 +457,52 @@ button:focus {
 }
 
 /* ======================  Overlay Section End  ======================*/
-/* ======================  Swiper Start  ======================*/
-.swiper-pagination {
-    position: unset;
-    margin-top: 32px;
+/* ======================  avater Start  ======================*/
+.avater_list {
+    display: flex;
 }
 
-@media screen and (max-width: 1199px) {
-    .swiper-pagination {
-        margin-top: 24px;
+.avater_list .avater {
+    width: 30px;
+    height: 30px;
+    background-color: hsl(var(--base));
+    border-radius: 50%;
+    border: 2px solid hsl(var(--white));
+}
+
+.avater_list .avater:not(:first-child) {
+    margin-left: -8px;
+}
+
+@media screen and (max-width: 991px) {
+    .avater_list .avater {
+        width: 2.5rem;
+        height: 2.5rem;
+    }
+
+    .avater_list .avater:not(:first-child) {
+        margin-left: -2px;
     }
 }
 
-.swiper-pagination-bullet {
-    width: 8px;
-    height: 8px;
-    display: inline-block;
-    border-radius: 24px;
-    background: hsl(var(--section-bg));
-    opacity: 1;
-    transition: 0.3s;
+.avater_list .avater img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: inherit;
 }
 
-.swiper-pagination-bullet-active {
-    opacity: 1;
-    background: hsl(var(--base));
-    width: 20px;
+.avater_list .avater:last-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-/* ======================  Swiper End  ======================*/
+.avater_list .avater .avater_number {
+    color: hsl(var(--base-two));
+}
+
+/* ======================  avater End  ======================*/
 /* ======================  Glove Start  ======================*/
 .glove--base {
     width: 39.375rem;
@@ -6063,9 +6080,19 @@ input[type=number] {
 }
 
 .trad__card {
+    position: relative;
     padding: 1.75rem;
     background-color: hsl(var(--base-two));
     border-radius: var(--b-radius-16);
+}
+
+.trad__card::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    background-image: linear-gradient(180deg, hsl(var(--base)/0.31), 70%, transparent);
+    border-radius: inherit;
+    z-index: -1;
 }
 
 .trad__header {
@@ -6119,6 +6146,234 @@ input[type=number] {
 }
 
 /* ======================  Trad End  ======================*/
+/* ======================  Work-process Start  ======================*/
+.work-process {
+    --indicator-size: 130px;
+    --icon-width: 50px;
+}
+
+.work-process__inner {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 13.125rem;
+    border-radius: var(--b-radius-16);
+    background-image: linear-gradient(180deg, hsl(var(--base-two-l-100)), transparent);
+    background-color: hsl(var(--black));
+    padding-top: 5rem;
+    padding-inline: 3.4375rem;
+}
+
+.work-process__inner::after {
+    content: "";
+    position: absolute;
+    inset: -1px;
+    background-image: linear-gradient(180deg, hsl(var(--base)/0.31), 70%, transparent);
+    border-radius: inherit;
+    z-index: -1;
+}
+
+.work-process__inner::before {
+    content: "";
+    position: absolute;
+    inset: -5px 20px 30px 20px;
+    border-radius: inherit;
+    background-color: hsl(var(--base));
+    filter: blur(10px);
+    z-index: -1;
+}
+
+.work-process__card {
+    position: relative;
+    height: 100%;
+}
+
+.work-process__card:hover .work-process__shape {
+    transform: scale(1.1);
+}
+
+.work-process__card:hover .work-process__shape::before {
+    transform: scale(1);
+}
+
+.work-process__count {
+    font-size: 48px;
+    font-weight: 500;
+    line-height: 1;
+    color: transparent;
+    -webkit-text-stroke: 2px hsl(var(--heading-color));
+    margin-bottom: 1.75rem;
+}
+
+.work-process__title {
+    margin-bottom: 1.25rem;
+}
+
+.work-process__indicator {
+    display: block;
+    position: absolute;
+    right: 0;
+    top: 15%;
+    width: 100%;
+}
+
+.work-process__indicator i {
+    display: inline-block;
+    font-size: 20px;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: var(--icon-width);
+    display: grid;
+    place-items: center;
+}
+
+.work-process__indicator::after {
+    content: "";
+    position: absolute;
+    right: -100%;
+    top: 50%;
+    transform: translateX(-100%);
+    width: var(--indicator-size);
+    height: 1px;
+    background-color: hsl(var(--body-color)/0.5);
+}
+
+.work-process__indicator::before {
+    content: "";
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    width: var(--indicator-size);
+    height: 1px;
+    background-color: hsl(var(--body-color)/0.5);
+}
+
+/* ======================  Work-process End  ======================*/
+/* ======================  Smart-analytics Start  ======================*/
+.smart-analytics__card {
+    position: relative;
+    padding: 20px;
+    background-color: hsl(var(--white)/0.08);
+    border-radius: var(--b-radius-12);
+    z-index: 1;
+    overflow: hidden;
+}
+
+.smart-analytics__card .rating-pattern {
+    position: absolute;
+    top: -30%;
+    right: -30%;
+    max-width: 180px;
+}
+
+.smart-analytics__card .mask-box {
+    width: 100%;
+    height: 100%;
+    background-color: hsl(var(--white));
+    z-index: -1;
+}
+
+.smart-analytics__card .ai-power-shape {
+    width: 136px;
+    height: 136px;
+    fill: none;
+}
+
+.smart-analytics__card .ai-power-shape circle {
+    fill: none;
+    cx: 68;
+    cy: 68.5;
+    stroke-width: 2;
+}
+
+.smart-analytics__card .ai-power-shape circle:nth-child(1) {
+    r: 67;
+}
+
+.smart-analytics__card .ai-power-shape circle:nth-child(2) {
+    r: 48.5;
+}
+
+.smart-analytics__card .ai-power-shape circle:nth-child(3) {
+    r: 31.5;
+}
+
+.smart-analytics__card .ai-power-shape circle:nth-child(4) {
+    r: 23.5;
+    fill: hsl(var(--base));
+    filter: blur(8px);
+}
+
+.smart-analytics__card .ai-power-shape linearGradient stop:nth-child(1) {
+    stop-color: hsl(var(--base));
+}
+
+.smart-analytics__card .ai-power-shape linearGradient stop:nth-child(2) {
+    stop-color: hsl(var(--black)/0.3);
+}
+
+.smart-analytics .ai-power-card {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+}
+
+.smart-analytics .ai-power-card::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background: hsl(var(--black)/0.2);
+    filter: blur(14px);
+    transform: translateY(-50%);
+    z-index: -1;
+}
+
+.smart-analytics .ai-power-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40%;
+    background-image: repeating-linear-gradient(transparent 0 30px, hsl(var(--white)/0.08) 30px 31px), repeating-linear-gradient(-90deg, transparent 0 30px, hsl(var(--white)/0.08) 30px 31px);
+    z-index: -2;
+}
+
+.smart-analytics__graph {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin-bottom: 0.9375rem;
+}
+
+.smart-analytics__graph .ai-power-title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.smart-analytics__title {
+    margin-bottom: clamp(0.938rem, 0.781rem + 0.781vw, 1.563rem);
+}
+
+.smart-analytics__rating {
+    font-size: clamp(1.563rem, 1.016rem + 2.734vw, 3.75rem);
+    margin-bottom: clamp(0.938rem, 0.781rem + 0.781vw, 1.563rem);
+}
+
+.smart-analytics__sub-title {
+    margin-top: 0.875rem;
+    font-size: 1.125rem;
+}
+
+/* ======================  Smart-analytics End  ======================*/
 /* ======================  Brand Start  ======================*/
 .brand-logo {
     position: relative;
@@ -6240,73 +6495,6 @@ input[type=number] {
 }
 
 /* ======================  Features End  ======================*/
-/* ======================  Work-process Start  ======================*/
-.work-process {
-    position: relative;
-    z-index: 1;
-    overflow-x: hidden;
-}
-
-.work-process__inner {
-    display: flex;
-    justify-content: space-between;
-    gap: 13.125rem;
-    border-radius: var(--b-radius-16);
-    background: linear-gradient(180deg, hsl(var(--base-two-l-100)), transparent);
-    padding-top: 5rem;
-    padding-inline: 3.4375rem;
-}
-
-.work-process__card {
-    position: relative;
-    overflow: hidden;
-    z-index: 2;
-    height: 100%;
-}
-
-.work-process__card:hover .work-process__shape {
-    transform: scale(1.1);
-}
-
-.work-process__card:hover .work-process__shape::before {
-    transform: scale(1);
-}
-
-.work-process__count {
-    font-size: 48px;
-    font-weight: 500;
-    line-height: 1;
-    color: transparent;
-    -webkit-text-stroke: 2px hsl(var(--heading-color));
-    margin-bottom: 1.75rem;
-}
-
-.work-process__title {
-    margin-bottom: 1.25rem;
-}
-
-.work-process__indicator {
-    position: absolute;
-    right: 0;
-    top: 10%;
-}
-
-.work-process__indicator i {
-    font-size: 20px;
-}
-
-.work-process__indicator::before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 100px;
-    height: 1px;
-    background-color: red;
-}
-
-/* ======================  Work-process End  ======================*/
 /* ======================  Template Start  ======================*/
 .template__card {
     background-color: hsl(var(--white));

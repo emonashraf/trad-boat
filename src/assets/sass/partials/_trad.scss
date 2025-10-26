@@ -2,21 +2,55 @@
 .trad {
     position: relative;
     z-index: 2;
-    .col-md-6{
-        &:nth-child(2){
-            .trad__graph{
+
+    .col-md-6 {
+        &:nth-child(2) {
+            .trad__graph {
                 background-color: hsl(var(--aqua));
             }
-            .badge{
+
+            .badge {
                 background-color: hsl(var(--aqua));
             }
         }
-         &:nth-child(3){
-            .trad__graph{
+
+        &:nth-child(3) {
+            .trad__graph {
                 background-color: hsl(var(--warning-l-300));
             }
-            .badge{
-                background-color: hsl(var(--warning-l-300));
+
+            .badge {
+                background-color: hsl(var(--warning-d-200));
+            }
+        }
+
+        &:nth-child(4) {
+            .trad__graph {
+                background-color: hsl(var(--success-l-300));
+            }
+
+            .badge {
+                background-color: hsl(var(--success-d-300));
+            }
+        }
+
+        &:nth-child(5) {
+            .trad__graph {
+                background-color: hsl(var(--base));
+            }
+
+            .badge {
+                background-color: hsl(var(--base));
+            }
+        }
+
+        &:nth-child(6) {
+            .trad__graph {
+                background-color: hsl(var(--orange));
+            }
+
+            .badge {
+                background-color: hsl(var(--orange));
             }
         }
     }
@@ -26,6 +60,7 @@
         padding: rem(28px);
         background-color: hsl(var(--base-two));
         border-radius: var(--b-radius-16);
+
         &::after {
             content: '';
             position: absolute;
@@ -41,11 +76,13 @@
         justify-content: space-between;
         align-items: center;
     }
-    &__rio{
+
+    &__rio {
         display: flex;
         align-items: center;
         gap: rem(14px);
-        .badge{
+
+        .badge {
             font-size: rem(16px);
             font-weight: 600;
             background-color: hsl(var(--purple));
@@ -76,8 +113,8 @@
     }
 
     &__label {
-       padding-bottom: 12px;
-       display: inline-block;
+        padding-bottom: 12px;
+        display: inline-block;
     }
 
     &__range {

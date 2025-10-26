@@ -163,23 +163,49 @@
     type: 'iframe',
   });
   // ========================= Magnific Popup Js End ===================
-  // ========================= Brand Js Start ===================
+  // ========================= Swiper Js Start ===================
+  /* ==============  Popular Activities slide Js =================== */
+  var popularActivitiesSwiper = new Swiper(".testimonial__slider", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: false,
+    slidesPerView: 2,
+    spaceBetween: 10,
+    coverflowEffect: {
+      rotate: 30,
+      stretch: 0,
+      depth: 0,
+      modifier: 1,
+      slideShadows: false,
+    },
+    navigation: {
+      nextEl: ".custom-next",
+      prevEl: ".custom-prev",
+    },
 
-  // brand slider
-  $('.brand-logo__slider').bxSlider({
-    minSlides: 4,
-    maxSlides: 4,
-    slideWidth: 170,
-    slideMargin: 10,
-    ticker: true,
-    speed: 20000
+    breakpoints: {
+      640: {
+        slidesPerView: 2,
+        spaceBetween: 12,
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 15
+      },
+      1024: {
+        slidesPerView: 3,
+        spaceBetween: 20
+      },
+      1200: {
+        slidesPerView: 5,
+        spaceBetween: 24
+      },
+    }
   });
-  // testimonial slider
-  $('.testimonial__slider').bxSlider({
-    mode: 'vertical',
-    slideMargin: 5
-  });
-  // ========================= Brand Js End ===================
+
+  /* ============== Popular Activities  Slide Js End =================== */
+
+  // ========================= Swiper Js End ===================
   // ========================= Select2 Js Start =====================
   function startSelect2() {
     $(".select-2").each(function () {
@@ -312,75 +338,205 @@
   // ========================== Label Required Js End =====================
 
   // ========================= Apex chart Js Start =====================
- if ($('#profitChart').length) {
-  var profitChart = {
-    series: [
-      {
-        name: "Buy", 
-        data: [10, 41, 35, 51, 49, 62, 69, 91, 148, 100, 55, 40],
-        color: 'hsl(var(--danger))' 
+  if ($('#profitChart').length) {
+    var profitChart = {
+      series: [
+        {
+          name: "Buy",
+          data: [10, 41, 35, 51, 49, 62, 69, 91, 148, 100, 55, 40],
+          color: 'hsl(var(--danger))'
+        },
+        {
+          name: "Sell",
+          data: [5, 46, 20, 64, 45, 88, 23, 46, 65, 50, 150, 30],
+          color: 'hsl(var(--success))'
+        },
+      ],
+      chart: {
+        height: 362,
+        type: 'line',
+        zoom: { enabled: false },
+        toolbar: { show: false }
       },
-      {
-        name: "Sell", 
-        data: [5, 46, 20, 64, 45, 88, 23, 46, 65, 50, 150, 30],
-        color: 'hsl(var(--success))'
-      },
-    ],
-    chart: {
-      height: 362,
-      type: 'line',
-      zoom: { enabled: false },
-      toolbar: { show: false }
-    },
-    dataLabels: { enabled: false },
-    fill: { type: 'solid' },
-    markers: {
-      size: 5,
-      strokeColors: 'inherit',
-      strokeWidth: 1,
-      fill: '#ffffff',
-      hover: { sizeOffset: 1.5 }
-    },
-    stroke: {
-      width: 1.5,
-      curve: 'smooth'
-    },
-    legend: {
-      show: true,
-      position: 'top',
-      horizontalAlign: 'right',
-      fontSize: '14px',
-      labels: {
-        colors: 'hsl(var(--white))'
-      },
+      dataLabels: { enabled: false },
+      fill: { type: 'solid' },
       markers: {
-        width: 12,
-        height: 12,
-        radius: 12
+        size: 5,
+        strokeColors: 'inherit',
+        strokeWidth: 1,
+        fill: '#ffffff',
+        hover: { sizeOffset: 1.5 }
       },
-      itemMargin: {
-        horizontal: 10,
-        vertical: 5
+      stroke: {
+        width: 1.5,
+        curve: 'smooth'
+      },
+      legend: {
+        show: true,
+        position: 'top',
+        horizontalAlign: 'right',
+        fontSize: '14px',
+        labels: {
+          colors: 'hsl(var(--white))'
+        },
+        markers: {
+          width: 12,
+          height: 12,
+          radius: 12
+        },
+        itemMargin: {
+          horizontal: 10,
+          vertical: 5
+        }
+      },
+      grid: {
+        strokeDashArray: 5,
+        row: { colors: ['transparent'] }
+      },
+      xaxis: {
+        categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+        labels: { style: { colors: 'hsl(var(--white))' } }
+      },
+      yaxis: {
+        labels: { style: { colors: 'hsl(var(--white))' } }
       }
-    },
-    grid: {
-      strokeDashArray: 5,
-      row: { colors: ['transparent'] }
-    },
-    xaxis: {
-      categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-      labels: { style: { colors: 'hsl(var(--white))' } }
-    },
-    yaxis: {
-      labels: { style: { colors: 'hsl(var(--white))' } }
-    }
-  };
+    };
 
-  var chart = new ApexCharts(document.querySelector("#profitChart"), profitChart);
-  chart.render();
-}
+    var chart = new ApexCharts(document.querySelector("#profitChart"), profitChart);
+    chart.render();
+  }
+  // chart 2
+  if ($('#reportChart').length) {
+    var options = {
+      series: [20, 30, 15, 20,],
+      chart: {
+        width: "100%",
+        type: 'pie',
+
+      },
+      labels: ['Investment', 'Profit', 'Loss', 'Reserve Fund'],
+      colors: ['hsl(var(--base))', 'hsl(var(--success)', 'hsl(var(--danger))', 'hsl(var(--info))'],
+      dataLabels: {
+        enabled: true,
+        style: {
+          fontSize: '12px'
+        }
+      },
+      legend: {
+        position: 'bottom',
+        fontSize: '12px',
+        markers: { width: 8, height: 8 }
+      },
+      tooltip: {
+        y: {
+          formatter: function (val) {
+            return val + "% allocation";
+          }
+        }
+      },
+      responsive: [{
+        breakpoint: 480,
+        options: {
+          chart: { width: 200 },
+          legend: { position: 'bottom' }
+        }
+      }]
+    };
+
+    var chart = new ApexCharts(document.querySelector("#reportChart"), options);
+    chart.render();
+  }
+
+
 
   // ========================= Apex chart Js End =====================
+
+  const { Engine, Render, Runner, Bodies, Composite, Events, Body } = Matter;
+
+  const container = document.getElementById('tradInfo');
+  const buttons = container.querySelectorAll('.trad-info-badge');
+  const rect = container.getBoundingClientRect();
+  let engine, world, render;
+  let animationStarted = false;
+
+  function startAnimation() {
+    if (animationStarted) return;
+    animationStarted = true;
+
+    // create engine
+    engine = Engine.create();
+    world = engine.world;
+    engine.world.gravity.y = 1;
+
+    // renderer
+    render = Render.create({
+      element: container,
+      engine: engine,
+      options: {
+        width: rect.width,
+        height: rect.height,
+        wireframes: false,
+        background: 'transparent'
+      }
+    });
+
+    Render.run(render);
+    Runner.run(Runner.create(), engine);
+
+    // ground
+    const ground = Bodies.rectangle(rect.width / 2, rect.height + 20, rect.width, 40, {
+      isStatic: true,
+      render: { fillStyle: '#111' }
+    });
+    Composite.add(world, ground);
+
+    // create bodies for buttons
+    buttons.forEach(btn => {
+      const randomX = Math.random() * (rect.width - 130) + 65;
+      const randomY = -Math.random() * 300 - 50;
+
+      const body = Bodies.rectangle(randomX, randomY, 130, 45, {
+        restitution: 0.9,
+        friction: 0.4,
+        render: { fillStyle: 'transparent' }
+      });
+
+      btn.body = body;
+      Composite.add(world, body);
+    });
+
+    // update DOM positions with boundaries
+    Events.on(engine, 'afterUpdate', function () {
+      buttons.forEach(btn => {
+        const body = btn.body;
+
+        // limit x
+        const minX = 65;
+        const maxX = rect.width - 65;
+        if (body.position.x < minX) Body.setPosition(body, { x: minX, y: body.position.y });
+        if (body.position.x > maxX) Body.setPosition(body, { x: maxX, y: body.position.y });
+
+        // limit y
+        const maxY = rect.height - 22.5;
+        if (body.position.y > maxY) Body.setPosition(body, { x: body.position.x, y: maxY });
+
+        btn.style.left = (body.position.x - 65) + 'px';
+        btn.style.top = (body.position.y) + 'px';
+        btn.style.transform = `rotate(${body.angle}rad)`;
+      });
+    });
+  }
+
+  // trigger when section is visible
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) startAnimation();
+    });
+  }, { threshold: 0.3 });
+
+  observer.observe(container);
+
+
   // ========================= Preloader Js Start =====================
   $(window).on("load", function () {
     $(".preloader").fadeOut();

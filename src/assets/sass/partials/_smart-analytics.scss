@@ -1,5 +1,10 @@
 /* ======================  Smart-analytics Start  ======================*/
 .smart-analytics {
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+    --plus-size: 90px;
+
     &__card {
         position: relative;
         padding: 20px;
@@ -7,7 +12,7 @@
         border-radius: var(--b-radius-12);
         z-index: 1;
         overflow: hidden;
-
+        height: 100%;
 
         .rating-pattern {
             position: absolute;
@@ -29,6 +34,8 @@
             width: 136px;
             height: 136px;
             fill: none;
+            z-index: 1;
+            position: relative;
 
 
             circle {
@@ -52,7 +59,8 @@
                 &:nth-child(4) {
                     r: 23.5;
                     fill: hsl(var(--base));
-                    filter: blur(8px)
+                    filter: blur(8px);
+
                 }
             }
 
@@ -68,6 +76,12 @@
                     }
                 }
             }
+        }
+
+        .tradInfo-pattern {
+            position: absolute;
+            inset: 0;
+
         }
     }
 
@@ -108,16 +122,69 @@
         align-items: center;
         justify-content: center;
         position: relative;
-        margin-bottom: rem(15px);
+        margin-top: 20px;
+        margin-bottom: rem(45px);
+        z-index: 1;
 
         .ai-power-title {
             position: absolute;
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
+            z-index: 3;
+        }
+
+        .ai-power-icon {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            z-index: -1;
+
+            &::before {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                width: var(--plus-size);
+                height: 1px;
+                background-color: hsl(var(--white));
+                z-index: -1;
+            }
+
+            &::after {
+                content: '';
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                height: var(--plus-size);
+                width: 1px;
+                background-color: hsl(var(--white));
+                z-index: -1;
+            }
         }
 
     }
+
+    .profit-cart {
+        &__card {
+            border-radius: var(--b-radius-12);
+            background: linear-gradient(180deg, hsl(var(--base-two)/ 0.5), transparent);
+            padding-block: 25px;
+            padding-inline: 20px;
+        }
+
+        &__price {
+            margin-bottom: 6px;
+        }
+
+        &__title {
+            font-weight: 400;
+        }
+    }
+
+
 
     &__title {
         margin-bottom: clamp(0.938rem, 0.781rem + 0.781vw, 1.563rem);
@@ -131,6 +198,30 @@
     &__sub-title {
         margin-top: rem(14px);
         font-size: rem(18px);
+    }
+
+    // 
+    #tradInfo {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        min-height: 200px;
+        max-width: 400px;
+        margin-inline: auto;
+    }
+
+    .trad-info-badge {
+        position: absolute;
+        padding: 15px;
+        max-height: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        color: hsl(var(--white));
+        font-weight: 600;
+        border-radius: var(--b-radius-6);
+        white-space: no-wrap;
     }
 }
 

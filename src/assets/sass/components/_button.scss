@@ -190,4 +190,43 @@
   }
 }
 
+.btn--unstyle-2 {
+  position: relative;
+  transition: 0.3s;
+  font-size: 14px;
+  color: hsl(var(--base));
+
+  &:hover {
+    color: hsl(var(--base));
+
+    &::after {
+      width: calc(100% - 18px);
+    }
+    &::before{
+      color: hsl(var(--base));
+    }
+  }
+
+  &::before {
+    content: "\f111";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 8px;
+    color: hsl(var(--white));
+    transition: 0.3s;
+    font-size: 10px;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    left: 18px;
+    bottom: 0;
+    height: 1px;
+    width: 0;
+    background-color: hsl(var(--base));
+    transition: 0.3s;
+  }
+}
+
 /* ================================= Button Css End =========================== */

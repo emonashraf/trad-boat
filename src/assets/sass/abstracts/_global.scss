@@ -3,7 +3,7 @@
   position: relative;
   margin-bottom: clamp(2.5rem, 2.188rem + 1.563vw, 3.75rem);
   z-index: 2;
-  max-width: rem(725px);
+  max-width: rem(550px);
   margin-inline: auto;
   text-align: center;
 
@@ -17,9 +17,12 @@
   &__desc {
     margin-top: clamp(0.5rem, 0.406rem + 0.469vw, 0.875rem);
   }
+  &__btn{
+    margin-top: clamp(1.875rem, 1.406rem + 2.344vw, 3.75rem);
+  }
 
   &.style-left {
-    max-width: rem(500px);
+    max-width: rem(400px);
     margin-inline: unset;
     text-align: start;
     margin-bottom: clamp(1.563rem, 1.328rem + 1.172vw, 2.5rem);
@@ -85,7 +88,15 @@
 }
 
 /* ======================  Overlay Section End  ======================*/
+/* ====================== Container for xxxl screen Start ==================== */
+@media screen and (min-width: 1600px) {
+  .container {
+    max-width: 1500px;
+  }
+}
 
+
+/* ====================== Container for xxxl screen End ==================== */
 /* ======================  avater Start  ======================*/
 .avater_list {
   display: flex;
@@ -96,6 +107,7 @@
     background-color: hsl(var(--base));
     border-radius: 50%;
     border: 2px solid hsl(var(--white));
+
     &:not(:first-child) {
       margin-left: -8px;
     }

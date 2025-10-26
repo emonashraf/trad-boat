@@ -17,8 +17,8 @@
   <link rel="stylesheet" href="assets/css/line-awesome.min.css">
   <!-- Magnific Popup -->
   <link rel="stylesheet" href="assets/css/magnific-popup.css">
-  <!-- bx slider -->
-  <link rel="stylesheet" href="assets/css/jquery.bxslider.min.css">
+  <!-- Swiper slider -->
+  <link rel="stylesheet" href="assets/css/swiper-bundle.min.css">
   <!-- Select2 -->
   <link rel="stylesheet" href="assets/css/select2.min.css">
   <!-- Main css -->
@@ -442,7 +442,7 @@
   <!--==========================   Work-process Start  ==========================-->
 <section class="smart-analytics my-120">
     <div class="container">
-        <div class="row">
+        <div class="row gy-4">
             <div class="col-lg-3">
                 <div class="row gy-4">
                     <div class="col-12">
@@ -467,22 +467,33 @@
                     </div>
                     <div class="col-12">
                         <div class="smart-analytics__card ai-power-card">
-                            <div> </div>
                             <div class="smart-analytics__graph">
-                                <svg class="ai-power-shape"   viewBox="0 0 136 136">
-                                    <circle stroke="url(#paint0_linear_5300_280)"/>
-                                    <circle stroke="url(#paint1_linear_5300_280)"/>
-                                    <circle stroke="url(#paint2_linear_5300_280)"/>
-                                    <circle/>
+                                <svg class="ai-power-shape" viewBox="0 0 136 136">
+                                    <circle stroke="url(#paint0_linear_5300_280)" />
+                                    <circle stroke="url(#paint1_linear_5300_280)" />
+                                    <circle stroke="url(#paint2_linear_5300_280)" />
+                                    <circle />
                                     <defs>
-                                        <linearGradient id="paint0_linear_5300_280" x1="68" y1="0" x2="68" y2="136" gradientUnits="userSpaceOnUse"><stop/><stop offset="1"/></linearGradient>
-                                        <linearGradient id="paint1_linear_5300_280" x1="68" y1="19" x2="8.5" y2="82" gradientUnits="userSpaceOnUse"><stop/> <stop offset="1"/></linearGradient>
-                                        <linearGradient id="paint2_linear_5300_280" x1="59" y1="101" x2="89" y2="39" gradientUnits="userSpaceOnUse"><stop/><stop offset="1"/></linearGradient>
+                                        <linearGradient id="paint0_linear_5300_280" x1="68" y1="0" x2="68" y2="136"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop />
+                                            <stop offset="1" />
+                                        </linearGradient>
+                                        <linearGradient id="paint1_linear_5300_280" x1="68" y1="19" x2="8.5" y2="82"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop />
+                                            <stop offset="1" />
+                                        </linearGradient>
+                                        <linearGradient id="paint2_linear_5300_280" x1="59" y1="101" x2="89" y2="39"
+                                            gradientUnits="userSpaceOnUse">
+                                            <stop />
+                                            <stop offset="1" />
+                                        </linearGradient>
                                     </defs>
                                 </svg>
                                 <h4 class="ai-power-title">AI</h4>
+                                <span class="ai-power-icon"></span>
                             </div>
-                            
                             <h5 class="smart-analytics__title">AI-Powered Automation Trading boat</h5>
                         </div>
                     </div>
@@ -490,13 +501,640 @@
 
             </div>
             <div class="col-lg-6">
-                <div id="profitChart"></div>
+                <div class="smart-analytics__card profit-cart">
+                    <div class="profit-cart__card">
+                        <h3 class="profit-cart__price">$1800</h3>
+                        <h5 class="profit-cart__title">Accumulated profits</h5>
+                        <div id="profitChart"></div>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-3"></div>
+            <div class="col-lg-3">
+                <div class="row gy-4">
+                    <div class="col-12">
+                        <div class="smart-analytics__card">
+                            <h5 class="smart-analytics__title">Smart Report</h5>
+                            <div id="reportChart"></div>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="smart-analytics__card">
+                            <div class="mask-box tradInfo-pattern"
+                                data-mask="assets/images/smart-analytics/tradInfo.png"></div>
+                            <div id="tradInfo">
+                                <span class="trad-info-badge bg--base">Grid</span>
+                                <button class="trad-info-badge bg--warning">Range</button>
+                                <button class="trad-info-badge bg--danger">Profit</button>
+                                <button class="trad-info-badge bg--success">Trailing Up</button>
+                                <button class="trad-info-badge bg--info">Short Period</button>
+                                <button class="trad-info-badge bg--purple">Long Period</button>
+                                <button class="trad-info-badge bg--orange">Investment</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 <!--==========================  Work-process End  ==========================-->
+  <!--==========================   Trad Start  ==========================-->
+<section class="trad my-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading style-between">
+                    <h2 class="section-heading__title">Trade Smarter. Earn Faster. Powered by AI.</h2>
+                    <p class="section-heading__desc">Automated bots that analyze markets, execute trades, and maximize your returns all in real time</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center gy-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="trad__card">
+                    <div class="trad__header">
+                        <div class="trad__rio">
+                            <span class="badge">ROI</span>
+                            <span> 1%-2%</span>
+                        </div>
+                        <div class="trad__graph mask-box" data-mask="assets/images/trad/graph.png"></div>
+                    </div>
+                    <ul class="trad__list">
+                        <li class="trad__list-item">
+                            <div class="trad__info">
+                                <small class="trad__label">Short Period</small>
+                                <h6 class="trad__duration">14 days</h6>
+                            </div>
+                            <div class="trad__info">
+                                <small class="trad__label">Range</small>
+                                <h6 class="trad__range">0.0001 - 0.0002</h6>
+                            </div>
+                        </li>
+
+                        <li class="trad__list-item">
+                            <div class="trad__info">
+                                <small class="trad__label">Medium Period</small>
+                                <h6 class="trad__duration">30 days</h6>
+                            </div>
+                            <div class="trad__info">
+                                <small class="trad__label">Range</small>
+                                <h6 class="trad__range">0.0002 - 0.0005</h6>
+                            </div>
+                        </li>
+
+                        <li class="trad__list-item">
+                            <div class="trad__info">
+                                <small class="trad__label">Long Period</small>
+                                <h6 class="trad__duration">90 days</h6>
+                            </div>
+                            <div class="trad__info">
+                                <small class="trad__label">Range</small>
+                                <h6 class="trad__range">0.0005 - 0.0010</h6>
+                            </div>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="trad__card">
+                    <div class="trad__header">
+                        <div class="trad__rio">
+                            <span class="badge bg--green">ROI</span>
+                            <span>2%-3%</span>
+                        </div>
+                        <div class="trad__graph mask-box" data-mask="assets/images/trad/graph.png"></div>
+                    </div>
+                    <ul class="trad__list">
+                        <li class="trad__list-item">
+                            <div class="trad__info">
+                                <small class="trad__label">Short Period</small>
+                                <h6 class="trad__duration">7 days</h6>
+                            </div>
+                            <div class="trad__info">
+                                <small class="trad__label">Range</small>
+                                <h6 class="trad__range">0.0003 - 0.0006</h6>
+                            </div>
+                        </li>
+                        <li class="trad__list-item">
+                            <div class="trad__info">
+                                <small class="trad__label">Medium Period</small>
+                                <h6 class="trad__duration">21 days</h6>
+                            </div>
+                            <div class="trad__info">
+                                <small class="trad__label">Range</small>
+                                <h6 class="trad__range">0.0006 - 0.0012</h6>
+                            </div>
+                        </li>
+                        <li class="trad__list-item">
+                            <div class="trad__info">
+                                <small class="trad__label">Long Period</small>
+                                <h6 class="trad__duration">60 days</h6>
+                            </div>
+                            <div class="trad__info">
+                                <small class="trad__label">Range</small>
+                                <h6 class="trad__range">0.0012 - 0.0020</h6>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="trad__card">
+                    <div class="trad__header">
+                        <div class="trad__rio">
+                            <span class="badge bg--blue">ROI</span>
+                            <span>3%-4%</span>
+                        </div>
+                        <div class="trad__graph mask-box" data-mask="assets/images/trad/graph.png"></div>
+                    </div>
+                    <ul class="trad__list">
+                        <li class="trad__list-item">
+                            <div class="trad__info">
+                                <small class="trad__label">Short Period</small>
+                                <h6 class="trad__duration">10 days</h6>
+                            </div>
+                            <div class="trad__info">
+                                <small class="trad__label">Range</small>
+                                <h6 class="trad__range">0.0005 - 0.0010</h6>
+                            </div>
+                        </li>
+                        <li class="trad__list-item">
+                            <div class="trad__info">
+                                <small class="trad__label">Medium Period</small>
+                                <h6 class="trad__duration">25 days</h6>
+                            </div>
+                            <div class="trad__info">
+                                <small class="trad__label">Range</small>
+                                <h6 class="trad__range">0.0010 - 0.0020</h6>
+                            </div>
+                        </li>
+                        <li class="trad__list-item">
+                            <div class="trad__info">
+                                <small class="trad__label">Long Period</small>
+                                <h6 class="trad__duration">50 days</h6>
+                            </div>
+                            <div class="trad__info">
+                                <small class="trad__label">Range</small>
+                                <h6 class="trad__range">0.0020 - 0.0030</h6>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="trad__card">
+                    <div class="trad__header">
+                        <div class="trad__rio">
+                            <span class="badge">ROI</span>
+                            <span>4%-5%</span>
+                        </div>
+                        <div class="trad__graph mask-box" data-mask="assets/images/trad/graph.png"></div>
+                    </div>
+                    <ul class="trad__list">
+                        <li class="trad__list-item">
+                            <div class="trad__info">
+                                <small class="trad__label">Short Period</small>
+                                <h6 class="trad__duration">12 days</h6>
+                            </div>
+                            <div class="trad__info">
+                                <small class="trad__label">Range</small>
+                                <h6 class="trad__range">0.0010 - 0.0015</h6>
+                            </div>
+                        </li>
+                        <li class="trad__list-item">
+                            <div class="trad__info">
+                                <small class="trad__label">Medium Period</small>
+                                <h6 class="trad__duration">28 days</h6>
+                            </div>
+                            <div class="trad__info">
+                                <small class="trad__label">Range</small>
+                                <h6 class="trad__range">0.0015 - 0.0025</h6>
+                            </div>
+                        </li>
+                        <li class="trad__list-item">
+                            <div class="trad__info">
+                                <small class="trad__label">Long Period</small>
+                                <h6 class="trad__duration">65 days</h6>
+                            </div>
+                            <div class="trad__info">
+                                <small class="trad__label">Range</small>
+                                <h6 class="trad__range">0.0025 - 0.0040</h6>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="trad__card">
+                    <div class="trad__header">
+                        <div class="trad__rio">
+                            <span class="badge">ROI</span>
+                            <span>5%-6%</span>
+                        </div>
+                        <div class="trad__graph mask-box" data-mask="assets/images/trad/graph.png"></div>
+                    </div>
+                    <ul class="trad__list">
+                        <li class="trad__list-item">
+                            <div class="trad__info">
+                                <small class="trad__label">Short Period</small>
+                                <h6 class="trad__duration">15 days</h6>
+                            </div>
+                            <div class="trad__info">
+                                <small class="trad__label">Range</small>
+                                <h6 class="trad__range">0.0015 - 0.0020</h6>
+                            </div>
+                        </li>
+                        <li class="trad__list-item">
+                            <div class="trad__info">
+                                <small class="trad__label">Medium Period</small>
+                                <h6 class="trad__duration">35 days</h6>
+                            </div>
+                            <div class="trad__info">
+                                <small class="trad__label">Range</small>
+                                <h6 class="trad__range">0.0020 - 0.0035</h6>
+                            </div>
+                        </li>
+                        <li class="trad__list-item">
+                            <div class="trad__info">
+                                <small class="trad__label">Long Period</small>
+                                <h6 class="trad__duration">70 days</h6>
+                            </div>
+                            <div class="trad__info">
+                                <small class="trad__label">Range</small>
+                                <h6 class="trad__range">0.0035 - 0.0050</h6>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="trad__card">
+                    <div class="trad__header">
+                        <div class="trad__rio">
+                            <span class="badge">ROI</span>
+                            <span>6%-7%</span>
+                        </div>
+                        <div class="trad__graph mask-box" data-mask="assets/images/trad/graph.png"></div>
+                    </div>
+                    <ul class="trad__list">
+                        <li class="trad__list-item">
+                            <div class="trad__info">
+                                <small class="trad__label">Short Period</small>
+                                <h6 class="trad__duration">20 days</h6>
+                            </div>
+                            <div class="trad__info">
+                                <small class="trad__label">Range</small>
+                                <h6 class="trad__range">0.0020 - 0.0030</h6>
+                            </div>
+                        </li>
+                        <li class="trad__list-item">
+                            <div class="trad__info">
+                                <small class="trad__label">Medium Period</small>
+                                <h6 class="trad__duration">40 days</h6>
+                            </div>
+                            <div class="trad__info">
+                                <small class="trad__label">Range</small>
+                                <h6 class="trad__range">0.0030 - 0.0045</h6>
+                            </div>
+                        </li>
+                        <li class="trad__list-item">
+                            <div class="trad__info">
+                                <small class="trad__label">Long Period</small>
+                                <h6 class="trad__duration">80 days</h6>
+                            </div>
+                            <div class="trad__info">
+                                <small class="trad__label">Range</small>
+                                <h6 class="trad__range">0.0045 - 0.0060</h6>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--==========================  Trad End  ==========================-->
+  <!--==========================   trust Start  ==========================-->
+<section class="trust my-120">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="section-heading">
+                    <h2 class="section-heading__title"> Transparency and protection at every transaction.</h2>
+                    <p class="section-heading__desc"> Transparency and protection at every transaction.</p>
+                </div>
+            </div>
+        </div>
+        <div class="row justify-content-center gy-4">
+            <div class="col-md-6 col-lg-4">
+                <div class="trust__card">
+                    <div class="trust__icon">
+                        <img src="assets/images/trust/1.png" alt="img">
+                    </div>
+                    <h4 class="trust__title">Compliance Matrix</h4>
+                    <p class="trust__desc">Connect one or several exchange accounts to Commas Smart automation</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="trust__card">
+                    <div class="trust__icon">
+                        <img src="assets/images/trust/2.png" alt="img">
+                    </div>
+                    <h4 class="trust__title">Account Security</h4>
+                    <p class="trust__desc">Connect one or several exchange accounts to Commas Smart automation</p>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="trust__card">
+                    <div class="trust__icon">
+                        <img src="assets/images/trust/3.png" class="img-fluid" alt="img">
+                    </div>
+                    <h4 class="trust__title">100% Reserves</h4>
+                    <p class="trust__desc">Connect one or several exchange accounts to Commas Smart automation</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--==========================  trust End  ==========================-->
+  <!--========================== Faq Section Start ==========================-->
+<section class="faq my-120">
+    <div class="container">
+        <div class="row justify-content-center align-items-center gy-5">
+            <div class="col-xl-6">
+                <div class="row gy-4">
+                    <div class="col-12">
+                        <div class="section-heading style-left">
+                            <h2 class="section-heading__title">Frequently Asked Question</h2>
+                            <p class="section-heading__desc">Our platform was built with one goal in mind to make
+                                work-process
+                                marketing easy, transparent, and result-driven. We help brands find the perfect.
+                            </p>
+                            <div class="section-heading__btn">
+                                <a href="#" class="btn btn--base">GET IN TOUCH</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-6">
+                <div class="accordion-wrap">
+                    <div class="accordion" id="faqAccordion">
+                        <div class="accordion-item open">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse_1" aria-expanded="true" aria-controls="collapse_1">
+                                    How do I start my own campaign?
+                                </button>
+                            </h2>
+                            <div id="collapse_1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Starting a campaign is simple and user-friendly. Just click the “Start a
+                                        Campaign” button, sign up or log in to your account, and fill in the
+                                        required details like your campaign title, story, funding goal, and an
+                                        engaging image. Once submitted, our team will review your campaign to
+                                        ensure it meets our guidelines, and then it will go live. You can begin
+                                        sharing your campaign immediately to attract support.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse_2" aria-expanded="false" aria-controls="collapse_2">
+                                    Is there a fee for donating or fundraising?
+                                </button>
+                            </h2>
+                            <div id="collapse_2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Your donation goes directly to the campaign organizer, less any applicable
+                                        transaction and platform fees. We ensure that all funds are securely
+                                        transferred to the beneficiaries through verified payment gateways.
+                                        Additionally, we work closely with campaign owners to ensure transparency,
+                                        so donors can feel confident that their contributions are truly making a
+                                        difference.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapse_3" aria-expanded="false" aria-controls="collapse_3">
+                                    Can I support a campaign anonymously?
+                                </button>
+                            </h2>
+                            <div id="collapse_3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>Absolutely. We understand that some donors prefer to remain private. During
+                                        the donation process, you have the option to hide your name and make your
+                                        contribution anonymously. The campaign organizer will see the donation
+                                        amount but not your identity, giving you the freedom to support causes you
+                                        care about without revealing personal details.</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="accordion-item">
+                            <h2 class="accordion-header">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse_4" aria-expanded="false" aria-controls="collapse_4"> Can I edit my campaign after publishing it?
+                                </button>
+                            </h2>
+                            <div id="collapse_4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                                <div class="accordion-body">
+                                    <p>While some campaigns set a specific deadline to reach their fundraising goal, others may choose flexible timelines based on their needs. Deadlines can help create urgency and encourage faster support, but they're not mandatory. Campaign creators can extend or close their campaign at any time, depending on their progress and personal situation.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--========================== Faq Section End ==========================-->
+  <!--==========================   Testimonial Start  ==========================-->
+<section class="testimonial my-120">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-heading">
+          <h2 class="section-heading__title top-reveal">Find the Best Activities for Every Travel Enthusiast</h2>
+          <p class="section-heading__desc">We're proud to have a community of happy customers who love using our product.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="swiper testimonial__slider">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div class="testimonial__thumb">
+              <img src="assets/images/testimonial/1.jpg" alt="img">
+            </div>
+            <div class="testimonial__body">
+              <h4 class="testimonial__title">Edwards</h4>
+              <span class="testimonial__designation">Founder at Zujo</span>
+              <p class="testimonial__desc">“Printing and typesetting industry. L Ipsum
+                has been the industry's standard random tex roots literature from”</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div class="testimonial__thumb">
+              <img src="assets/images/testimonial/1.jpg" alt="img">
+            </div>
+            <div class="testimonial__body">
+              <h4 class="testimonial__title">Edwards</h4>
+              <span class="testimonial__designation">Founder at Zujo</span>
+              <p class="testimonial__desc">“Printing and typesetting industry. L Ipsum
+                has been the industry's standard random tex roots literature from”</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div class="testimonial__thumb">
+              <img src="assets/images/testimonial/1.jpg" alt="img">
+            </div>
+            <div class="testimonial__body">
+              <h4 class="testimonial__title">Edwards</h4>
+              <span class="testimonial__designation">Founder at Zujo</span>
+              <p class="testimonial__desc">“Printing and typesetting industry. L Ipsum
+                has been the industry's standard random tex roots literature from”</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div class="testimonial__thumb">
+              <img src="assets/images/testimonial/1.jpg" alt="img">
+            </div>
+            <div class="testimonial__body">
+              <h4 class="testimonial__title">Edwards</h4>
+              <span class="testimonial__designation">Founder at Zujo</span>
+              <p class="testimonial__desc">“Printing and typesetting industry. L Ipsum
+                has been the industry's standard random tex roots literature from”</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div class="testimonial__thumb">
+              <img src="assets/images/testimonial/1.jpg" alt="img">
+            </div>
+            <div class="testimonial__body">
+              <h4 class="testimonial__title">Edwards</h4>
+              <span class="testimonial__designation">Founder at Zujo</span>
+              <p class="testimonial__desc">“Printing and typesetting industry. L Ipsum
+                has been the industry's standard random tex roots literature from”</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div class="testimonial__thumb">
+              <img src="assets/images/testimonial/1.jpg" alt="img">
+            </div>
+            <div class="testimonial__body">
+              <h4 class="testimonial__title">Edwards</h4>
+              <span class="testimonial__designation">Founder at Zujo</span>
+              <p class="testimonial__desc">“Printing and typesetting industry. L Ipsum
+                has been the industry's standard random tex roots literature from”</p>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide">
+          <div class="testimonial__card">
+            <div class="testimonial__thumb">
+              <img src="assets/images/testimonial/1.jpg" alt="img">
+            </div>
+            <div class="testimonial__body">
+              <h4 class="testimonial__title">Edwards</h4>
+              <span class="testimonial__designation">Founder at Zujo</span>
+              <p class="testimonial__desc">“Printing and typesetting industry. L Ipsum
+                has been the industry's standard random tex roots literature from”</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="custom-btn custom-prev"><i class="fa-solid fa-angle-left"></i></div>
+      <div class="custom-btn custom-next"><i class="fa-solid fa-angle-right"></i></div>
+    </div>
+  </div>
+</section>
+<!--==========================  Testimonial End  ==========================-->
+  <!--==========================   Blog Start  ==========================-->
+<section class="blog section-bg-2 my-120">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="section-heading">
+                <span class="section-heading__name">Blog Post</span>
+                <h2 class="section-heading__title">Insights & Tips From Our Experts</h2>
+                <p class="section-heading__desc">Stay updated with the latest trends, tutorials, and best practices for
+                    forms and analytics</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row justify-content-center g-4">
+            <div class="col-sm-6 col-lg-4">
+                <div class="blog__card">
+                    <div class="blog__thumb-wrap">
+                        <a href="blog-details.html" class="blog__thumb">
+                            <img src="assets/images/blog/1.jpg" class="fit--img" alt="Img">
+                        </a>
+                        <p class="blog__date">10 <span>DEC</span></p>
+                    </div>
+                    <div class="blog__body">
+                        <h4 class="blog__title"><a href="blog-details.html">How to Navigate Volatile Markets Like a
+                                Pro</a></h4>
+                        <a href="blog-details.html" class="btn--unstyle-2">Read More</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-4">
+                <div class="blog__card">
+                    <div class="blog__thumb-wrap">
+                        <a href="blog-details.html" class="blog__thumb">
+                            <img src="assets/images/blog/2.jpg" class="fit--img" alt="Img">
+                        </a>
+                        <p class="blog__date">18 <span>DEC</span></p>
+                    </div>
+                    <div class="blog__body">
+                        <h4 class="blog__title">
+                            <a href="blog-details.html">Top Strategies to Maximize Your Crypto ROI</a>
+                        </h4>
+                        <a href="blog-details.html" class="btn--unstyle-2">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-lg-4">
+                <div class="blog__card">
+                    <div class="blog__thumb-wrap">
+                        <a href="blog-details.html" class="blog__thumb">
+                            <img src="assets/images/blog/3.jpg" class="fit--img" alt="Img">
+                        </a>
+                        <p class="blog__date">25 <span>DEC</span></p>
+                    </div>
+                    <div class="blog__body">
+                        <h4 class="blog__title">
+                            <a href="blog-details.html">Understanding Risk Management in Trading Platforms</a>
+                        </h4>
+                        <a href="blog-details.html" class="btn--unstyle-2">Read More</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--==========================  Blog End  ==========================-->
   
   
   
@@ -595,14 +1233,16 @@
 <script src="assets/js/magnific-popup.min.js"></script>
 <!-- Scrollreveal Js -->
 <script src="assets/js/scrollreveal.min.js"></script>
-<!-- bx slider -->
-<script src="assets/js/jquery.bxslider.min.js"></script>
+<!-- swiper slider -->
+<script src="assets/js/swiper-bundle.min.js"></script>
 <!-- Odometer Js -->
 <script src="assets/js/odometer.min.js"></script>
 <!-- Select2 Js -->
 <script src="assets/js/select2.min.js"></script>
-<!-- Apexcharts -->
+<!-- Apexchart js -->
 <script src="assets/js/apexcharts.js"></script>
+<!-- Matter js -->
+<script src="assets/js/matter.min.js"></script>
 <!-- main js -->
 <script src="assets/js/main.js"></script>
 </body>

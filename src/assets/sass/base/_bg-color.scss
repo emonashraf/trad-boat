@@ -39,8 +39,17 @@
     &--black {
         background-color: hsl(var(--black)) !important;
     }
-    &--purple{
+
+    &--aqua {
+        background-color: hsl(var(--aqua)) !important;
+    }
+
+    &--purple {
         background-color: hsl(var(--purple)) !important;
+    }
+
+    &--orange {
+        background-color: hsl(var(--orange)) !important;
     }
 }
 

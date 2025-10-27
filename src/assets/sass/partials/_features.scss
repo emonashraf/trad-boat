@@ -1,99 +1,31 @@
-/* ======================  Features Start  ======================*/
-.features {
-    --icon-size: 40px;
-
-    &__card {
-        display: flex;
-        gap: rem(24px);
-        padding-bottom: 14px;
+/* ======================  Trust Start  ======================*/
+.features{
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    .glove--base{
+        position: absolute;
+        z-index: -1;
+        left: -10%;
     }
-
-    &__icon {
-        flex-shrink: 0;
-        width: var(--icon-size);
-        height: var(--icon-size);
-        border-radius: var(--b-radius-8);
-        display: grid;
-        place-items: center;
-        background-image: linear-gradient(180deg, hsl(var(--base)) 0%, transparent 100%);
-
+    &__shape{
+        position: absolute;
+        top: 30%;
+        left: 0;
+        z-index: -1;
     }
-
-    &__title {
-        font-size: clamp(1rem, 0.969rem + 0.156vw, 1.125rem);
+    &__card{
+        text-align: center;
+        max-width: rem(260px);
+        margin-inline: auto;
+    }
+    &__icon{
+        margin-bottom: rem(26px);
+        max-width: rem(86px);
+        margin-inline: auto;
+    }
+    &__title{
         margin-bottom: rem(24px);
     }
-
-    &__banner {
-        position: relative;
-        background-color: hsl(var(--base-two));
-        width: rem(500px);
-        aspect-ratio: 1 / 1;
-        border-radius: 50%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        z-index: 2;
-
-        &::after {
-            content: '';
-            position: absolute;
-            width: rem(320px);
-            aspect-ratio: 1 / 1;
-            background-color: hsl(var(--base-d-800));
-            border-radius: 50%;
-            z-index: -2;
-        }
-
-        &::before {
-            content: '';
-            position: absolute;
-            width: 140px;
-            border-radius: 50%;
-            aspect-ratio: 1 / 1;
-            background-color: hsl(var(--base));
-            filter: blur(20px);
-
-        }
-
-    }
-
-    &__center {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        border-radius: 50%;
-        z-index: 2;
-        transform: translate(-50%, -50%);
-        width: rem(135px);
-        aspect-ratio: 1 / 1;
-        background-color: hsl(var(--base-two));
-        border-radius: 50%;
-        z-index: 3;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        i{
-            font-size: 30px;
-        }
-
-    }
-
-    &__graph {
-        max-width: 650px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        img {
-            width: 100%;
-        }
-    }
-
-
-
-
 }
-
-/* ======================  Features End  ======================*/
+/* ======================  Trust End  ======================*/

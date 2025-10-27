@@ -14,10 +14,12 @@ body {
   display: flex;
   flex-direction: column;
   background-color: hsl(var(--black));
+  font-size: clamp(0.875rem, 0.844rem + 0.156vw, 1rem);
+  overflow-x: hidden;
 }
 
 p {
-  font-size: 16px;
+  font-size: clamp(0.875rem, 0.844rem + 0.156vw, 1rem);
   font-weight: 400;
   margin: 0;
   color: hsl(var(--body-color));

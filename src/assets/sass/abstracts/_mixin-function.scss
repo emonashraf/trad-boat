@@ -131,6 +131,18 @@
       color: hsl(var(#{$color})) !important;
     }
   }
+  // lite btn
+  &-dark#{$name} {
+    background-color: hsl(var(--white) / 0.07) !important;
+    border: 1px solid hsl(var(--white)/ 0.05);
+    color: hsl(var(--white)) !important;
+
+    &:hover,
+    &:focus &:focus-visible {
+      background-color: hsl(var(#{$name})) !important;
+      color: hsl(var(#{$color})) !important;
+    }
+  }
 }
 
 // Gradient button style;

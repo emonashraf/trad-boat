@@ -1,41 +1,53 @@
 /* ====================== Breadcrumb Css Start ==================== */
 .breadcrumb {
-  background-color: hsl(var(--base-l-900)/ 0.5);
   margin-bottom: 0;
   padding-top: clamp(5rem, 3.906rem + 5.469vw, 9.375rem);
   padding-bottom: clamp(1.875rem, 0.781rem + 5.469vw, 6.25rem);
   position: relative;
   z-index: 1;
-  overflow: hidden;
-
-  &__shape {
-    position: absolute;
-    max-width: clamp(8.125rem, 5.469rem + 13.281vw, 18.75rem);
-    z-index: -1;
-
-    &:nth-child(1) {
-      top: -30%;
-      left: -4%;
-      animation: rotateIn 90s linear infinite;
-      animation-delay: 1s;
-    }
-
-    &:nth-child(2) {
-      bottom: -30%;
-      right: -4%;
-      animation: rotateOut 90s linear infinite;
-      animation-delay: 2s;
-    }
-  }
 
   .glove--base {
     position: absolute;
-    bottom: -30%;
-    right: -4%;
     z-index: -2;
-    width: clamp(13.75rem, 11.719rem + 10.156vw, 21.875rem);
-    height: clamp(13.75rem, 11.719rem + 10.156vw, 21.875rem);
+
+    &:nth-child(1) {
+      top: -60%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &:nth-child(2) {
+      top: -60%;
+      left: -15%;
+    }
+
+    &:nth-child(3) {
+      top: -60%;
+      right: -15%;
+    }
   }
+
+  &__shape {
+    position: absolute;
+    top: 0;
+    z-index: -1;
+
+    &:nth-child(2) {
+      right: 0;
+      top: 0;
+    }
+
+  }
+
+  &__pattern {
+    position: absolute;
+    inset: 0;
+    background-color: hsl(var(--white));
+    mask-size: cover;
+    z-index: -1;
+    opacity: 0.1;
+  }
+
 
   &__wrapper {
     text-align: center;
@@ -43,7 +55,6 @@
 
   &__title {
     margin-bottom: 10px;
-    color: hsl(var(--black));
   }
 
   &__list {
@@ -54,7 +65,6 @@
   }
 
   &__item {
-    color: hsl(var(--black));
     font-weight: 400;
     font-size: 16px;
     display: flex;
@@ -63,7 +73,6 @@
     &-dot {
       width: 6px;
       height: 6px;
-      background-color: hsl(var(--black));
       border-radius: 50%;
     }
 
@@ -73,7 +82,6 @@
   }
 
   &__link {
-    color: hsl(var(--black));
     font-weight: 500;
 
     &:hover {

@@ -1,7 +1,20 @@
 /* ======================  Work-process Start  ======================*/
 .work-process {
+    position: relative;
+    z-index: 1;
+ 
     --indicator-size: 130px;
     --icon-width: 50px;
+    .glove--base{
+        position: absolute;
+        right: -20%;
+    }
+    &__shape{
+        position: absolute;
+        right: -10%;
+        top: 0;
+        z-index: -1;
+    }
 
     &__inner {
         position: relative;

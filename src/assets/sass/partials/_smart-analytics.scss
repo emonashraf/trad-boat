@@ -13,6 +13,7 @@
         z-index: 1;
         overflow: hidden;
         height: 100%;
+        backdrop-filter: blur(10px);
 
         .rating-pattern {
             position: absolute;

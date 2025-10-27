@@ -446,96 +446,90 @@
     var chart = new ApexCharts(document.querySelector("#reportChart"), options);
     chart.render();
   }
-
-
-
   // ========================= Apex chart Js End =====================
 
-  const { Engine, Render, Runner, Bodies, Composite, Events, Body } = Matter;
+  // ========================= Matter Js Start =====================
+  if ($('#tradInfo').length) {
+    const { Engine, Render, Runner, Bodies, Composite, Events, Body } = Matter;
 
-  const container = document.getElementById('tradInfo');
-  const buttons = container.querySelectorAll('.trad-info-badge');
-  const rect = container.getBoundingClientRect();
-  let engine, world, render;
-  let animationStarted = false;
+    const container = document.getElementById('tradInfo');
+    const buttons = container.querySelectorAll('.trad-info-badge');
+    const rect = container.getBoundingClientRect();
+    let engine, world, render;
+    let animationStarted = false;
 
-  function startAnimation() {
-    if (animationStarted) return;
-    animationStarted = true;
+    function startAnimation() {
+      if (animationStarted) return;
+      animationStarted = true;
+      engine = Engine.create();
+      world = engine.world;
+      engine.world.gravity.y = 1;
 
-    // create engine
-    engine = Engine.create();
-    world = engine.world;
-    engine.world.gravity.y = 1;
-
-    // renderer
-    render = Render.create({
-      element: container,
-      engine: engine,
-      options: {
-        width: rect.width,
-        height: rect.height,
-        wireframes: false,
-        background: 'transparent'
-      }
-    });
-
-    Render.run(render);
-    Runner.run(Runner.create(), engine);
-
-    // ground
-    const ground = Bodies.rectangle(rect.width / 2, rect.height + 20, rect.width, 40, {
-      isStatic: true,
-      render: { fillStyle: '#111' }
-    });
-    Composite.add(world, ground);
-
-    // create bodies for buttons
-    buttons.forEach(btn => {
-      const randomX = Math.random() * (rect.width - 130) + 65;
-      const randomY = -Math.random() * 300 - 50;
-
-      const body = Bodies.rectangle(randomX, randomY, 130, 45, {
-        restitution: 0.9,
-        friction: 0.4,
-        render: { fillStyle: 'transparent' }
+      render = Render.create({
+        element: container,
+        engine: engine,
+        options: {
+          width: rect.width,
+          height: rect.height,
+          wireframes: false,
+          background: 'transparent'
+        }
       });
 
-      btn.body = body;
-      Composite.add(world, body);
-    });
+      Render.run(render);
+      Runner.run(Runner.create(), engine);
 
-    // update DOM positions with boundaries
-    Events.on(engine, 'afterUpdate', function () {
+      const ground = Bodies.rectangle(rect.width / 2, rect.height + 20, rect.width, 40, {
+        isStatic: true,
+        render: { fillStyle: '#111' }
+      });
+      Composite.add(world, ground);
+
       buttons.forEach(btn => {
-        const body = btn.body;
+        const randomX = Math.random() * (rect.width - 130) + 65;
+        const randomY = -Math.random() * 300 - 50;
 
-        // limit x
-        const minX = 65;
-        const maxX = rect.width - 65;
-        if (body.position.x < minX) Body.setPosition(body, { x: minX, y: body.position.y });
-        if (body.position.x > maxX) Body.setPosition(body, { x: maxX, y: body.position.y });
+        const body = Bodies.rectangle(randomX, randomY, 130, 45, {
+          restitution: 0.9,
+          friction: 0.4,
+          render: { fillStyle: 'transparent' }
+        });
 
-        // limit y
-        const maxY = rect.height - 22.5;
-        if (body.position.y > maxY) Body.setPosition(body, { x: body.position.x, y: maxY });
-
-        btn.style.left = (body.position.x - 65) + 'px';
-        btn.style.top = (body.position.y) + 'px';
-        btn.style.transform = `rotate(${body.angle}rad)`;
+        btn.body = body;
+        Composite.add(world, body);
       });
-    });
+
+      Events.on(engine, 'afterUpdate', function () {
+        buttons.forEach(btn => {
+          const body = btn.body;
+
+
+          const minX = 65;
+          const maxX = rect.width - 65;
+          if (body.position.x < minX) Body.setPosition(body, { x: minX, y: body.position.y });
+          if (body.position.x > maxX) Body.setPosition(body, { x: maxX, y: body.position.y });
+
+
+          const maxY = rect.height - 22.5;
+          if (body.position.y > maxY) Body.setPosition(body, { x: body.position.x, y: maxY });
+
+          btn.style.left = (body.position.x - 65) + 'px';
+          btn.style.top = (body.position.y) + 'px';
+          btn.style.transform = `rotate(${body.angle}rad)`;
+        });
+      });
+    }
+
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) startAnimation();
+      });
+    }, { threshold: 0.3 });
+
+    observer.observe(container);
   }
-
-  // trigger when section is visible
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) startAnimation();
-    });
-  }, { threshold: 0.3 });
-
-  observer.observe(container);
-
+  // ========================= Matter Js End =====================
 
   // ========================= Preloader Js Start =====================
   $(window).on("load", function () {

@@ -6,6 +6,7 @@
   /* Font Family */
   --heading-font: "Outfit", sans-serif;                              
   --body-font: "Inter", sans-serif;
+  --b-radius-20: clamp(0.875rem, 0.781rem + 0.469vw, 1.25rem);
   --b-radius-16: clamp(0.625rem, 0.531rem + 0.469vw, 1rem);
   --b-radius-12: clamp(0.5rem, 0.321rem + 0.476vw, 0.75rem);
   --b-radius-8: clamp(0.5rem, 0.321rem + 0.476vw, 0.75rem);

@@ -6,6 +6,7 @@
   margin-top: auto;
   z-index: 2;
   overflow: hidden;
+  background: linear-gradient(180deg, hsl(var(--base-two)) 0%, transparent 59.04%);
 
   &__shape {
     position: absolute;
@@ -80,7 +81,6 @@
 
     flex: 1 1 150px;
 
- 
     &:nth-child(3) {
       flex: 1 1 250px;
     }
@@ -126,57 +126,34 @@
     color: hsl(var(--white));
     margin: 0;
     width: fit-content;
-    padding-bottom: 18px;
     margin-bottom: clamp(1.25rem, 1.094rem + 0.781vw, 1.875rem);
-
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 20px;
-      height: 2px;
-      background-color: hsl(var(--base));
-    }
-
-    &::before {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 85px;
-      height: 2px;
-      background-color: hsl(var(--white)/ 0.04);
-    }
-
-
-    @include md-screen {
-      padding-bottom: rem(24px);
-    }
-
-    @include sm-screen {
-      padding-bottom: rem(16px);
-    }
-
     position: relative;
+    font-family: var(--body-font);
+    font-weight: 700;
   }
 
   &__desc {
     color: hsl(var(--white) / 0.8);
   }
 
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.75rem, 0.547rem + 1.016vw, 1.563rem);
+  }
+
   &__menu-item {
     display: flex;
     gap: 4px;
-    padding-bottom: clamp(0.875rem, 0.656rem + 1.094vw, 1.75rem);
     position: relative;
 
     &::before {
-      content: "\f105";
+      content: "\f101";
       font-family: "Font Awesome 6 Free";
       font-weight: 900;
       display: inline-block;
       margin-right: 8px;
+      color: hsl(var(--base));
     }
 
     &:last-child {
@@ -190,6 +167,7 @@
     display: flex;
     align-items: center;
     gap: rem(12px);
+    font-size: clamp(0.75rem, 0.719rem + 0.156vw, 0.875rem);
 
     &:hover {
       color: hsl(var(--base));
@@ -211,26 +189,37 @@
   &__form {
     position: relative;
 
-    button i {
-      transition: 0.3s;
-      transform: rotate(-45deg);
-    }
-
     .form--control {
       border: 1px solid hsl(var(--white)/ 0.15);
-      background-color: transparent;
       color: hsl(var(--base));
 
       ~button {
+        background: linear-gradient(180deg, hsl(var(--base)), transparent);
+        border-radius: var(--b-radius-6);
+        padding-block: calc(clamp(0.813rem, 0.75rem + 0.313vw, 1.063rem) - 10px);
+        margin: 5px;
+        position: relative;
+        z-index: 1;
+
+        &::before {
+          content: '';
+          position: absolute;
+          inset: -5px;
+          background-color: hsl(var(--white)/ 0.04);
+          border-radius: inherit;
+          z-index: -1;
+        }
+
         i {
-          color: hsl(var(--base));
+          color: hsl(var(--white));
+          transition: 0.3s;
         }
       }
 
       &:focus {
         ~button {
           i {
-            transform: rotate(0deg);
+            transform: rotate(45deg);
           }
         }
       }

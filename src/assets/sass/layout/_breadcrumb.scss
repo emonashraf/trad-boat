@@ -26,19 +26,6 @@
       right: -15%;
     }
   }
-
-  &__shape {
-    position: absolute;
-    top: 0;
-    z-index: -1;
-
-    &:nth-child(2) {
-      right: 0;
-      top: 0;
-    }
-
-  }
-
   &__pattern {
     position: absolute;
     inset: 0;

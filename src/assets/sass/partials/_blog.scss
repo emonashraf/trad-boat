@@ -7,7 +7,6 @@
     &__card {
         position: relative;
         border-radius: var(--b-radius-12);
-        overflow: hidden;
         height: 100%;
         z-index: 2;
         border: 1px solid hsl(var(--white)/0.12);
@@ -43,7 +42,7 @@
         width: var(--date-size);
         height: var(--date-size);
         border-radius: var(--b-radius-12);
-        background-image: linear-gradient(180deg, hsl(var(--base)) 70%, transparent);
+        background-image: linear-gradient(180deg, hsl(var(--base)) 70%, hsl(var(--base-two)));
         font-size: 32px;
         font-weight: 600;
         text-align: center;
@@ -57,7 +56,7 @@
     }
 
     &__title {
-        margin-top: calc(var(--date-size) / 2 - 5px );
+        margin-top: calc(var(--date-size) / 2 - 5px);
 
     }
 
@@ -76,14 +75,22 @@
 }
 
 .blog-details {
+    position: relative;
+    z-index: 1;
+    --date-size: 70px;
 
-    &__thumb {
-        border-radius: 12px;
+    .blog__thumb {
+        border-radius: var(--b-radius-12);
+        display: block;
         overflow: hidden;
     }
 
-    &__body {
-        margin-top: clamp(0.875rem, -0.286rem + 3.095vw, 2.5rem);
+    .blog__body {
+        padding-inline: 0;
+    }
+
+    .blog__title {
+        margin-bottom: clamp(0.75rem, 0.547rem + 1.016vw, 1.563rem);
     }
 
 
@@ -94,10 +101,11 @@
 
         blockquote {
             position: relative;
-            background-color: hsl(var(--base-l-900)/ 0.5);
+            background-color: hsl(var(--white)/ 0.05);
+            background-image: linear-gradient(180deg, hsl(var(--base-two)), transparent);
             padding-block: clamp(1.25rem, -0.089rem + 3.571vw, 3.125rem);
             padding-inline: clamp(0.875rem, 0.161rem + 1.905vw, 1.875rem);
-            border-radius: var(--b-radius);
+            border-radius: var(--b-radius-12);
             border: 1px solid hsl(var(--black)/ 0.04);
 
             z-index: 1;
@@ -111,7 +119,7 @@
                 left: 50%;
                 transform: translate(-50%, -50%);
                 font-size: 120px;
-                color: hsl(var(--base)/ 0.1);
+                color: hsl(var(--white)/ 0.06);
                 z-index: -1;
             }
 

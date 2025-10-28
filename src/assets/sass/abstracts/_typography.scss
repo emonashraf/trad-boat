@@ -15,7 +15,7 @@ body {
   flex-direction: column;
   background-color: hsl(var(--black));
   font-size: clamp(0.875rem, 0.844rem + 0.156vw, 1rem);
-  overflow-x: hidden;
+  overflow-x: hidden !important;
 }
 
 p {
@@ -62,8 +62,8 @@ h5 {
 }
 
 h6 {
-  font-size: clamp(0.938rem, 0.922rem + 0.078vw, 1rem);
-  font-weight: 500;
+  font-size: clamp(1rem, 0.969rem + 0.156vw, 1.125rem);
+  font-weight: 600;
 }
 
 h1>a,
@@ -87,7 +87,7 @@ a {
 }
 
 a:hover {
-  color: hsl(var(--base));
+  color: hsl(var(--base-l-300));
 }
 
 img {

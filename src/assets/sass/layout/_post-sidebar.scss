@@ -156,23 +156,31 @@
     }
 
     .recent-post {
-        display: flex;
-        flex-direction: column;
-        gap: rem(16px);
+        padding: clamp(0.75rem, 0.393rem + 0.952vw, 1.25rem);
+        border: 1px solid hsl(var(--white) / 0.08);
+        border-radius: var(--b-radius-12);
+        background-color: hsl(var(--white)/ 0.04);
+
         &__item {
             display: flex;
             gap: 20px;
             color: hsl(var(--body-color));
+
+            &:not(:last-child) {
+                margin-bottom: rem(16px);
+                padding-bottom: rem(16px);
+                border-bottom: 1px solid hsl(var(--white)/ 0.04);
+            }
 
             @include lg-screen {
                 gap: 15px;
             }
 
             &:hover {
-                color: hsl(var(--base-d-100));
+                color: hsl(var(--base-l-300));
 
                 p {
-                    color: hsl(var(--base-d-300));
+                    color: hsl(var(--base-l-300));
                 }
 
                 .recent-post__thumb {
@@ -203,6 +211,7 @@
             p {
                 color: hsl(var(--heading-color));
                 transition: 0.3s;
+                margin-bottom: rem(8px);
             }
 
         }
@@ -211,9 +220,9 @@
 
     .post-category {
         padding: clamp(0.75rem, 0.393rem + 0.952vw, 1.25rem);
-        border: 1px solid hsl(var(--black) / 0.08);
-        border-radius: var(--b-radius-v2);
-
+        border: 1px solid hsl(var(--white) / 0.08);
+        border-radius: var(--b-radius-12);
+        background-color: hsl(var(--white)/ 0.04);
 
         &__item {
             display: flex;
@@ -223,8 +232,7 @@
             &:not(:last-child) {
                 margin-bottom: rem(16px);
                 padding-bottom: rem(16px);
-                border-bottom: 1px solid hsl(var(--black)/ 0.08);
-
+                border-bottom: 1px solid hsl(var(--white)/ 0.04);
             }
         }
 

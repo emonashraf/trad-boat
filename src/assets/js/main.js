@@ -222,13 +222,18 @@
         minimumResultsForSearch: noSearch ? Infinity : 0,
         tokenSeparators: [','],
       });
+      $select.on('select2:open', function () {
+        $('.select2-search__field').removeClass('form-control').addClass('form--control');
+      });
     });
+
     function resultState(data, container) {
       if (data.element) {
         $(container).addClass($(data.element).attr("class"));
       }
       return data.text;
     }
+
     function formatSelection(selected) {
       if (Array.isArray(selected)) {
         return selected.map(item => item.text).join(', ');
@@ -236,31 +241,24 @@
       return selected.text;
     }
   }
+
   startSelect2();
+
   // ========================= Select2 Js End =====================
 
 
-  // ========================= Show Hide Password Js Start ===================
-  if ($('.password-show-hide').length) {
-    $('.password-show-hide').each(function () {
-      $(this).on('click', function () {
-        let inputField = $(this).closest('.password__field').find('input');
-        let openEye = $(this).find('.open-eye-icon');
-        let closeEye = $(this).find('.close-eye-icon');
-
-        if (inputField.attr('type') === "password") {
-          inputField.attr('type', 'text');
-          openEye.show();
-          closeEye.hide();
-        } else {
-          inputField.attr('type', 'password');
-          openEye.hide();
-          closeEye.show();
-        }
-      });
+  // ================== Password Show Hide Js Start ==========
+    $(".toggle-password").on("click", function () {
+      $(this).toggleClass("fa-eye  fa-eye-slash");
+      var input = $($(this).attr("id"));
+      if (input.attr("type") == "password") {
+        input.attr("type", "text");
+      } else {
+        input.attr("type", "password");
+      }
     });
-  }
-  // ========================= Show Hide Password Js End ===================
+    // =============== Password Show Hide Js End =================
+
   //============================ Sidebar Js Start ============================
   $(document).on('click', '.sidebar__open', function () {
     $('.dashboard__sidebar, .overlay').addClass('active');

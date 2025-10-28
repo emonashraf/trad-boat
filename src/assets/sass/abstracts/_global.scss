@@ -17,7 +17,8 @@
   &__desc {
     margin-top: clamp(0.5rem, 0.406rem + 0.469vw, 0.875rem);
   }
-  &__btn{
+
+  &__btn {
     margin-top: clamp(1.875rem, 1.406rem + 2.344vw, 3.75rem);
   }
 
@@ -94,8 +95,6 @@
     max-width: 1500px;
   }
 }
-
-
 /* ====================== Container for xxxl screen End ==================== */
 /* ======================  avater Start  ======================*/
 .avater_list {
@@ -149,13 +148,70 @@
 
 /* ======================  Glove Start  ======================*/
 .glove--base {
-  width: rem(630px);
-  height: rem(630px);
+  width: clamp(18.75rem, 13.594rem + 25.781vw, 39.375rem);
+  height: clamp(18.75rem, 13.594rem + 25.781vw, 39.375rem);
   border-radius: 50%;
   filter: blur(260px);
   background-color: hsl(var(--base)/ 0.42);
-  z-index: -1;
+  position: absolute;
+  z-index: -2;
+
+  &:nth-child(1) {
+    top: -40%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  &:nth-child(2) {
+    top: -50%;
+    left: -15%;
+  }
+
+  &:nth-child(3) {
+    top: -50%;
+    right: -15%;
+  }
+
+  &:nth-child(4) {
+    bottom: -45%;
+    right: 50%;
+    transform: translateX(50%);
+    width: 80%;
+  }
 }
+/* ======================  patter-1 Start  ======================*/
+.pattern-1 {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 80%;
+  max-width: 80%;
+  background-color: hsl(var(--white));
+  mask-size: cover;
+  z-index: -1;
+  border-radius: 50%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+
+}
+/* ======================  patter-1 End  ======================*/
+
+/* ======================  Common Shape Start  ======================*/
+ .common__shape{
+    position: absolute;
+    top: 0;
+    z-index: -2;
+    &:nth-child(2){
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+  }
+
+/* ======================  Common Shape End  ======================*/
 
 /*
 /* ======================  wyg Start  ======================*/

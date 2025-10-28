@@ -47,6 +47,8 @@ table {
   border-radius: clamp(0.25rem, 0.188rem + 0.313vw, 0.5rem) !important;
   line-height: 1.3;
   font-size: 16px;
+  background-color: hsl(var(--white)/ 0.04);
+  border: 1px solid hsl(var(--white)/ 0.12);
 
   @include sm-screen {
     font-size: rem(14px);
@@ -142,9 +144,9 @@ table {
 
 .select2-container--open .select2-dropdown {
   backdrop-filter: blur(15px);
-  background: linear-gradient(hsl(var(--base-l-900) / .5), hsl(var(--base-l-900) / .5));
-  background-color: hsl(var(--white) / .5);
-  border: 1px solid hsl(var(--border-color)/ 0.5);
+  background: linear-gradient(hsl(var(--white)/ 0.01), hsl(var(--base-two)));
+  background-color: hsl(var(--white) / 0.04);
+  border: 1px solid hsl(var(--border-color)/ 0.04);
   overflow: hidden;
   font-weight: 500;
 
@@ -600,7 +602,7 @@ select {
 
 
   &::placeholder {
-    color: hsl(var(--black) / 0.3);
+    // color: hsl(var(--black) / 0.3);
   }
 
   &:focus {
@@ -610,15 +612,15 @@ select {
 
   &:disabled,
   &[readonly] {
-    background-color: hsl(var(--black) / .08) !important;
+    background-color: hsl(var(--white) / .08) !important;
     opacity: 1;
   }
 
   &[type="password"] {
-    color: hsl(var(--black)/.5);
+    // color: hsl(var(--black)/.5);
 
     &:focus {
-      color: hsl(var(--black));
+      // color: hsl(var(--black));
     }
   }
 
@@ -782,6 +784,7 @@ textarea:-webkit-autofill {
   .btn {
     border-width: 0;
     color: hsl(var(--body-color)) !important;
+    background-color: hsl(var(--white)/ 0.04);
 
     &--sm {
       padding: 6px 14px;
@@ -883,7 +886,7 @@ input#confirm-password {
   cursor: pointer;
   top: 50%;
   transform: translateY(-50%);
-  color: hsl(var(--black)/.4);
+  // color: hsl(var(--black)/.4);
 }
 
 /* --------------- Number Arrow None --------------------- */
@@ -899,6 +902,7 @@ input[type=number] {
 /* Custom Checkbox Design */
 .form--check {
   display: flex;
+  align-items: center;
   gap: 8px;
   margin-bottom: 0;
   padding-left: 0;
@@ -913,7 +917,7 @@ input[type=number] {
     border-radius: 3px;
     width: 16px;
     height: 16px;
-    border: 1px solid hsl(var(--black) / 0.16);
+    border: 1px solid hsl(var(--white) / 0.16);
     cursor: pointer;
     margin-left: 0;
     margin-top: 0;
@@ -951,7 +955,6 @@ input[type=number] {
     color: hsl(var(--heading-color));
   }
 }
-
 
 /* Custom Radio Design */
 .form--radio {

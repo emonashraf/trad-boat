@@ -1,7 +1,6 @@
 .contact {
     position: relative;
     z-index: 2;
-    overflow-x: hidden;
     --icon-size: clamp(2.5rem, 2.313rem + 0.938vw, 3.25rem);
 
     &__form-wrap {
@@ -9,10 +8,31 @@
     }
 
     &__form {
-        background-color: hsl(var(--base-l-900)/ 0.5);
+        position: relative;
+        background-color: hsl(var(--white)/0.03);
         padding-inline: clamp(0.938rem, 0.703rem + 1.172vw, 1.875rem);
         padding-bottom: clamp(1.25rem, 0.938rem + 1.563vw, 2.5rem);
         border-radius: var(--b-radius);
+        border-radius: var(--b-radius-12);
+        margin: 10px;
+
+        &::after {
+            content: '';
+            position: absolute;
+            inset: -9px;
+            background-color: hsl(var(--black));
+            border-radius: inherit;
+            z-index: -1;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: -10px;
+            background-image: linear-gradient(180deg, hsl(var(--base)/ 0.31), transparent, hsl(var(--base)/ 0.31));
+            border-radius: inherit;
+            z-index: -2;
+        }
     }
 
     &__header {
@@ -21,36 +41,16 @@
 
     &__item {
         position: relative;
-        background-color: hsl(var(--white));
-        border: 1px solid hsl(var(--black)/ 0.04);
-        border-radius: var(--b-radius);
-        padding-block: clamp(0.875rem, 0.719rem + 0.781vw, 1.5rem);
-        padding-inline: clamp(0.938rem, 0.703rem + 1.172vw, 1.875rem);
-        overflow: hidden;
         height: 100%;
         z-index: 1;
-
-        &::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: hsl(var(--base-l-900)/ 0.5);
-            z-index: -1;
-            transition: 0.3s;
-        }
-
+        display: flex;
+        gap: clamp(0.75rem, 0.563rem + 0.938vw, 1.5rem);
+        background-image: linear-gradient(hsl(var(--base)/ 0.27), transparent);
+        border: 1px solid hsl(var(--base)/ 0.27);
+        backdrop-filter: blur(10px);
+        padding: 30px 20px;
+        border-radius: var(--b-radius-12);
         &:hover {
-            .contact__shape {
-                transform: rotate(-2deg) scale(1.1);
-            }
-
-            &::before {
-                bottom: 0;
-
-            }
-
             .contact__icon {
                 i {
                     animation: bounce 0.6s ease-in-out;
@@ -60,25 +60,15 @@
 
     }
 
-    &__shape {
-        max-width: clamp(7.5rem, 7.031rem + 2.344vw, 9.375rem);
-        position: absolute;
-        bottom: -10%;
-        right: -10%;
-        transition: 0.3s ease;
-    }
 
     &__icon {
         width: var(--icon-size);
         height: var(--icon-size);
-        background-color: hsl(var(--base));
-        border: 1px solid hsl(var(--white) / 0.8);
-        border-radius: var(--b-radius);
+        background: linear-gradient(180deg, hsl(var(--base)) 0%, transparent 100%);
+        border-radius: var(--b-radius-8);
         display: grid;
         place-items: center;
         flex-shrink: 0;
-        margin-bottom: clamp(0.875rem, 0.719rem + 0.781vw, 1.5rem);
-        overflow: hidden;
 
         i {
             color: hsl(var(--white));
@@ -87,21 +77,19 @@
     }
 
     &__info {
-        p {
+        h6 {
             margin-bottom: clamp(0.5rem, 0.375rem + 0.625vw, 1rem);
-        }
-
-        h5 {
-            margin: 0;
         }
     }
 
     &__map {
         height: 100%;
+
         iframe {
+            display: block;
             width: 100%;
             height: 100%;
-            border-radius: var(--b-radius);
+            border-radius: var(--b-radius-12);
         }
     }
 }

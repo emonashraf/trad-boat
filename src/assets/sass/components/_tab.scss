@@ -8,7 +8,9 @@
     &:not(.nav--pills) {
         gap: clamp(0.625rem, -0.156rem + 3.906vw, 3.75rem);
     }
+
     margin-bottom: clamp(1.563rem, 1.328rem + 1.172vw, 2.5rem);
+
     .nav-item {
         border-bottom: 0;
 
@@ -54,19 +56,21 @@
     }
 
     &.nav--pills {
-        border: 1px solid hsl(var(--border-color));
         border-radius: 50px;
         width: fit-content;
         margin-inline: auto;
+        background-color: hsl(var(--white)/ 0.05);
+        padding: 9px;
+        gap: 10px;
 
         .nav-item {
             .nav-link {
-                padding: rem(8px) rem(15px);
+                padding: rem(9px) rem(20px);
                 margin: 0;
                 border-radius: rem(50px);
 
                 &.active {
-                    background-color: hsl(var(--base)) !important;
+                    background: linear-gradient(to right, hsl(var(--base)), transparent) !important;
                     color: hsl(var(--white));
                 }
 

@@ -52,6 +52,10 @@
         color: hsl(var(--base));
         line-height: 1;
         margin-bottom: clamp(1rem, 0.875rem + 0.625vw, 1.5rem);
+        width: 50px;
+        height: 50px;
+        border-radius: 4px;
+        background: linear-gradient(180deg, hsl(var(--base-two)), transparent);
     }
 
     &__name {

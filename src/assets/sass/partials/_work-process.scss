@@ -2,14 +2,36 @@
 .work-process {
     position: relative;
     z-index: 1;
- 
     --indicator-size: 130px;
-    --icon-width: 50px;
-    .glove--base{
-        position: absolute;
-        right: -20%;
+    --icon-width: 30px;
+    --card-gap: 200px;
+    --count-size: 60px;
+    --card-size: calc(100% / 3 - var(--card-gap));
+
+    @include xxl-screen {
+        --card-gap: 150px;
+        --indicator-size: 100px;
     }
-    &__shape{
+
+    @include xl-screen {
+        --card-gap: 40px;
+        --indicator-size: 60px;
+    }
+
+    @include md-screen {
+        --card-gap: 80px;
+        --card-size: 100%;
+        --indicator-size: 40px;
+        --icon-width: 20px;
+
+    }
+    .glove--base {
+        position: absolute;
+        left: auto;
+        right: -20% !important;
+    }
+
+    &__shape {
         position: absolute;
         right: -10%;
         top: 0;
@@ -20,13 +42,18 @@
         position: relative;
         display: flex;
         justify-content: space-between;
-        gap: rem(210px);
+        gap: var(--card-gap);
         border-radius: var(--b-radius-16);
         background-image: linear-gradient(180deg, hsl(var(--base-two-l-100)), transparent);
         background-color: hsl(var(--black));
-        padding-top: rem(80px);
-        padding-inline: rem(55px);
-        
+        padding-top: clamp(1.875rem, 1.094rem + 3.906vw, 5rem);
+        padding-inline: clamp(1.25rem, 0.703rem + 2.734vw, 3.438rem);
+        padding-bottom: 20px;
+
+        @include md-screen {
+            flex-direction: column;
+        }
+
         &::after {
             content: '';
             position: absolute;
@@ -49,29 +76,27 @@
 
     &__card {
         position: relative;
-
         height: 100%;
-
-
-        &:hover {
-
-            .work-process__shape {
-                transform: scale(1.1);
-
-                &::before {
-                    transform: scale(1);
-                }
-            }
-        }
+        width: var(--card-size);
+        margin-inline: auto;
+        max-width: 400px;
     }
 
     &__count {
-        font-size: 48px;
-        font-weight: 500;
+        font-size: clamp(1.875rem, 1.594rem + 1.406vw, 3rem);
+        font-weight:500;
         line-height: 1;
         color: transparent;
         -webkit-text-stroke: 2px hsl(var(--heading-color));
         margin-bottom: rem(28px);
+        width: var(--count-size);
+        @include md-screen{
+            font-weight: 700;
+        }
+        @include sm-screen{
+            font-weight: 900;
+        }
+
 
     }
 
@@ -80,11 +105,23 @@
     }
 
     &__indicator {
-        display: block;
+        display: inline-block;
         position: absolute;
-        right: 0;
+        right: calc(((var(--card-size) + var(--card-gap)) / 2) * -1);
         top: 15%;
-        width: 100%;
+        height: 10px;
+
+        @include xl-screen {
+            right: 30%;
+        }
+
+        @include md-screen {
+            transform: translate(-50%) rotate(90deg);
+            top: auto;
+            bottom: -35%;
+            left: 50%;
+        }
+
 
         i {
             display: inline-block;
@@ -92,7 +129,7 @@
             position: absolute;
             right: 0;
             top: 50%;
-            transform: translateY(-50%);
+            transform: translate(50%, -50%);
             width: var(--icon-width);
             display: grid;
             place-items: center;
@@ -101,22 +138,31 @@
         &::after {
             content: '';
             position: absolute;
-            right: -100%;
+            right: calc(-100% - var(--icon-width) / 2);
             top: 50%;
-            transform: translateX(-100%);
+            transform: translateX(100%);
             width: var(--indicator-size);
             height: 1px;
             background-color: hsl(var(--body-color)/ 0.5);
+
+            @include md-screen {
+                display: none;
+            }
         }
 
         &::before {
             content: '';
             position: absolute;
-            right: 40px;
+            right: calc(var(--icon-width) / 2);
             top: 50%;
             width: var(--indicator-size);
             height: 1px;
             background-color: hsl(var(--body-color)/ 0.5);
+
+            @include md-screen {
+                right: calc(var(--icon-width) / 4);
+                top: calc(50% - 1px);
+            }
         }
     }
 

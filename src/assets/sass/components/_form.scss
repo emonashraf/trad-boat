@@ -740,14 +740,16 @@ textarea:-webkit-autofill {
   transition: .3s;
   z-index: 1;
 
+
+
   .input-group-text {
-    background-color: hsl(var(--base));
+    background-color: hsl(var(--white)/ 0.04);
     border-color: hsl(var(--border-color));
     border-radius: 0;
     font-size: rem(16px);
     font-weight: 500;
     padding-left: 14px;
-    color: hsl(var(--white));
+    color: hsl(var(--body-color));
     border-width: 0;
 
     @include md-screen {
@@ -766,6 +768,10 @@ textarea:-webkit-autofill {
     border-width: 0 !important;
     border-radius: 0;
     box-shadow: 0 0;
+
+    &:last-child {
+      padding-left: 0;
+    }
   }
 
   .select2-container--default {
@@ -835,6 +841,7 @@ textarea:-webkit-autofill {
 
   >*:last-child {
     border-radius: 0 rem(8px) rem(8px) 0;
+
 
     @include md-screen {
       border-radius: 0 rem(6px) rem(6px) 0;

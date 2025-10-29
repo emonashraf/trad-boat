@@ -2,33 +2,7 @@
 .error {
   position: relative;
   z-index: 1;
-  background-color: hsl(var(--base-l-900));
-  overflow-x: hidden;
-
-  &__shape {
-    position: absolute;
-    width: clamp(18.75rem, 15.625rem + 15.625vw, 31.25rem);
-    z-index: -1;
-
-    &:nth-child(1) {
-      top: -20%;
-      left: -10%;
-      animation: rotateIn 90s linear infinite;
-    }
-
-    &:nth-child(2) {
-      bottom: 3%;
-      right: 3%;
-      animation: rotateOut 90s linear infinite;
-    }
-  }
-
-  .glove--base {
-    position: absolute;
-    bottom: 3%;
-    right: 3%;
-    z-index: -2;
-  }
+  overflow: hidden;
 
   &__main {
     text-align: center;

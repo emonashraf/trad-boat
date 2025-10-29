@@ -95,6 +95,7 @@
     max-width: 1500px;
   }
 }
+
 /* ====================== Container for xxxl screen End ==================== */
 /* ======================  avater Start  ======================*/
 .avater_list {
@@ -160,6 +161,7 @@
     top: -40%;
     left: 50%;
     transform: translateX(-50%);
+
   }
 
   &:nth-child(2) {
@@ -174,42 +176,101 @@
 
   &:nth-child(4) {
     bottom: -45%;
-    right: 50%;
-    transform: translateX(50%);
     width: 80%;
   }
+
+  @include md-screen {
+    &:nth-child(1) {
+      top: -30%;
+      left: 40%;
+      transform: translateX(-50%);
+
+    }
+
+    &:nth-child(2) {
+      top: -40%;
+      left: -10%;
+    }
+
+    &:nth-child(3) {
+      top: -40%;
+      right: -10%;
+    }
+
+    &:nth-child(4) {
+      bottom: -35%;
+      right: 40%;
+      transform: translateX(50%);
+      width: 70%;
+    }
+  }
+  @include sm-screen {
+    &:nth-child(1) {
+      top: -10%;
+      left: 20%;
+      transform: translateX(-50%);
+
+    }
+
+    &:nth-child(2) {
+      top: -10%;
+      left: -5%;
+    }
+
+    &:nth-child(3) {
+      top: -10%;
+      right: -5%;
+    }
+
+    &:nth-child(4) {
+      bottom: -30%;
+      width: 60%;
+    }
+  }
 }
+
 /* ======================  patter-1 Start  ======================*/
 .pattern-1 {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 0 !important;
   left: 50%;
   transform: translateX(-50%);
   width: 100%;
-  height: 80%;
+  height: 100%;
   max-width: 80%;
   background-color: hsl(var(--white));
-  mask-size: cover;
   z-index: -1;
+  mask-size: cover;
   border-radius: 50%;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-
+  @include md-screen{
+    height: 70%;
+  }
+   @include sm-screen{
+    height: 40%;
+  }
+   @include msm-screen{
+    height: 30%;
+  }
 }
+
 /* ======================  patter-1 End  ======================*/
 
 /* ======================  Common Shape Start  ======================*/
- .common__shape{
+.common__shape {
+  max-width: clamp(9.375rem, 3.531rem + 29.219vw, 32.75rem);
+  position: absolute;
+  top: 0;
+  z-index: -2;
+
+
+  &:nth-child(2) {
     position: absolute;
+    right: 0;
     top: 0;
-    z-index: -2;
-    &:nth-child(2){
-      position: absolute;
-      right: 0;
-      top: 0;
-    }
   }
+}
 
 /* ======================  Common Shape End  ======================*/
 

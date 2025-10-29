@@ -15,7 +15,9 @@ body {
   flex-direction: column;
   background-color: hsl(var(--black));
   font-size: clamp(0.875rem, 0.844rem + 0.156vw, 1rem);
-  overflow-x: hidden !important;
+}
+main{
+  overflow: hidden;
 }
 
 p {

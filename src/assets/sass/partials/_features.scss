@@ -3,6 +3,7 @@
     position: relative;
     z-index: 1;
     height: 100%;
+    --icon-size: clamp(2.5rem, 1.797rem + 3.516vw, 5.313rem);
     .glove--base{
         position: absolute;
         z-index: -1;
@@ -20,12 +21,12 @@
         margin-inline: auto;
     }
     &__icon{
-        margin-bottom: rem(26px);
-        max-width: rem(86px);
+        margin-bottom: clamp(1.25rem, 1.156rem + 0.469vw, 1.625rem);
+        max-width: var(--icon-size);
         margin-inline: auto;
     }
     &__title{
-        margin-bottom: rem(24px);
+        margin-bottom: clamp(0.625rem, 0.406rem + 1.094vw, 1.5rem);
     }
 }
 /* ======================  Trust End  ======================*/

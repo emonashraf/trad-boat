@@ -80,7 +80,7 @@
     &__rio {
         display: flex;
         align-items: center;
-        gap: rem(14px);
+        gap: clamp(0.625rem, 0.563rem + 0.313vw, 0.875rem);
 
         .badge {
             font-size: rem(16px);
@@ -101,8 +101,8 @@
 
     &__list-item {
         &:not(:last-child) {
-            margin-bottom: rem(12px);
-            padding-bottom: rem(12px);
+            margin-bottom: clamp(0.563rem, 0.516rem + 0.234vw, 0.75rem);
+            padding-bottom: clamp(0.563rem, 0.516rem + 0.234vw, 0.75rem);
             border-bottom: 1px dashed hsl(var(--white)/ 0.13);
         }
 
@@ -113,7 +113,7 @@
     }
 
     &__label {
-        padding-bottom: 12px;
+        padding-bottom: clamp(0.25rem, 0.125rem + 0.625vw, 0.75rem);
         display: inline-block;
     }
 

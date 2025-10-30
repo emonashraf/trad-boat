@@ -7,7 +7,7 @@
 
     &__card {
         position: relative;
-        padding: 20px;
+        padding: clamp(0.625rem, 0.469rem + 0.781vw, 1.25rem);
         background-color: hsl(var(--white)/ 0.08);
         border-radius: var(--b-radius-12);
         z-index: 1;
@@ -172,8 +172,8 @@
         &__card {
             border-radius: var(--b-radius-12);
             background: linear-gradient(180deg, hsl(var(--base-two)/ 0.5), transparent);
-            padding-block: 25px;
-            padding-inline: 20px;
+            padding-block: clamp(0.75rem, 0.547rem + 1.016vw, 1.563rem);
+            padding-inline: clamp(0.625rem, 0.469rem + 0.781vw, 1.25rem);
         }
 
         &__price {
@@ -209,6 +209,7 @@
         min-height: 200px;
         max-width: 400px;
         margin-inline: auto;
+        left: 50% !important;
     }
 
     .trad-info-badge {

@@ -3,44 +3,24 @@
   position: relative;
   max-width: rem(1920px);
   margin-inline: auto;
+  --icon-size: clamp(3.125rem, 2.813rem + 1.563vw, 4.375rem);
 
   &__card {
     transition: 0.3s;
     width: 100%;
-    border-radius: rem(12px);
+    border-radius: var(--b-radius-12);
     overflow: hidden;
     max-width: rem(420px);
     margin-inline: auto;
-    // background-color: hsl(var(--base-two));
     background-image: linear-gradient(180deg, hsl(var(--base)/ 0.2), transparent);
     border: 1px solid hsl(var(--base)/ 0.2);
-    padding-inline: 25px;
-    padding-block: 50px;
-    // padding-bottom: 30px;
-
-    // &::after {
-    //   content: '';
-    //   position: absolute;
-    //   inset: 0;
-    //   background-color: hsl(var(--black));
-    //   z-index: -1;
-    //   border-radius: inherit;
-    // }
-
-    // &::before {
-    //   content: '';
-    //   position: absolute;
-    //   inset: -1px;
-    //   background-image: linear-gradient(180deg, transparent, hsl(var(--base)/ 0.3));
-    //   z-index: -1;
-    //   border-radius: inherit;
-    // }
-
+    padding-inline: clamp(0.625rem, 0.391rem + 1.172vw, 1.563rem);
+    padding-block: clamp(1.875rem, 1.563rem + 1.563vw, 3.125rem);
   }
 
   &__thumb {
-    width: 70px;
-    height: 70px;
+    width: var(--icon-size);
+    height: var(--icon-size);
     border-radius: 50%;
     overflow: hidden;
     margin-inline: auto;
@@ -87,9 +67,6 @@
   }
 
   .custom-btn {
-    width: rem(50px);
-    height: rem(50px);
-    font-size: rem(22px);
     background-color: hsl(var(--base)/0.5);
 
     &:hover {
@@ -99,19 +76,11 @@
   }
 
   .custom-prev {
-    left: 20px;
-
-    @include xl-screen {
-      left: 40px;
-    }
+    left: clamp(0.625rem, 0.469rem + 0.781vw, 1.25rem);
   }
 
   .custom-next {
-    right: 20px;
-
-    @include xl-screen {
-      right: 40px;
-    }
+    right: clamp(0.625rem, 0.469rem + 0.781vw, 1.25rem);
   }
 
   .custom-btn.swiper-button-disabled {

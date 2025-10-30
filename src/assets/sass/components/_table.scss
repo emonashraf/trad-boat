@@ -13,7 +13,8 @@
 .action-dropdown-btn {
   width: 35px;
   height: 35px;
-  background-color: hsl(var(--white));
+  background-color: hsl(var(--white)/0.06);
+  color: hsl(var(--white));
   border-radius: 6px;
 }
 
@@ -71,8 +72,8 @@
       th {
         text-align: center;
         padding: 16px;
-        color: hsl(var(--heading-font));
-        background-color: hsl(var(--base-l-800));
+        color: hsl(var(--white));
+        background-color: hsl(var(--base));
         font-family: var(--heading-font);
         font-weight: 500;
         border-bottom: 0;
@@ -100,7 +101,7 @@
 
   tbody {
     border: 0 !important;
-    background-color: hsl(var(--white));
+    background-color: hsl(var(--white)/ 0.04);
 
     tr {
       td {

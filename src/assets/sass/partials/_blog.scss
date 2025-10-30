@@ -2,7 +2,7 @@
 .blog {
     position: relative;
     z-index: 1;
-    --date-size: 70px;
+    --date-size: clamp(2.5rem, 2.031rem + 2.344vw, 4.375rem);
 
     &__card {
         position: relative;
@@ -22,8 +22,6 @@
         z-index: 1;
 
     }
-
-
     &__thumb {
         display: block;
         width: 100%;
@@ -43,12 +41,12 @@
         height: var(--date-size);
         border-radius: var(--b-radius-12);
         background-image: linear-gradient(180deg, hsl(var(--base)) 70%, hsl(var(--base-two)));
-        font-size: 32px;
+        font-size: clamp(1rem, 0.75rem + 1.25vw, 2rem);
         font-weight: 600;
         text-align: center;
 
         span {
-            font-size: 16px;
+            font-size: clamp(0.75rem, 0.688rem + 0.313vw, 1rem);
             font-weight: 500;
             margin-top: rem(3px);
 

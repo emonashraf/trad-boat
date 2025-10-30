@@ -1,27 +1,36 @@
 /* =========================== Accordion Css start ============================= */
-.accordion-wrap{
+.accordion {
+  --accordion-p: clamp(0.625rem, 0.469rem + 0.781vw, 1.25rem);
   position: relative;
   z-index: 1;
   border-radius: var(--b-radius-12);
   overflow: visible;
-  
-  &::after{
+  margin: var(--accordion-p);
+
+  &::after {
     content: '';
     position: absolute;
-    inset: -19px;
+    inset: calc(-1 * var(--accordion-p));
     background-color: hsl(var(--black));
     border-radius: inherit;
     z-index: -1;
   }
-    &::before{
+
+  &::before {
     content: '';
     position: absolute;
-    inset: -20px;
-    background-image: linear-gradient(180deg, hsl(var(--base)/ 0.31), transparent, hsl(var(--base)/ 0.31));
+    inset: calc(-1 * var(--accordion-p) - 1px); 
+    background-image: linear-gradient(
+      180deg, 
+      hsl(var(--base)/0.31), 
+      transparent, 
+      hsl(var(--base)/0.31)
+    );
     border-radius: inherit;
     z-index: -2;
   }
 }
+
 .accordion {
   .accordion-item {
     border: 1px solid hsl(var(--base) / 0.06);
@@ -30,7 +39,7 @@
     overflow: hidden;
 
     &:not(:last-child) {
-      margin-bottom: 12px;
+      margin-bottom: clamp(0.5rem, 0.438rem + 0.313vw, 0.75rem);
     }
   }
 
@@ -39,13 +48,12 @@
   }
 
   .accordion-body {
-    padding: 24px;
+    padding: clamp(0.75rem, 0.563rem + 0.938vw, 1.5rem);
     padding-top: 0;
     background-color: hsl(var(--white)/ 0.03);
     color: hsl(var(--body-color));
 
     @include sm-screen {
-      padding: 16px;
       font-size: 14px;
     }
   }
@@ -63,13 +71,12 @@
     color: var(--heading-color);
     font-size: 20px;
     font-weight: 600;
-    padding: 28px 24px;
-    padding-right: 50px;
+    padding-inline: clamp(0.75rem, 0.563rem + 0.938vw, 1.5rem);
+    padding-block: clamp(0.875rem, 0.656rem + 1.094vw, 1.75rem);
+    padding-right: clamp(1.875rem, 1.563rem + 1.563vw, 3.125rem);
 
     @include sm-screen {
       font-size: 16px;
-      padding: 20px 16px;
-      padding-right: 40px;
     }
 
     &::after {

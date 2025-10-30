@@ -169,7 +169,7 @@
     effect: "coverflow",
     grabCursor: true,
     centeredSlides: false,
-    slidesPerView: 2,
+    slidesPerView: 1,
     spaceBetween: 10,
     coverflowEffect: {
       rotate: 30,
@@ -186,19 +186,19 @@
     breakpoints: {
       640: {
         slidesPerView: 2,
-        spaceBetween: 12,
+        spaceBetween: 10,
       },
       768: {
         slidesPerView: 3,
         spaceBetween: 15
       },
-      1024: {
+      1100: {
         slidesPerView: 3,
-        spaceBetween: 20
+        spaceBetween: 15
       },
-      1200: {
+      1400: {
         slidesPerView: 5,
-        spaceBetween: 24
+        spaceBetween: 20
       },
     }
   });
@@ -248,16 +248,16 @@
 
 
   // ================== Password Show Hide Js Start ==========
-    $(".toggle-password").on("click", function () {
-      $(this).toggleClass("fa-eye  fa-eye-slash");
-      var input = $($(this).attr("id"));
-      if (input.attr("type") == "password") {
-        input.attr("type", "text");
-      } else {
-        input.attr("type", "password");
-      }
-    });
-    // =============== Password Show Hide Js End =================
+  $(".toggle-password").on("click", function () {
+    $(this).toggleClass("fa-eye  fa-eye-slash");
+    var input = $($(this).attr("id"));
+    if (input.attr("type") == "password") {
+      input.attr("type", "text");
+    } else {
+      input.attr("type", "password");
+    }
+  });
+  // =============== Password Show Hide Js End =================
 
   //============================ Sidebar Js Start ============================
   $(document).on('click', '.sidebar__open', function () {
@@ -354,7 +354,7 @@
         height: 362,
         type: 'line',
         zoom: { enabled: false },
-        toolbar: { show: false }
+        toolbar: { show: false },
       },
       dataLabels: { enabled: false },
       fill: { type: 'solid' },
@@ -393,27 +393,88 @@
       },
       xaxis: {
         categories: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-        labels: { style: { colors: 'hsl(var(--white))' } }
+        labels: {
+          style: {
+            colors: 'hsl(var(--white))',
+            fontSize: '13px'
+          }
+        }
       },
       yaxis: {
-        labels: { style: { colors: 'hsl(var(--white))' } }
-      }
+        labels: {
+          style: {
+            colors: 'hsl(var(--white))',
+            fontSize: '13px'
+          }
+        }
+      },
+
+      // ✅ Responsive
+      responsive: [
+        {
+          breakpoint: 1200,
+          options: {
+            chart: { height: 350 },
+            legend: { fontSize: '13px' },
+            xaxis: { labels: { style: { fontSize: '12px' } } },
+            markers: { size: 4.5 }
+          }
+        },
+        {
+          breakpoint: 992,
+          options: {
+            chart: { height: 320 },
+            legend: {
+              position: 'bottom',
+              horizontalAlign: 'center',
+              fontSize: '12px'
+            },
+            xaxis: { labels: { style: { fontSize: '12px' } } },
+            markers: { size: 4 }
+          }
+        },
+        {
+          breakpoint: 768,
+          options: {
+            chart: { height: 300 },
+            legend: { fontSize: '12px' },
+            xaxis: { labels: { style: { fontSize: '12px' } } },
+            markers: { size: 3.5 }
+          }
+        },
+        {
+          breakpoint: 576,
+          options: {
+            chart: { height: 280 },
+            legend: { fontSize: '12px' },
+            xaxis: { labels: { style: { fontSize: '10px' } } },
+            markers: { size: 3 }
+          }
+        }
+      ]
     };
 
     var chart = new ApexCharts(document.querySelector("#profitChart"), profitChart);
     chart.render();
   }
+
+
   // chart 2
   if ($('#reportChart').length) {
     var options = {
-      series: [20, 30, 15, 20,],
+      series: [20, 30, 15, 20],
       chart: {
-        width: "100%",
         type: 'pie',
-
+        width: "100%",
+        height: "270",
       },
       labels: ['Investment', 'Profit', 'Loss', 'Reserve Fund'],
-      colors: ['hsl(var(--base))', 'hsl(var(--success)', 'hsl(var(--danger))', 'hsl(var(--info))'],
+      colors: [
+        'hsl(var(--base))',
+        'hsl(var(--success))',
+        'hsl(var(--danger))',
+        'hsl(var(--info))'
+      ],
       dataLabels: {
         enabled: true,
         style: {
@@ -432,18 +493,48 @@
           }
         }
       },
-      responsive: [{
-        breakpoint: 480,
-        options: {
-          chart: { width: 200 },
-          legend: { position: 'bottom' }
+      // 🔹 Responsive breakpoints
+      responsive: [
+        {
+          breakpoint: 1500,
+          options: {
+            chart: { height: 250 },
+            legend: { fontSize: 13 },
+            xaxis: { labels: { style: { fontSize: 12 } } },
+            yaxis: { labels: { style: { fontSize: 12 } } }
+          }
+        },
+        {
+          breakpoint: 1200,
+          options: {
+            chart: { width: "100%" },
+            legend: { position: 'bottom' },
+            dataLabels: { style: { fontSize: '11px' } }
+          }
+        },
+        {
+          breakpoint: 768,
+          options: {
+            chart: { width: "100%" },
+            legend: { fontSize: '10px' },
+            dataLabels: { style: { fontSize: '10px' } }
+          }
+        },
+        {
+          breakpoint: 480,
+          options: {
+            chart: { width: "100%" },
+            legend: { position: 'bottom', fontSize: '9px' },
+            dataLabels: { style: { fontSize: '9px' } }
+          }
         }
-      }]
+      ]
     };
 
     var chart = new ApexCharts(document.querySelector("#reportChart"), options);
     chart.render();
   }
+
   // ========================= Apex chart Js End =====================
 
   // ========================= Matter Js Start =====================
@@ -452,17 +543,20 @@
 
     const container = document.getElementById('tradInfo');
     const buttons = container.querySelectorAll('.trad-info-badge');
-    const rect = container.getBoundingClientRect();
+    let rect = container.getBoundingClientRect();
     let engine, world, render;
     let animationStarted = false;
 
     function startAnimation() {
       if (animationStarted) return;
       animationStarted = true;
+
+      // Create engine
       engine = Engine.create();
       world = engine.world;
       engine.world.gravity.y = 1;
 
+      // Render setup
       render = Render.create({
         element: container,
         engine: engine,
@@ -477,17 +571,24 @@
       Render.run(render);
       Runner.run(Runner.create(), engine);
 
+      // Ground setup
       const ground = Bodies.rectangle(rect.width / 2, rect.height + 20, rect.width, 40, {
         isStatic: true,
-        render: { fillStyle: '#111' }
+        render: { fillStyle: 'transparent' }
       });
       Composite.add(world, ground);
 
+      // Create falling badges (center zone)
       buttons.forEach(btn => {
-        const randomX = Math.random() * (rect.width - 130) + 65;
+        const centerStart = rect.width * 0.25;
+        const centerEnd = rect.width * 0.75;
+        const randomX = Math.random() * (centerEnd - centerStart) + centerStart;
         const randomY = -Math.random() * 300 - 50;
 
-        const body = Bodies.rectangle(randomX, randomY, 130, 45, {
+        const badgeWidth = 130;
+        const badgeHeight = 45;
+
+        const body = Bodies.rectangle(randomX, randomY, badgeWidth, badgeHeight, {
           restitution: 0.9,
           friction: 0.4,
           render: { fillStyle: 'transparent' }
@@ -497,28 +598,52 @@
         Composite.add(world, body);
       });
 
+      // Update DOM badge positions
       Events.on(engine, 'afterUpdate', function () {
         buttons.forEach(btn => {
           const body = btn.body;
 
+          const badgeWidth = 130;
+          const minX = badgeWidth / 2;
+          const maxX = rect.width - badgeWidth / 2;
+          const maxY = rect.height - 22.5;
 
-          const minX = 65;
-          const maxX = rect.width - 65;
           if (body.position.x < minX) Body.setPosition(body, { x: minX, y: body.position.y });
           if (body.position.x > maxX) Body.setPosition(body, { x: maxX, y: body.position.y });
-
-
-          const maxY = rect.height - 22.5;
           if (body.position.y > maxY) Body.setPosition(body, { x: body.position.x, y: maxY });
 
-          btn.style.left = (body.position.x - 65) + 'px';
-          btn.style.top = (body.position.y) + 'px';
+          btn.style.left = (body.position.x - badgeWidth / 2) + 'px';
+          btn.style.top = body.position.y + 'px';
           btn.style.transform = `rotate(${body.angle}rad)`;
         });
       });
     }
 
+    // ✅ Responsive resize handler
+    function handleResize() {
+      rect = container.getBoundingClientRect();
 
+      if (render) {
+        render.canvas.width = rect.width;
+        render.canvas.height = rect.height;
+      }
+
+      // Update ground position dynamically
+      if (world && world.bodies.length > 0) {
+        const ground = world.bodies[0];
+        Body.setPosition(ground, { x: rect.width / 2, y: rect.height + 20 });
+        Body.setVertices(ground, [
+          { x: 0, y: rect.height },
+          { x: rect.width, y: rect.height },
+          { x: rect.width, y: rect.height + 40 },
+          { x: 0, y: rect.height + 40 }
+        ]);
+      }
+    }
+
+    window.addEventListener('resize', handleResize);
+
+    // Observer to start animation when visible
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) startAnimation();
@@ -527,6 +652,7 @@
 
     observer.observe(container);
   }
+
   // ========================= Matter Js End =====================
 
   // ========================= Preloader Js Start =====================

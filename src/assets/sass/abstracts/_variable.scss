@@ -41,7 +41,7 @@
   @include colorVariable(--section-bg, #dddddd);
 
   /* ================================ Box Shadow Start =============================== */
-  --box-shadow: 0px 2px 15px hsl(var(--black) / 0.05);
+  --box-shadow: 0px 2px 15px hsl(var(--white) / 0.05);
   --box-shadow-2:  1px 7px 16px 0px  hsl(var(--black)/ 0.28);
   /* ================================ Box Shadow End =============================== */
 

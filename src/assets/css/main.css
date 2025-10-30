@@ -59,7 +59,7 @@
     --border-color: 0 0% 88%;
     --section-bg: 0 0% 87%;
   /* ================================ Box Shadow Start =============================== */
-    --box-shadow: 0px 2px 15px hsl(var(--black) / 0.05);
+    --box-shadow: 0px 2px 15px hsl(var(--white) / 0.05);
     --box-shadow-2: 1px 7px 16px 0px hsl(var(--black)/ 0.28);
   /* ================================ Box Shadow End =============================== */
   /* ============================== Bootstrap Modifier Start ============================== */
@@ -445,17 +445,44 @@ button:focus {
     max-width: 100%;
     display: flex;
     text-align: start;
-    flex-wrap: wrap;
     justify-content: space-between;
-    gap: 20px;
+    gap: clamp(0.5rem, 0.406rem + 0.469vw, 0.875rem);
+}
+
+@media screen and (max-width: 991px) {
+    .section-heading.style-between {
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        max-width: 34.375rem;
+        margin-inline: auto;
+        text-align: center;
+    }
 }
 
 .section-heading.style-between .section-heading__name {
     justify-content: start;
 }
 
-.section-heading.style-between .section-heading__content {
-    max-width: 38.75rem;
+.section-heading.style-between .section-heading__title {
+    max-width: 31.25rem;
+}
+
+@media screen and (max-width: 991px) {
+    .section-heading.style-between .section-heading__title {
+        margin-inline: auto;
+        text-align: center;
+    }
+}
+
+.section-heading.style-between .section-heading__desc {
+    max-width: 21.875rem;
+}
+
+@media screen and (max-width: 991px) {
+    .section-heading.style-between .section-heading__desc {
+        margin-inline: auto;
+    }
 }
 
 .section-heading.style-between .btn {
@@ -2064,26 +2091,28 @@ button:focus {
 
 /* ======================  Gap End  ======================*/
 /* =========================== Accordion Css start ============================= */
-.accordion-wrap {
+.accordion {
+    --accordion-p: clamp(0.625rem, 0.469rem + 0.781vw, 1.25rem);
     position: relative;
     z-index: 1;
     border-radius: var(--b-radius-12);
     overflow: visible;
+    margin: var(--accordion-p);
 }
 
-.accordion-wrap::after {
+.accordion::after {
     content: "";
     position: absolute;
-    inset: -19px;
+    inset: calc(-1 * var(--accordion-p));
     background-color: hsl(var(--black));
     border-radius: inherit;
     z-index: -1;
 }
 
-.accordion-wrap::before {
+.accordion::before {
     content: "";
     position: absolute;
-    inset: -20px;
+    inset: calc(-1 * var(--accordion-p) - 1px);
     background-image: linear-gradient(180deg, hsl(var(--base)/0.31), transparent, hsl(var(--base)/0.31));
     border-radius: inherit;
     z-index: -2;
@@ -2097,7 +2126,7 @@ button:focus {
 }
 
 .accordion .accordion-item:not(:last-child) {
-    margin-bottom: 12px;
+    margin-bottom: clamp(0.5rem, 0.438rem + 0.313vw, 0.75rem);
 }
 
 .accordion .accordion-header {
@@ -2105,7 +2134,7 @@ button:focus {
 }
 
 .accordion .accordion-body {
-    padding: 24px;
+    padding: clamp(0.75rem, 0.563rem + 0.938vw, 1.5rem);
     padding-top: 0;
     background-color: hsl(var(--white)/0.03);
     color: hsl(var(--body-color));
@@ -2113,7 +2142,6 @@ button:focus {
 
 @media screen and (max-width: 767px) {
     .accordion .accordion-body {
-        padding: 16px;
         font-size: 14px;
     }
 }
@@ -2131,15 +2159,14 @@ button:focus {
     color: var(--heading-color);
     font-size: 20px;
     font-weight: 600;
-    padding: 28px 24px;
-    padding-right: 50px;
+    padding-inline: clamp(0.75rem, 0.563rem + 0.938vw, 1.5rem);
+    padding-block: clamp(0.875rem, 0.656rem + 1.094vw, 1.75rem);
+    padding-right: clamp(1.875rem, 1.563rem + 1.563vw, 3.125rem);
 }
 
 @media screen and (max-width: 767px) {
     .accordion .accordion-button {
         font-size: 16px;
-        padding: 20px 16px;
-        padding-right: 40px;
     }
 }
 
@@ -2718,8 +2745,9 @@ button:focus {
 .card {
     padding: 24px;
     border-radius: 8px;
-    background-color: hsl(var(--white));
-    border: 1px solid hsl(var(--border-color));
+    background-color: hsl(var(--base-l-300)/0.15);
+    border: 1px solid hsl(var(--white) 0.06);
+    color: hsl(var(--body-color));
 }
 
 @media screen and (max-width: 1199px) {
@@ -4113,7 +4141,8 @@ input[type=number] {
 .action-dropdown-btn {
     width: 35px;
     height: 35px;
-    background-color: hsl(var(--white));
+    background-color: hsl(var(--white)/0.06);
+    color: hsl(var(--white));
     border-radius: 6px;
 }
 
@@ -4173,8 +4202,8 @@ input[type=number] {
 .table thead tr th {
     text-align: center;
     padding: 16px;
-    color: hsl(var(--heading-font));
-    background-color: hsl(var(--base-l-800));
+    color: hsl(var(--white));
+    background-color: hsl(var(--base));
     font-family: var(--heading-font);
     font-weight: 500;
     border-bottom: 0;
@@ -4202,7 +4231,7 @@ input[type=number] {
 
 .table tbody {
     border: 0 !important;
-    background-color: hsl(var(--white));
+    background-color: hsl(var(--white)/0.04);
 }
 
 .table tbody tr td {
@@ -4804,7 +4833,7 @@ input[type=number] {
 
 .dropdown .dropdown-btn {
     min-width: 30px;
-    background-color: hsl(var(--white));
+    background-color: hsl(var(--white)/0.06);
     border-radius: 0.5rem;
     border: 1px solid hsl(var(--black)/0.04);
     padding: 0.5rem 1.25rem;
@@ -4849,10 +4878,11 @@ input[type=number] {
     transition: 0.3s;
     overflow: hidden;
     box-shadow: 0px 0px 15px 0px hsl(var(--black)/0.05);
-    border-color: hsl(var(--black)/0.05);
+    border-color: hsl(var(--white)/0.05);
     border-radius: 7px;
     min-width: 200px;
     margin-top: 0 !important;
+    background-color: hsl(var(--base-two));
 }
 
 .dropdown .dropdown-menu-end {
@@ -4861,7 +4891,7 @@ input[type=number] {
 }
 
 .dropdown .dropdown-menu li {
-    border-bottom: 1px solid hsl(var(--black)/0.03);
+    border-bottom: 1px solid hsl(var(--white)/0.03);
 }
 
 .dropdown .dropdown-menu li:last-child {
@@ -4892,8 +4922,8 @@ input[type=number] {
 }
 
 .dropdown .dropdown-menu .dropdown-item:active, .dropdown .dropdown-menu .dropdown-item:focus, .dropdown .dropdown-menu .dropdown-item:hover {
-    color: hsl(var(--base)) !important;
-    background-color: hsl(var(--base-l-900)/0.5);
+    color: hsl(var(--base-l-300)) !important;
+    background-color: hsl(var(--white)/0.05);
 }
 
 /* ================================= Preloader Css Start =========================== */
@@ -4948,8 +4978,8 @@ input[type=number] {
     width: 300px;
     height: 100%;
     padding: 20px;
-    background-color: hsl(var(--white));
-    border-right: 1px solid hsl(var(--black)/0.03);
+    background-color: hsl(var(--base-two));
+    border-right: 1px solid hsl(var(--white)/0.05);
     z-index: 15;
     transition: 0.4s;
     visibility: hidden;
@@ -4961,7 +4991,7 @@ input[type=number] {
 }
 
 .offcanvas__area::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px hsl(var(--black)/0.1);
+    box-shadow: inset 0 0 5px hsl(var(--white)/0.1);
 }
 
 .offcanvas__area::-webkit-scrollbar-thumb {
@@ -4983,10 +5013,6 @@ input[type=number] {
     align-items: center;
     gap: 20px;
     margin-bottom: 40px;
-}
-
-.offcanvas__area .offcanvas__topbar a img {
-    width: 140px;
 }
 
 .offcanvas__area .offcanvas__topbar .menu__close {
@@ -5017,10 +5043,16 @@ input[type=number] {
     margin-bottom: 20px;
 }
 
-.offcanvas__area .offcanvas__main .offcanvas__menu ul li:not(:last-child) {
-    border-bottom: 1px solid hsl(var(--black)/0.06);
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.75rem;
+.offcanvas__area .offcanvas__main .offcanvas__menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.offcanvas__area .offcanvas__main .offcanvas__menu ul li {
+    background-color: hsl(var(--white)/0.04);
+    padding: 10px 16px;
+    border-radius: var(--b-radius-6);
 }
 
 .offcanvas__area .offcanvas__main .offcanvas__menu ul li a {
@@ -5032,11 +5064,15 @@ input[type=number] {
 }
 
 .offcanvas__area .offcanvas__main .offcanvas__menu ul li a:hover, .offcanvas__area .offcanvas__main .offcanvas__menu ul li a.active {
-    color: hsl(var(--base));
+    color: hsl(var(--base-l-300));
 }
 
 /* ======================  Offcanvas Section End  ======================*/
 /* ======================  Header Section Start  ======================*/
+.main__logo {
+    max-width: 150px;
+}
+
 .header__area {
     padding-block: clamp(0.938rem, 0.734rem + 1.016vw, 1.75rem);
     position: absolute;
@@ -5082,10 +5118,6 @@ input[type=number] {
 
 .header__area .header__main .menu__open:hover {
     color: hsl(var(--base));
-}
-
-.header__area .main__logo {
-    max-width: 140px;
 }
 
 @media screen and (max-width: 991px) {
@@ -6466,7 +6498,7 @@ input[type=number] {
 .trad__rio {
     display: flex;
     align-items: center;
-    gap: 0.875rem;
+    gap: clamp(0.625rem, 0.563rem + 0.313vw, 0.875rem);
 }
 
 .trad__rio .badge {
@@ -6493,13 +6525,13 @@ input[type=number] {
 }
 
 .trad__list-item:not(:last-child) {
-    margin-bottom: 0.75rem;
-    padding-bottom: 0.75rem;
+    margin-bottom: clamp(0.563rem, 0.516rem + 0.234vw, 0.75rem);
+    padding-bottom: clamp(0.563rem, 0.516rem + 0.234vw, 0.75rem);
     border-bottom: 1px dashed hsl(var(--white)/0.13);
 }
 
 .trad__label {
-    padding-bottom: 12px;
+    padding-bottom: clamp(0.25rem, 0.125rem + 0.625vw, 0.75rem);
     display: inline-block;
 }
 
@@ -6811,7 +6843,7 @@ input[type=number] {
 
 .smart-analytics__card {
     position: relative;
-    padding: 20px;
+    padding: clamp(0.625rem, 0.469rem + 0.781vw, 1.25rem);
     background-color: hsl(var(--white)/0.08);
     border-radius: var(--b-radius-12);
     z-index: 1;
@@ -6962,8 +6994,8 @@ input[type=number] {
 .smart-analytics .profit-cart__card {
     border-radius: var(--b-radius-12);
     background: linear-gradient(180deg, hsl(var(--base-two)/0.5), transparent);
-    padding-block: 25px;
-    padding-inline: 20px;
+    padding-block: clamp(0.75rem, 0.547rem + 1.016vw, 1.563rem);
+    padding-inline: clamp(0.625rem, 0.469rem + 0.781vw, 1.25rem);
 }
 
 .smart-analytics .profit-cart__price {
@@ -6995,6 +7027,7 @@ input[type=number] {
     min-height: 200px;
     max-width: 400px;
     margin-inline: auto;
+    left: 50% !important;
 }
 
 .smart-analytics .trad-info-badge {
@@ -7017,6 +7050,7 @@ input[type=number] {
     position: relative;
     z-index: 1;
     height: 100%;
+    --icon-size: clamp(2.5rem, 1.797rem + 3.516vw, 5.313rem);
 }
 
 .features .glove--base {
@@ -7039,13 +7073,13 @@ input[type=number] {
 }
 
 .features__icon {
-    margin-bottom: 1.625rem;
-    max-width: 5.375rem;
+    margin-bottom: clamp(1.25rem, 1.156rem + 0.469vw, 1.625rem);
+    max-width: var(--icon-size);
     margin-inline: auto;
 }
 
 .features__title {
-    margin-bottom: 1.5rem;
+    margin-bottom: clamp(0.625rem, 0.406rem + 1.094vw, 1.5rem);
 }
 
 /* ======================  Trust End  ======================*/
@@ -7168,24 +7202,25 @@ input[type=number] {
     position: relative;
     max-width: 120rem;
     margin-inline: auto;
+    --icon-size: clamp(3.125rem, 2.813rem + 1.563vw, 4.375rem);
 }
 
 .testimonial__card {
     transition: 0.3s;
     width: 100%;
-    border-radius: 0.75rem;
+    border-radius: var(--b-radius-12);
     overflow: hidden;
     max-width: 26.25rem;
     margin-inline: auto;
     background-image: linear-gradient(180deg, hsl(var(--base)/0.2), transparent);
     border: 1px solid hsl(var(--base)/0.2);
-    padding-inline: 25px;
-    padding-block: 50px;
+    padding-inline: clamp(0.625rem, 0.391rem + 1.172vw, 1.563rem);
+    padding-block: clamp(1.875rem, 1.563rem + 1.563vw, 3.125rem);
 }
 
 .testimonial__thumb {
-    width: 70px;
-    height: 70px;
+    width: var(--icon-size);
+    height: var(--icon-size);
     border-radius: 50%;
     overflow: hidden;
     margin-inline: auto;
@@ -7235,9 +7270,6 @@ input[type=number] {
 }
 
 .testimonial .custom-btn {
-    width: 3.125rem;
-    height: 3.125rem;
-    font-size: 1.375rem;
     background-color: hsl(var(--base)/0.5);
 }
 
@@ -7246,23 +7278,11 @@ input[type=number] {
 }
 
 .testimonial .custom-prev {
-    left: 20px;
-}
-
-@media screen and (max-width: 1399px) {
-    .testimonial .custom-prev {
-        left: 40px;
-    }
+    left: clamp(0.625rem, 0.469rem + 0.781vw, 1.25rem);
 }
 
 .testimonial .custom-next {
-    right: 20px;
-}
-
-@media screen and (max-width: 1399px) {
-    .testimonial .custom-next {
-        right: 40px;
-    }
+    right: clamp(0.625rem, 0.469rem + 0.781vw, 1.25rem);
 }
 
 .testimonial .custom-btn.swiper-button-disabled {
@@ -7275,7 +7295,7 @@ input[type=number] {
 .blog {
     position: relative;
     z-index: 1;
-    --date-size: 70px;
+    --date-size: clamp(2.5rem, 2.031rem + 2.344vw, 4.375rem);
 }
 
 .blog__card {
@@ -7315,13 +7335,13 @@ input[type=number] {
     height: var(--date-size);
     border-radius: var(--b-radius-12);
     background-image: linear-gradient(180deg, hsl(var(--base)) 70%, hsl(var(--base-two)));
-    font-size: 32px;
+    font-size: clamp(1rem, 0.75rem + 1.25vw, 2rem);
     font-weight: 600;
     text-align: center;
 }
 
 .blog__date span {
-    font-size: 16px;
+    font-size: clamp(0.75rem, 0.688rem + 0.313vw, 1rem);
     font-weight: 500;
     margin-top: 0.1875rem;
 }
@@ -7699,7 +7719,6 @@ input[type=number] {
 /* ======================  Error Section End  ======================*/
 /* ======================  Dashboard Section Start  ======================*/
 .dashboard {
-    background-color: hsl(var(--black)/0.06);
     min-height: 100vh;
 }
 
@@ -7737,14 +7756,14 @@ input[type=number] {
     width: 275px;
     height: 100vh;
     z-index: 2;
-    background-color: hsl(var(--heading-color));
+    background-color: hsl(var(--base-l-300)/0.15);
     overflow-y: auto;
     scrollbar-width: none;
 }
 
 @media screen and (max-width: 991px) {
     .dashboard__sidebar {
-        background-color: hsl(var(--heading-color));
+        background-color: hsl(var(--base-l-300)/0.15);
         left: -100%;
         z-index: 13;
         transition: 0.3s;
@@ -8396,8 +8415,8 @@ input[type=number] {
     justify-content: space-between;
     align-items: center;
     gap: 0.625rem;
-    background-color: hsl(var(--white));
-    border: 1.5px solid hsl(var(--base)/0.08);
+    background-color: hsl(var(--base-l-300)/0.15);
+    border: 1.5px solid hsl(var(--white)/0.04);
     border-radius: 12px;
     padding: 2.5rem 1.75rem;
     padding-left: 34px;
@@ -8407,8 +8426,8 @@ input[type=number] {
 }
 
 .dashboard-widgets:hover {
-    background-color: hsl(var(--base-l-900));
-    border: 1.5px solid hsl(var(--base)/0.02);
+    background-color: hsl(var(--base-l-300)/0.25);
+    border: 1.5px solid hsl(var(--white)/0.06);
 }
 
 .dashboard-widgets:hover .dashboard-widgets__shape {
@@ -8482,7 +8501,8 @@ input[type=number] {
     right: 0;
     top: calc(100% + 10px);
     z-index: 11;
-    background-color: hsl(var(--white));
+    background-color: hsl(var(--base-two));
+    border: 1px solid hsl(var(--white) 0.06);
     width: 500px;
     padding: 16px;
     border-radius: 8px;
@@ -8509,7 +8529,7 @@ input[type=number] {
 .filter__close {
     font-size: 18px;
     cursor: pointer;
-    color: hsl(var(--heading-color));
+    color: hsl(var(--white));
     transition: 0.3s;
 }
 
@@ -8541,7 +8561,7 @@ input[type=number] {
 }
 
 .filter__form {
-    border: 1px solid hsl(var(--black)/0.08);
+    border: 1px solid hsl(var(--white)/0.1);
     border-radius: 8px;
     padding: 18px;
     max-height: 230px;
@@ -8576,7 +8596,7 @@ input[type=number] {
 }
 
 .filter__range {
-    border: 1px solid hsl(var(--black)/0.08);
+    border: 1px solid hsl(var(--white)/0.08);
     border-radius: 8px;
     padding: 22px 18px 18px 18px;
 }
@@ -8591,7 +8611,7 @@ input[type=number] {
 
 .range-slider-box .sliderr {
     height: 12px;
-    background-color: hsl(var(--base)/0.08);
+    background-color: hsl(var(--white)/0.1);
     position: relative;
     border-radius: 30px;
 }

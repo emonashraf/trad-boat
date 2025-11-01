@@ -74,7 +74,7 @@
         border-radius: 50%;
         z-index: 2;
         transform: translate(-50%, -50%);
-        width: rem(135px);
+        width: rem(100px);
         aspect-ratio: 1 / 1;
         background-color: hsl(var(--base-two));
         border-radius: 50%;
@@ -88,15 +88,33 @@
 
     }
 
-    &__graph {
-        max-width: 650px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-
-        img {
-            width: 100%;
-        }
+    .svg-wrapper {
+        position: relative;
+        width: 400px;
+        height: 400px
+    }
+    svg {
+    width: 100%;
+    height: 100%;
+    }
+    .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform-origin: center center;
+    }
+    .trail {
+    width: 40px;
+    height: 4px;
+    border-radius: 2px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform-origin: left center;
+    pointer-events: none;
     }
 }
 

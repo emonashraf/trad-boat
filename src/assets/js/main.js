@@ -436,6 +436,70 @@ startSelect2();
   });
   // ========================== Label Required Js End =====================
 
+
+gsap.registerPlugin(MotionPathPlugin);
+
+const paths = document.querySelectorAll("#motionSvg path");
+const wrapper = document.querySelector(".svg-wrapper");
+const colors = ["#00f0ff","#ff00f0","#00ff90","#ff9000","#f0ff00","#ff0066","#00ffff"];
+
+paths.forEach((path, i) => {
+  const color = colors[i % colors.length];
+
+  // Create dot
+  const dot = document.createElement("div");
+  dot.classList.add("dot");
+  dot.style.background = `radial-gradient(circle, ${color}, #00000000)`;
+  dot.style.filter = `drop-shadow(0 0 12px ${color})`;
+  wrapper.appendChild(dot);
+
+  // Create trail
+  const trail = document.createElement("div");
+  trail.classList.add("trail");
+  trail.style.background = `linear-gradient(90deg, ${color}, transparent)`;
+  wrapper.appendChild(trail);
+
+  const duration = 3 + Math.random(); // random duration for natural look
+
+  // Animate trail
+  gsap.to(trail, {
+    duration: duration,
+    repeat: -1,
+    ease: "power2.inOut", // smoother than power1
+    motionPath: {
+      path: path,
+      align: path,
+      alignOrigin: [0.5, 0.5],
+      autoRotate: true
+    },
+    scaleX: gsap.utils.wrap([0.2, 1]), // tail grows along path
+    opacity: 0.4
+  });
+
+  // Animate dot
+  gsap.to(dot, {
+    duration: duration,
+    repeat: -1,
+    ease: "power2.inOut", // smoother than power1
+    motionPath: {
+      path: path,
+      align: path,
+      alignOrigin: [0.5, 0.5],
+      autoRotate: true
+    }
+  });
+});
+
+gsap.to(".smart-solutions__center", {
+  scale: 1.05,          // subtle growth
+  duration: 1.5,        // slower for smoothness
+  repeat: -1,           // infinite loop
+  yoyo: true,           // scale back
+  ease: "sine.inOut"    // very smooth ease
+});
+
+
+
   // ========================= Apex chart Js Start =====================
   if ($('#profitChart').length) {
     var profitChart = {

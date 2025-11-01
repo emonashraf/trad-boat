@@ -207,42 +207,46 @@
 
   // ========================= Swiper Js End ===================
   // ========================= Select2 Js Start =====================
-  function startSelect2() {
-    $(".select-2").each(function () {
-      var $select = $(this);
-      var tags = $select.data('tags') === true;
-      var noSearch = $select.data('search') === false;
+function startSelect2() {
+  $(".select-2").each(function () {
+    var $select = $(this);
+    var tags = $select.data('tags') === true;
+    var noSearch = $select.data('search') === false;
 
-      $select.select2({
-        width: '100%',
-        containerCssClass: ":all:",
-        tags: tags,
-        templateResult: resultState,
-        templateSelection: formatSelection,
-        minimumResultsForSearch: noSearch ? Infinity : 0,
-        tokenSeparators: [','],
-      });
-      $select.on('select2:open', function () {
-        $('.select2-search__field').removeClass('form-control').addClass('form--control');
-      });
+    $select.select2({
+      width: '100%',
+      containerCssClass: ":all:",
+      tags: tags,
+      templateResult: resultState,
+      templateSelection: formatSelection,
+      minimumResultsForSearch: noSearch ? Infinity : 0,
+      tokenSeparators: [','],
     });
-
-    function resultState(data, container) {
-      if (data.element) {
-        $(container).addClass($(data.element).attr("class"));
-      }
-      return data.text;
+    let $searchInput = $select.data('select2')?.$dropdown?.find('.select2-search__field');
+    if ($searchInput) {
+      $searchInput.removeClass('form-control').addClass('form--control');
     }
+    $select.on('select2:open', function () {
+      $('.select2-search__field').removeClass('form-control').addClass('form--control');
+    });
+  });
 
-    function formatSelection(selected) {
-      if (Array.isArray(selected)) {
-        return selected.map(item => item.text).join(', ');
-      }
-      return selected.text;
+  function resultState(data, container) {
+    if (data.element) {
+      $(container).addClass($(data.element).attr("class"));
     }
+    return data.text;
   }
 
-  startSelect2();
+  function formatSelection(selected) {
+    if (Array.isArray(selected)) {
+      return selected.map(item => item.text).join(', ');
+    }
+    return selected.text;
+  }
+}
+
+startSelect2();
 
   // ========================= Select2 Js End =====================
 
@@ -270,7 +274,104 @@
 
   //============================ Sidebar Js End ==============================
 
+  // ========================= Custom Dropzone Start =====================
+  function updatePreview(input, file) {
+    var $dropzone = $(input).closest('.custom-dropzone');
+    var $preview = $dropzone.find('.dropzone-filed__preview');
+    var $closeBtn = $dropzone.find('.dropzone-filed__close');
 
+    $preview.html('').removeClass('active');
+    $closeBtn.hide();
+
+    if (file) {
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        var content;
+        if (file.type.startsWith('image/')) {
+          var img = document.createElement('img');
+          img.src = e.target.result;
+          content = img;
+        } else if (file.type.startsWith('video/')) {
+          var video = document.createElement('video');
+          video.src = e.target.result;
+          video.controls = true;
+          content = video;
+        }
+
+        $preview.html(content).addClass('active');
+        $closeBtn.show();
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+  $('.custom-dropzone input[type="file"]').on('change', function () {
+    updatePreview(this, this.files[0]);
+  });
+  $('.custom-dropzone').on('click', '.dropzone-filed__close', function () {
+    var $dropzone = $(this).closest('.custom-dropzone');
+    $dropzone.find('.dropzone-filed__preview').html('').removeClass('active');
+    $dropzone.find('input[type="file"]').val('');
+    $dropzone.find('input[type="file"].required').prop('required', true);
+    $(this).hide();
+  });
+  $('.dropzone-filed__preview').each(function () {
+    if (!$(this).hasClass('active')) {
+      $(this).closest('.custom-dropzone').find('.dropzone-filed__close').hide();
+    }
+  });
+  $('.dropzone-filed').on('dragover dragleave drop', function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+
+    var $dropzone = $(this).closest('.custom-dropzone');
+    var $fileInput = $dropzone.find('input[type="file"]');
+
+    if (e.type === 'dragover') {
+      $(this).addClass('dragging');
+    } else if (e.type === 'dragleave' || e.type === 'drop') {
+      $(this).removeClass('dragging');
+    }
+
+    if (e.type === 'drop') {
+      var files = Array.from(e.originalEvent.dataTransfer.files);
+      var accept = $fileInput.attr('accept');
+      var acceptedTypes = accept ? accept.split(',').map(type => type.trim()) : [];
+
+      var invalidFiles = files.filter(file => {
+        var fileType = file.type;
+        var fileName = file.name.toLowerCase();
+        return !acceptedTypes.some(type => {
+          return (type.startsWith('.') && fileName.endsWith(type)) || fileType === type;
+        });
+      });
+
+      if (invalidFiles.length > 0) {
+        alert('Some files are not allowed. Please check the accepted file types.');
+        return;
+      }
+
+      if (!$fileInput.prop('multiple') && files.length > 1) {
+        alert('This input only allows one file.');
+        return;
+      }
+
+      var dt = new DataTransfer();
+      files.forEach(function (file) {
+        dt.items.add(file);
+      });
+      $fileInput[0].files = dt.files;
+      $fileInput.trigger('change');
+    }
+  });
+  $('.custom-dropzone input').each(function () {
+    if ($(this).prop('required')) {
+      $(this).addClass('required');
+    }
+    if ($(this).closest('.custom-dropzone').find('.dropzone-filed__preview').hasClass('active')) {
+      $(this).prop('required', false);
+    }
+  });
+  // ========================= Custom Dropzone End ==========
 
   // ========================= Scroll Reveal Js Start ===================
   const sr = ScrollReveal({
@@ -534,6 +635,83 @@
     var chart = new ApexCharts(document.querySelector("#reportChart"), options);
     chart.render();
   }
+  // overall Report chart
+  if ($('#overallReportsChart').length) {
+    var options = {
+      series: [{
+        name: 'Net Profit',
+        data: [44, 55, 57, 56, 61, 58]
+      }, {
+        name: 'Revenue',
+        data: [76, 85, 101, 98, 87, 105]
+      }],
+      chart: {
+        type: 'bar',
+        height: 350
+      },
+      colors: ['hsl(var(--white)/ 0.2)', 'hsl(var(--base))'],
+      plotOptions: {
+        bar: {
+          horizontal: false,
+          columnWidth: '40%',
+          borderRadius: 5,
+          borderRadiusApplication: 'end'
+        },
+      },
+      dataLabels: {
+        enabled: false
+      },
+      stroke: {
+        show: true,
+        width: 2,
+        colors: ['transparent']
+      },
+      grid: {
+        borderColor: 'hsl(var(--white)/ 0.1)',
+        strokeDashArray: 3,
+      },
+      xaxis: {
+        categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
+        labels: {
+          style: {
+            colors: 'hsl(var(--white))', 
+          }
+        },
+        axisBorder: {
+          color: 'hsl(var(--white)/ 0.2)'
+        },
+        axisTicks: {
+          color: 'hsl(var(--white)/ 0.2)'
+        }
+      },
+      yaxis: {
+        labels: {
+          style: {
+            colors: 'hsl(var(--white))'
+          }
+        }
+      },
+      legend: {
+        labels: {
+          colors: 'hsl(var(--white))' 
+        }
+      },
+      fill: {
+        opacity: 1
+      },
+      tooltip: {
+        y: {
+          formatter: function (val) {
+            return "$ " + val + " thousands"
+          }
+        }
+      }
+    };
+
+    var chart = new ApexCharts(document.querySelector("#overallReportsChart"), options);
+    chart.render();
+  }
+
 
   // ========================= Apex chart Js End =====================
 

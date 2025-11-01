@@ -25,7 +25,7 @@
 }
 
 .dashboard__wrapper {
-  padding: 24px;
+  padding: clamp(0.75rem, 0.563rem + 0.938vw, 1.5rem);
 }
 
 .dashboard__sidebar {
@@ -56,13 +56,17 @@
   text-align: center;
 }
 
-.dashboard__logo a img {
+.dashboard__logo a {
   width: 100%;
-  max-width: 175px;
+  max-width: 150px;
+
+  img {
+    max-width: 100%;
+  }
 }
 
 .dashboard__logo {
-  padding: 32px 24px;
+  padding-block: 24px;
 }
 
 .sidebar__close {
@@ -222,7 +226,7 @@
   gap: 10px;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 24px;
+  padding: clamp(0.75rem, 0.563rem + 0.938vw, 1.5rem);
   padding-bottom: 0;
 
   @include sm-screen {
@@ -294,11 +298,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
-  background-color: hsl(var(--base) / 0.15);
-  border-radius: 15px;
-  color: hsl(var(--base));
+  width: 45px;
+  height: 45px;
+  background-color: hsl(var(--white) / 0.1);
+  border: 1px solid hsl(var(--white)/ 0.08);
+  color: hsl(var(--white));
+  border-radius: 50%;
   font-size: 26px;
   transition: 0.3s;
 
@@ -333,15 +338,14 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border: 2px solid hsl(var(--white));
+  border: 2px solid hsl(var(--white)/0.1);
 }
 
 .profile__dropdown img {
-  width: 56px;
-  height: 56px;
+  width: 45px;
+  height: 45px;
   object-fit: cover;
-  border-radius: 9px;
-  border: 4px solid hsl(var(--white));
+  border-radius: 50%;
 
   @include md-screen {
     width: 38px;
@@ -559,6 +563,7 @@
 
   @include sm-screen {
     flex-direction: column;
+    align-items: start;
   }
 }
 
@@ -573,6 +578,9 @@
 .table__topbar__right {
   display: flex;
   align-items: center;
+  @include xxsm-screen{
+    flex-wrap: wrap;
+  }
   gap: 10px;
 
   @include sm-screen {
@@ -680,9 +688,9 @@
   gap: rem(10px);
   background-color: hsl(var(--base-l-300)/ 0.15);
   border: 1.5px solid hsl(var(--white)/ 0.04);
-  border-radius: 12px;
-  padding: rem(40px) rem(28px);
-  padding-left: 34px;
+  border-radius: var(--b-radius-12);
+  padding-inline: clamp(0.875rem, 0.656rem + 1.094vw, 1.75rem);
+  padding-block: clamp(1.375rem, 1.094rem + 1.406vw, 2.5rem);
   transition: 0.3s;
   position: relative;
   overflow: hidden;
@@ -960,3 +968,49 @@
 }
 
 /* ======================  job application Modal End  ======================*/
+
+/* ======================  create bot Start  ======================*/
+.create-bot__form {
+  background-color: hsl(var(--base-two));
+  padding-block: clamp(1.125rem, 0.906rem + 1.094vw, 2rem);
+  padding-inline: clamp(0.75rem, 0.625rem + 0.625vw, 1.25rem);
+  border-radius: var(--b-radius-12);
+  border: 1px solid hsl(var(--white)/ 0.08);
+
+}
+
+.create-bot__summary {
+  background-color: hsl(var(--white)/ 0.08);
+  min-height: clamp(23.75rem, 22.188rem + 7.813vw, 30rem);
+  border-radius: var(--b-radius-12);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(0.938rem, 0.859rem + 0.391vw, 1.25rem);
+  border: 1px dashed hsl(var(--white)/ 0.08);
+
+}
+
+/* ======================  create bot End  ======================*/
+
+/* ====================== Reports & insights Start  ======================*/
+.reports {
+  &__info {
+    &-item {
+      &:not(:last-child) {
+        border-bottom: 1px solid hsl(var(--white)/ 0.13);
+        margin-bottom: rem(26px);
+        padding-bottom: rem(26px);
+      }
+    }
+  }
+
+  &__title {
+    font-weight: 600;
+    font-family: var(--body-font);
+  }
+
+}
+
+/* ====================== Reports & insights End  ======================*/

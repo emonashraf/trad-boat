@@ -1,152 +1,181 @@
-/* ======================  Profile Section Start  ======================*/
-.profile__upload input {
-    display: none;
-}
+/* ======================  Profile Setting Section Start  ======================*/
+.profile-setting {
+  padding: rem(20px);
+  border-radius: rem(10px);
 
-.profile__upload label {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%;
-    overflow: hidden;
-    cursor: pointer;
-    position: relative;
-    z-index: 1;
-    margin-bottom: 6px;
-}
+  &__file-desc {
+    margin-bottom: 20px;
+    max-width: rem(413px);
+  }
 
-.profile__upload label img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.profile__upload label i {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 2;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: hsl(var(--white));
-    background-color: hsl(var(--black) / 0.5);
-    transition: 0.3s;
-    opacity: 0;
-    visibility: hidden;
-}
-
-.profile__upload label:hover i {
-    opacity: 1;
-    visibility: visible;
-}
-
-.profile__wr {
-    text-align: center;
-    background-color: hsl(var(--base) / 0.02);
-    border: 1px solid hsl(var(--base) / 0.2);
-    padding: 16px;
-    margin-bottom: 16px;
-    border-radius: 8px;
-}
-
-.profile__wr h4 {
-    font-size: 20px;
-    margin-bottom: 0;
-}
-
-.profile__menu ul {
-    display: flex;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 8px;
-}
-
-.profile__contact p {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    color: hsl(var(--black) / 0.6);
-    margin-bottom: 4px;
-}
-
-.profile__contact a {
-    font-weight: 600;
-    color: hsl(var(--heading-color));
-    display: block;
-}
-
-.profile__contact span {
-    font-weight: 600;
-    color: hsl(var(--heading-color));
-    display: block;
-    max-width: 280px;
-}
-
-.profile__left ul {
+  &__info-list {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+  }
 
-    @include lg-screen {
-        flex-direction: row;
-        justify-content: center;
-        margin-top: 20px;
-        flex-wrap: wrap;
+  &__info {
+    display: flex;
+    flex-direction: column;
+    gap: rem(4px);
 
-        li {
-            flex: 0 0 auto;
-        }
+    &:not(:last-child) {
+      border-bottom: 1px dashed hsl(var(--border-color));
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+
     }
 
-    @include msm-screen {
-        li {
-            flex: unset;
-        }
+    span {
+      font-size: rem(16px);
+      font-weight: 500;
     }
+  }
+
+  &__info-title {
+    font-size: rem(16px);
+  }
+
+
 }
 
-.profile__contact a:hover {
-    color: hsl(var(--base));
-}
+/* ======================  Profile Setting Section End  ======================*/
 
-.two__factor__info {
-    text-align: center;
-    margin-bottom: 20px;
-}
+.custom-dropzone {
+  position: relative;
 
-.two__factor__info p {
-    font-size: 14px;
-    margin-bottom: 14px;
-}
+  &.dropzone-sm {
+    max-width: 116px;
 
-.two__factor__info img {
-    max-width: 200px;
+    .dropzone-filed {
+      &::after {
+        font-size: rem(20px);
+      }
+    }
+  }
+
+  &.wide {
+    .dropzone-filed {
+      aspect-ratio: 16 / 9;
+    }
+  }
+
+  .dropzone-filed {
+    display: block;
     width: 100%;
+    background: hsl(var(--base) / .02);
+    border: 2px solid hsl(var(--black)/ 0.3);
+    border-radius: 50%;
+    padding: 20px;
+    aspect-ratio: 1 / 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    transition: .3s;
+
+    @include sm-screen {
+      padding: 15px;
+    }
+
+    &.dragging {
+      border-color: hsl(var(--base));
+      z-index: 2;
+
+      &::after {
+        opacity: 1;
+      }
+
+      .dropzone__icon,
+      .dropzone__txt,
+      .dropzone__preview * {
+        opacity: 0.3;
+      }
+    }
+
+    &::after {
+      content: attr(data-drag-text);
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: hsl(var(--base-d-300) / .4);
+      color: hsl(var(--white));
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: rem(35px);
+      line-height: 1;
+      font-weight: 500;
+      opacity: 0;
+      transition: .3s;
+
+      @include sm-screen {
+        font-size: rem(20px);
+      }
+    }
+
+    &__preview {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      transition: .3s;
+      opacity: 0;
+      overflow: hidden;
+
+      &.active {
+        background-color: hsl(var(--white));
+        opacity: 1;
+      }
+
+      img,
+      video {
+        width: 100%;
+        height: 100%;
+        transition: .3s;
+
+      }
+    }
+
+
+
+    &:hover,
+    &:focus {
+      border-color: hsl(var(--base));
+    }
+  }
+
+  &__icon {
+
+    position: absolute;
+    bottom: 5px;
+    right: -5px;
+
+
+    i {
+      width: rem(40px);
+      height: rem(40px);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: hsl(var(--base-two));
+      background-color: hsl(var(--base));
+    }
+  }
+
+  input {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    opacity: 0;
+    z-index: -1;
+  }
 }
-
-@include msm-screen {
-    .profile__left.card.p-4 {
-        padding: 18px !important;
-    }
-
-    .profile__wrap.card.p-4 {
-        padding: 18px !important;
-    }
-
-    .profile__wrap {
-
-        .g-4,
-        .gy-4 {
-            --bs-gutter-y: 0.8rem;
-        }
-
-        .g-4,
-        .gx-4 {
-            --bs-gutter-x: 0.8rem;
-        }
-    }
-}
-
-/* ======================  Profile Section End  ======================*/

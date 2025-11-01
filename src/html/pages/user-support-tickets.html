@@ -13,14 +13,14 @@
             <div class="table__topbar">
               <h5>My Tickets</h5>
               <div class="table__topbar__right ticket__pg">
-                <div class="search__box">
-                  <input type="text" class="form-control" placeholder="Search">
-                  <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <div class="input--group">
+                  <input type="text" class="form--control form--control--sm" placeholder="Search">
+                  <button type="submit" class="btn btn--sm"><i class="fa-solid fa-magnifying-glass"></i></button>
                 </div>
-                <a href="#" class="btn btn--base open__ticket"><i class="fa-solid fa-plus"></i> Open
+                <a href="#" class="btn btn--base btn--sm"><i class="fa-solid fa-plus"></i> Open
                   Ticket</a>
                 <div class="filter__wrap">
-                  <span class="btn btn--base filter__btn"><i class="fa-solid fa-filter"></i>
+                  <span class="btn btn--base btn--sm filter__btn"><i class="fa-solid fa-filter"></i>
                     Filter</span>
                   <div class="filter__main">
                     <div class="row g-3">
@@ -39,37 +39,37 @@
                         <div class="filter__card">
                           <h5>File Type</h5>
                           <div class="filter__form">
-                            <div class="form-check">
+                            <div class="form--check">
                               <label class="form-check-label" for="filter__check1">
                                 PDF
                               </label>
                               <input class="form-check-input" type="checkbox" value="" id="filter__check1">
                             </div>
-                            <div class="form-check">
+                            <div class="form--check">
                               <label class="form-check-label" for="filter__check2">
                                 DOCX
                               </label>
                               <input class="form-check-input" type="checkbox" value="" id="filter__check2">
                             </div>
-                            <div class="form-check">
+                            <div class="form--check">
                               <label class="form-check-label" for="filter__check3">
                                 ZIP
                               </label>
                               <input class="form-check-input" type="checkbox" value="" id="filter__check3">
                             </div>
-                            <div class="form-check">
+                            <div class="form--check">
                               <label class="form-check-label" for="filter__check4">
                                 RTF
                               </label>
                               <input class="form-check-input" type="checkbox" value="" id="filter__check4">
                             </div>
-                            <div class="form-check">
+                            <div class="form--check">
                               <label class="form-check-label" for="filter__check5">
                                 Microsoft Word
                               </label>
                               <input class="form-check-input" type="checkbox" value="" id="filter__check5">
                             </div>
-                            <div class="form-check">
+                            <div class="form--check">
                               <label class="form-check-label" for="filter__check51">
                                 TXT
                               </label>
@@ -82,37 +82,37 @@
                         <div class="filter__card">
                           <h5>Category</h5>
                           <div class="filter__form">
-                            <div class="form-check">
+                            <div class="form--check">
                               <label class="form-check-label" for="filter__check6">
                                 All
                               </label>
                               <input class="form-check-input" type="checkbox" value="" id="filter__check6">
                             </div>
-                            <div class="form-check">
+                            <div class="form--check">
                               <label class="form-check-label" for="filter__check7">
                                 Resume
                               </label>
                               <input class="form-check-input" type="checkbox" value="" id="filter__check7">
                             </div>
-                            <div class="form-check">
+                            <div class="form--check">
                               <label class="form-check-label" for="filter__check8">
                                 Invoice
                               </label>
                               <input class="form-check-input" type="checkbox" value="" id="filter__check8">
                             </div>
-                            <div class="form-check">
+                            <div class="form--check">
                               <label class="form-check-label" for="filter__check9">
                                 Ebook
                               </label>
                               <input class="form-check-input" type="checkbox" value="" id="filter__check9">
                             </div>
-                            <div class="form-check">
+                            <div class="form--check">
                               <label class="form-check-label" for="filter__check10">
                                 Report
                               </label>
                               <input class="form-check-input" type="checkbox" value="" id="filter__check10">
                             </div>
-                            <div class="form-check">
+                            <div class="form--check">
                               <label class="form-check-label" for="filter__check11">
                                 Legal Form
                               </label>
@@ -125,13 +125,13 @@
                         <div class="filter__card">
                           <h5>License Type</h5>
                           <div class="filter__form">
-                            <div class="form-check">
+                            <div class="form--check">
                               <label class="form-check-label" for="filter__check12">
                                 Personal
                               </label>
                               <input class="form-check-input" type="checkbox" value="" id="filter__check12">
                             </div>
-                            <div class="form-check">
+                            <div class="form--check">
                               <label class="form-check-label" for="filter__check13">
                                 Commercial
                               </label>
@@ -196,10 +196,11 @@
                     <td>1 month ago</td>
                     <td>
                       <div class="dropdown custom--dropdown">
-                        <button class="px-2 py-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="action-dropdown-btn" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false">
                           <i class="fa-solid fa-ellipsis-vertical"></i>
                         </button>
-                        <ul class="dropdown-menu">
+                        <ul class="dropdown-menu dropdown-menu-end">
                           <li><a class="dropdown-item" href="#">Edit</a></li>
                           <li><a class="dropdown-item" href="#">Delete</a></li>
                           <li><a class="dropdown-item" href="#">Update</a>
@@ -209,149 +210,164 @@
                     </td>
                   </tr>
                   <tr>
-                    <td><a href="#">[Ticket#38630424] dfgaer</a></td>
+  <td><a href="#">[Ticket#38630425] login issue</a></td>
+  <td><span class="badge badge--warning">Pending</span></td>
+  <td><span class="badge badge--danger">High</span></td>
+  <td>2 days ago</td>
+  <td>
+    <div class="dropdown custom--dropdown">
+      <button class="action-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-end">
+        <li><a class="dropdown-item" href="#">Edit</a></li>
+        <li><a class="dropdown-item" href="#">Delete</a></li>
+        <li><a class="dropdown-item" href="#">Update</a></li>
+      </ul>
+    </div>
+  </td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">[Ticket#38630426] payment failed</a></td>
                     <td><span class="badge badge--success">Answered</span></td>
-                    <td><span class="badge badge--warning">Medium</span></td>
-                    <td>1 month ago</td>
+                    <td><span class="badge badge--info">Low</span></td>
+                    <td>5 days ago</td>
                     <td>
-                      <div class="action__btn">
-                        <div class="dropdown">
-                          <button class="px-2 py-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                          </button>
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                            <li><a class="dropdown-item" href="#">Delete</a></li>
-                            <li><a class="dropdown-item" href="#">Update</a>
-                            </li>
-                          </ul>
-                        </div>
+                      <div class="dropdown custom--dropdown">
+                        <button class="action-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">Edit</a></li>
+                          <li><a class="dropdown-item" href="#">Delete</a></li>
+                          <li><a class="dropdown-item" href="#">Update</a></li>
+                        </ul>
                       </div>
                     </td>
                   </tr>
                   <tr>
-                    <td><a href="#">[Ticket#38630424]</a></td>
-                    <td><span class="badge badge--success">Answered</span></td>
+                    <td><a href="#">[Ticket#38630427] withdrawal delay</a></td>
+                    <td><span class="badge badge--danger">Closed</span></td>
                     <td><span class="badge badge--warning">Medium</span></td>
-                    <td>1 month ago</td>
+                    <td>3 weeks ago</td>
                     <td>
-                      <div class="action__btn">
-                        <div class="dropdown">
-                          <button class="px-2 py-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                          </button>
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                            <li><a class="dropdown-item" href="#">Delete</a></li>
-                            <li><a class="dropdown-item" href="#">Update</a>
-                            </li>
-                          </ul>
-                        </div>
+                      <div class="dropdown custom--dropdown">
+                        <button class="action-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">Edit</a></li>
+                          <li><a class="dropdown-item" href="#">Delete</a></li>
+                          <li><a class="dropdown-item" href="#">Update</a></li>
+                        </ul>
                       </div>
                     </td>
                   </tr>
                   <tr>
-                    <td><a href="#">[Ticket#38630424] dfgaer</a></td>
-                    <td><span class="badge badge--success">Answered</span></td>
-                    <td><span class="badge badge--warning">Medium</span></td>
-                    <td>1 month ago</td>
+                    <td><a href="#">[Ticket#38630428] verification pending</a></td>
+                    <td><span class="badge badge--warning">Pending</span></td>
+                    <td><span class="badge badge--danger">High</span></td>
+                    <td>4 hours ago</td>
                     <td>
-                      <div class="action__btn">
-                        <div class="dropdown">
-                          <button class="px-2 py-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                          </button>
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                            <li><a class="dropdown-item" href="#">Delete</a></li>
-                            <li><a class="dropdown-item" href="#">Update</a>
-                            </li>
-                          </ul>
-                        </div>
+                      <div class="dropdown custom--dropdown">
+                        <button class="action-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">Edit</a></li>
+                          <li><a class="dropdown-item" href="#">Delete</a></li>
+                          <li><a class="dropdown-item" href="#">Update</a></li>
+                        </ul>
                       </div>
                     </td>
                   </tr>
                   <tr>
-                    <td><a href="#">[Ticket#38630424] dfgaer</a></td>
+                    <td><a href="#">[Ticket#38630429] KYC update</a></td>
                     <td><span class="badge badge--success">Answered</span></td>
-                    <td><span class="badge badge--warning">Medium</span></td>
-                    <td>1 month ago</td>
+                    <td><span class="badge badge--info">Low</span></td>
+                    <td>2 weeks ago</td>
                     <td>
-                      <div class="action__btn">
-                        <div class="dropdown">
-                          <button class="px-2 py-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                          </button>
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                            <li><a class="dropdown-item" href="#">Delete</a></li>
-                            <li><a class="dropdown-item" href="#">Update</a>
-                            </li>
-                          </ul>
-                        </div>
+                      <div class="dropdown custom--dropdown">
+                        <button class="action-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">Edit</a></li>
+                          <li><a class="dropdown-item" href="#">Delete</a></li>
+                          <li><a class="dropdown-item" href="#">Update</a></li>
+                        </ul>
                       </div>
                     </td>
                   </tr>
                   <tr>
-                    <td><a href="#">[Ticket#38630424] dfgaer</a></td>
-                    <td><span class="badge badge--success">Answered</span></td>
-                    <td><span class="badge badge--warning">Medium</span></td>
-                    <td>1 month ago</td>
+                    <td><a href="#">[Ticket#38630430] account suspended</a></td>
+                    <td><span class="badge badge--danger">Closed</span></td>
+                    <td><span class="badge badge--danger">High</span></td>
+                    <td>6 days ago</td>
                     <td>
-                      <div class="action__btn">
-                        <div class="dropdown">
-                          <button class="px-2 py-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                          </button>
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                            <li><a class="dropdown-item" href="#">Delete</a></li>
-                            <li><a class="dropdown-item" href="#">Update</a>
-                            </li>
-                          </ul>
-                        </div>
+                      <div class="dropdown custom--dropdown">
+                        <button class="action-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">Edit</a></li>
+                          <li><a class="dropdown-item" href="#">Delete</a></li>
+                          <li><a class="dropdown-item" href="#">Update</a></li>
+                        </ul>
                       </div>
                     </td>
                   </tr>
                   <tr>
-                    <td><a href="#">[Ticket#38630424] dfgaer</a></td>
-                    <td><span class="badge badge--success">Answered</span></td>
+                    <td><a href="#">[Ticket#38630431] system error</a></td>
+                    <td><span class="badge badge--warning">Pending</span></td>
                     <td><span class="badge badge--warning">Medium</span></td>
-                    <td>1 month ago</td>
+                    <td>1 day ago</td>
                     <td>
-                      <div class="action__btn">
-                        <div class="dropdown">
-                          <button class="px-2 py-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                          </button>
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                            <li><a class="dropdown-item" href="#">Delete</a></li>
-                            <li><a class="dropdown-item" href="#">Update</a>
-                            </li>
-                          </ul>
-                        </div>
+                      <div class="dropdown custom--dropdown">
+                        <button class="action-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">Edit</a></li>
+                          <li><a class="dropdown-item" href="#">Delete</a></li>
+                          <li><a class="dropdown-item" href="#">Update</a></li>
+                        </ul>
                       </div>
                     </td>
                   </tr>
                   <tr>
-                    <td><a href="#">[Ticket#38630424] dfgaer</a></td>
+                    <td><a href="#">[Ticket#38630432] bonus not added</a></td>
                     <td><span class="badge badge--success">Answered</span></td>
                     <td><span class="badge badge--warning">Medium</span></td>
-                    <td>1 month ago</td>
+                    <td>3 months ago</td>
                     <td>
-                      <div class="action__btn">
-                        <div class="dropdown">
-                          <button class="px-2 py-1" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fa-solid fa-ellipsis-vertical"></i>
-                          </button>
-                          <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Edit</a></li>
-                            <li><a class="dropdown-item" href="#">Delete</a></li>
-                            <li><a class="dropdown-item" href="#">Update</a>
-                            </li>
-                          </ul>
-                        </div>
+                      <div class="dropdown custom--dropdown">
+                        <button class="action-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">Edit</a></li>
+                          <li><a class="dropdown-item" href="#">Delete</a></li>
+                          <li><a class="dropdown-item" href="#">Update</a></li>
+                        </ul>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><a href="#">[Ticket#38630433] email not verified</a></td>
+                    <td><span class="badge badge--warning">Pending</span></td>
+                    <td><span class="badge badge--info">Low</span></td>
+                    <td>1 week ago</td>
+                    <td>
+                      <div class="dropdown custom--dropdown">
+                        <button class="action-dropdown-btn" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                          <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu dropdown-menu-end">
+                          <li><a class="dropdown-item" href="#">Edit</a></li>
+                          <li><a class="dropdown-item" href="#">Delete</a></li>
+                          <li><a class="dropdown-item" href="#">Update</a></li>
+                        </ul>
                       </div>
                     </td>
                   </tr>

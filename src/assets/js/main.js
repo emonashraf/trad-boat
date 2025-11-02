@@ -381,7 +381,7 @@
     delay: 100,
     reset: false,
   })
-  sr.reveal('.bottom-reveal, .banner__title, .section-heading__title, .pricing, .footer__item', {
+  sr.reveal('.bottom-reveal,  .section-heading__title, .pricing, .footer__item', {
     delay: 60,
     interval: 100,
     origin: 'bottom',
@@ -439,6 +439,20 @@
   // ========================== GSAP Animation START =====================
   gsap.registerPlugin(MotionPathPlugin);
   gsap.registerPlugin(ScrollTrigger);
+  gsap.registerPlugin(SplitText);
+
+// banner title
+  const splitTop = new SplitText(".banner__title", { type: "chars" });
+  gsap.from(splitTop.chars, {
+    duration: 0.5,
+    y: -50,       
+    opacity: 0,
+    scale: 0.8,
+    stagger: 0.04,
+    ease: "back.out(1.7)"
+  });
+
+
   //--------------smart-solutions__banner Start------------
   const paths = document.querySelectorAll("#motionSvg path");
   const wrapper = document.querySelector(".svg-wrapper");
@@ -522,7 +536,7 @@
     // Left line grow
     tl.to(leftLine, {
       "--line-width": "100%",
-      duration: 2,
+      duration: 1,
       ease: "sine.inOut"
     });
 
@@ -551,7 +565,7 @@
     // Right line grow
     tl.to(rightLine, {
       "--line-width": "100%",
-      duration: 2,
+      duration: 1,
       ease: "sine.inOut"
     }, ">");
 
@@ -564,12 +578,24 @@
     }, ">");
   });
   // scroll trigger
- 
-
-
-  //-------------- Work Process End ------------
-
+  gsap.fromTo(".work-process__wrap",
+      { scale: 0.95, opacity: 0.8 },
+      {
+          scale: 1.05,
+          opacity: 1,
+          ease: "power2.out",
+          scrollTrigger: {
+              trigger: ".work-process",
+              start: "top 80%",
+              end: "bottom 20%",
+              scrub: 1.5,
+          }
+      }
+  );
+  //-------------- Work Process End ------------  
   // ========================== GSAP Animation End =====================
+
+
   // ========================= Apex chart Js Start =====================
   if ($('#profitChart').length) {
     var profitChart = {

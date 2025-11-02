@@ -6680,6 +6680,10 @@ input[type=number] {
     }
 }
 
+.work-process .container {
+    transition: all 0.6s ease;
+}
+
 .work-process .glove--base {
     position: absolute;
     left: auto;
@@ -6693,6 +6697,10 @@ input[type=number] {
     z-index: -1;
 }
 
+.work-process__wrap {
+    transform-origin: center center;
+}
+
 .work-process__inner {
     position: relative;
     display: flex;
@@ -6704,12 +6712,6 @@ input[type=number] {
     padding-top: clamp(1.875rem, 1.094rem + 3.906vw, 5rem);
     padding-inline: clamp(1.25rem, 0.703rem + 2.734vw, 3.438rem);
     padding-bottom: 20px;
-}
-
-@media screen and (max-width: 991px) {
-    .work-process__inner {
-        flex-direction: column;
-    }
 }
 
 .work-process__inner::after {
@@ -6729,6 +6731,12 @@ input[type=number] {
     background-color: hsl(var(--base));
     filter: blur(10px);
     z-index: -1;
+}
+
+@media screen and (max-width: 991px) {
+    .work-process__inner {
+        flex-direction: column;
+    }
 }
 
 .work-process__card {

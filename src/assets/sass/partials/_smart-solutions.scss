@@ -1,5 +1,5 @@
 /* ======================  Features Start  ======================*/
-.smart-solutions{
+.smart-solutions {
     --icon-size: clamp(2.188rem, 2.109rem + 0.391vw, 2.5rem);
 
     &__card {
@@ -16,7 +16,7 @@
         display: grid;
         place-items: center;
         background-image: linear-gradient(180deg, hsl(var(--base)) 0%, transparent 100%);
-        img{
+        img {
             max-width: 80%;
         }
 
@@ -32,6 +32,8 @@
         background-color: hsl(var(--base-two));
         max-width: clamp(15.625rem, 11.719rem + 19.531vw, 31.25rem);
         aspect-ratio: 1 / 1;
+        width: 100%;
+        height: 100%;
         border-radius: 50%;
         display: flex;
         flex-direction: column;
@@ -39,7 +41,8 @@
         justify-content: center;
         z-index: 2;
         margin-left: auto;
-        @include md-screen{
+
+        @include md-screen {
             margin-inline: auto;
         }
 
@@ -62,9 +65,7 @@
             aspect-ratio: 1 / 1;
             background-color: hsl(var(--base));
             filter: blur(20px);
-
         }
-
     }
 
     &__center {
@@ -74,7 +75,7 @@
         border-radius: 50%;
         z-index: 2;
         transform: translate(-50%, -50%);
-        width: rem(100px);
+        width: clamp(5rem, 3.214rem + 4.762vw, 7.5rem);
         aspect-ratio: 1 / 1;
         background-color: hsl(var(--base-two));
         border-radius: 50%;
@@ -82,7 +83,8 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        i{
+
+        i {
             font-size: 30px;
         }
 
@@ -90,31 +92,73 @@
 
     .svg-wrapper {
         position: relative;
-        width: 400px;
-        height: 400px
+        max-width: rem(340px);
     }
+
     svg {
-    width: 100%;
-    height: 100%;
+        width: 100%;
+        height: 100%;
     }
+
     .dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    transform-origin: center center;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform-origin: center center;
     }
+
     .trail {
-    width: 40px;
-    height: 4px;
-    border-radius: 2px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform-origin: left center;
-    pointer-events: none;
+        width: 40px;
+        height: 4px;
+        border-radius: 2px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform-origin: left center;
+        pointer-events: none;
+    }
+
+    .badge {
+        position: absolute;
+
+        &:nth-child(1) {
+            top: 0;
+            left: 33%;
+        }
+
+        &:nth-child(2) {
+            top: 13%;
+            right: 5%;
+        }
+
+        &:nth-child(3) {
+            top: 50%;
+            right: 3%;
+        }
+
+        &:nth-child(4) {
+            bottom: 5%;
+            right: 9%;
+        }
+
+        &:nth-child(5) {
+            bottom: 0;
+            left: 18%;
+        }
+
+        &:nth-child(6) {
+            bottom: 30%;
+            left: 7%;
+        }
+
+        &:nth-child(7) {
+            top: 33%;
+            left: 0;
+        }
+
     }
 }
 

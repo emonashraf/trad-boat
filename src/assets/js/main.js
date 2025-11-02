@@ -207,46 +207,46 @@
 
   // ========================= Swiper Js End ===================
   // ========================= Select2 Js Start =====================
-function startSelect2() {
-  $(".select-2").each(function () {
-    var $select = $(this);
-    var tags = $select.data('tags') === true;
-    var noSearch = $select.data('search') === false;
+  function startSelect2() {
+    $(".select-2").each(function () {
+      var $select = $(this);
+      var tags = $select.data('tags') === true;
+      var noSearch = $select.data('search') === false;
 
-    $select.select2({
-      width: '100%',
-      containerCssClass: ":all:",
-      tags: tags,
-      templateResult: resultState,
-      templateSelection: formatSelection,
-      minimumResultsForSearch: noSearch ? Infinity : 0,
-      tokenSeparators: [','],
+      $select.select2({
+        width: '100%',
+        containerCssClass: ":all:",
+        tags: tags,
+        templateResult: resultState,
+        templateSelection: formatSelection,
+        minimumResultsForSearch: noSearch ? Infinity : 0,
+        tokenSeparators: [','],
+      });
+      let $searchInput = $select.data('select2')?.$dropdown?.find('.select2-search__field');
+      if ($searchInput) {
+        $searchInput.removeClass('form-control').addClass('form--control');
+      }
+      $select.on('select2:open', function () {
+        $('.select2-search__field').removeClass('form-control').addClass('form--control');
+      });
     });
-    let $searchInput = $select.data('select2')?.$dropdown?.find('.select2-search__field');
-    if ($searchInput) {
-      $searchInput.removeClass('form-control').addClass('form--control');
-    }
-    $select.on('select2:open', function () {
-      $('.select2-search__field').removeClass('form-control').addClass('form--control');
-    });
-  });
 
-  function resultState(data, container) {
-    if (data.element) {
-      $(container).addClass($(data.element).attr("class"));
+    function resultState(data, container) {
+      if (data.element) {
+        $(container).addClass($(data.element).attr("class"));
+      }
+      return data.text;
     }
-    return data.text;
+
+    function formatSelection(selected) {
+      if (Array.isArray(selected)) {
+        return selected.map(item => item.text).join(', ');
+      }
+      return selected.text;
+    }
   }
 
-  function formatSelection(selected) {
-    if (Array.isArray(selected)) {
-      return selected.map(item => item.text).join(', ');
-    }
-    return selected.text;
-  }
-}
-
-startSelect2();
+  startSelect2();
 
   // ========================= Select2 Js End =====================
 
@@ -436,70 +436,140 @@ startSelect2();
   });
   // ========================== Label Required Js End =====================
 
+  // ========================== GSAP Animation START =====================
+  gsap.registerPlugin(MotionPathPlugin);
+  gsap.registerPlugin(ScrollTrigger);
+  //--------------smart-solutions__banner Start------------
+  const paths = document.querySelectorAll("#motionSvg path");
+  const wrapper = document.querySelector(".svg-wrapper");
+  const colors = ["hsl(var(--warning))", "hsl(var(--success))", "hsl(var(--info))", "hsl(var(--danger))", "hsl(var(--orange))", "hsl(var(--purple))"];
 
-gsap.registerPlugin(MotionPathPlugin);
+  paths.forEach((path, i) => {
+    const color = colors[i % colors.length];
 
-const paths = document.querySelectorAll("#motionSvg path");
-const wrapper = document.querySelector(".svg-wrapper");
-const colors = ["#00f0ff","#ff00f0","#00ff90","#ff9000","#f0ff00","#ff0066","#00ffff"];
+    // Create dot
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    dot.style.background = `radial-gradient(circle, ${color}, #00000000)`;
+    dot.style.filter = `drop-shadow(0 0 12px ${color})`;
+    wrapper.appendChild(dot);
 
-paths.forEach((path, i) => {
-  const color = colors[i % colors.length];
+    // Create trail
+    const trail = document.createElement("div");
+    trail.classList.add("trail");
+    trail.style.background = `linear-gradient(90deg, ${color}, transparent)`;
+    wrapper.appendChild(trail);
 
-  // Create dot
-  const dot = document.createElement("div");
-  dot.classList.add("dot");
-  dot.style.background = `radial-gradient(circle, ${color}, #00000000)`;
-  dot.style.filter = `drop-shadow(0 0 12px ${color})`;
-  wrapper.appendChild(dot);
+    const duration = 3 + Math.random();
 
-  // Create trail
-  const trail = document.createElement("div");
-  trail.classList.add("trail");
-  trail.style.background = `linear-gradient(90deg, ${color}, transparent)`;
-  wrapper.appendChild(trail);
 
-  const duration = 3 + Math.random(); // random duration for natural look
+    gsap.to(trail, {
+      duration: duration,
+      repeat: -1,
+      ease: "power2.inOut",
+      motionPath: {
+        path: path,
+        align: path,
+        alignOrigin: [0.5, 0.5],
+        autoRotate: true
+      },
+      scaleX: gsap.utils.wrap([0.2, 1]),
+      opacity: 0.4
+    });
 
-  // Animate trail
-  gsap.to(trail, {
-    duration: duration,
-    repeat: -1,
-    ease: "power2.inOut", // smoother than power1
-    motionPath: {
-      path: path,
-      align: path,
-      alignOrigin: [0.5, 0.5],
-      autoRotate: true
-    },
-    scaleX: gsap.utils.wrap([0.2, 1]), // tail grows along path
-    opacity: 0.4
+    // Animate dot
+    gsap.to(dot, {
+      duration: duration,
+      repeat: -1,
+      ease: "power2.inOut",
+      motionPath: {
+        path: path,
+        align: path,
+        alignOrigin: [0.5, 0.5],
+        autoRotate: true
+      }
+    });
   });
 
-  // Animate dot
-  gsap.to(dot, {
-    duration: duration,
+  gsap.to(".smart-solutions__center", {
+    scale: 1.05,
+    duration: 1.5,
     repeat: -1,
-    ease: "power2.inOut", // smoother than power1
-    motionPath: {
-      path: path,
-      align: path,
-      alignOrigin: [0.5, 0.5],
-      autoRotate: true
-    }
+    yoyo: true,
+    ease: "sine.inOut"
   });
-});
+  //--------------smart-solutions__banner End------------
 
-gsap.to(".smart-solutions__center", {
-  scale: 1.05,          // subtle growth
-  duration: 1.5,        // slower for smoothness
-  repeat: -1,           // infinite loop
-  yoyo: true,           // scale back
-  ease: "sine.inOut"    // very smooth ease
-});
+  //-------------- Work Process Start------------
+
+  const indicators = document.querySelectorAll(".work-process__indicator");
+
+  const bodyColor = getComputedStyle(document.documentElement).getPropertyValue("--body-color").trim();
+  const baseColor = getComputedStyle(document.documentElement).getPropertyValue("--base").trim();
+
+  indicators.forEach(indicator => {
+    const leftLine = indicator.querySelector(".work-process__indicator-left");
+    const rightLine = indicator.querySelector(".work-process__indicator-right");
+    const arrow = indicator.querySelector("i");
+
+    leftLine.style.setProperty("--line-width", "0%");
+    rightLine.style.setProperty("--line-width", "0%");
+    arrow.style.setProperty("--color", bodyColor);
+    arrow.style.transformOrigin = "50% 50%";
+
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.5 });
+
+    // Left line grow
+    tl.to(leftLine, {
+      "--line-width": "100%",
+      duration: 2,
+      ease: "sine.inOut"
+    });
+
+    // Arrow color + scale
+    tl.to({}, {
+      duration: 0.4,
+      onStart: () => {
+        // Color change
+        gsap.to(arrow, {
+          duration: 0.4,
+          "--color": baseColor,
+          ease: "sine.inOut"
+        });
+
+        // Scale up
+        gsap.to(arrow, {
+          duration: 0.4,
+          scale: 1.3,
+          ease: "sine.inOut",
+          yoyo: true,
+          repeat: 1
+        });
+      }
+    }, ">");
+
+    // Right line grow
+    tl.to(rightLine, {
+      "--line-width": "100%",
+      duration: 2,
+      ease: "sine.inOut"
+    }, ">");
+
+    // Reset
+    tl.add(() => {
+      leftLine.style.setProperty("--line-width", "0%");
+      rightLine.style.setProperty("--line-width", "0%");
+      arrow.style.setProperty("--color", bodyColor);
+      arrow.style.scale = 1;
+    }, ">");
+  });
+  // scroll trigger
+ 
 
 
+  //-------------- Work Process End ------------
 
+  // ========================== GSAP Animation End =====================
   // ========================= Apex chart Js Start =====================
   if ($('#profitChart').length) {
     var profitChart = {
@@ -738,7 +808,7 @@ gsap.to(".smart-solutions__center", {
         categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul'],
         labels: {
           style: {
-            colors: 'hsl(var(--white))', 
+            colors: 'hsl(var(--white))',
           }
         },
         axisBorder: {
@@ -757,7 +827,7 @@ gsap.to(".smart-solutions__center", {
       },
       legend: {
         labels: {
-          colors: 'hsl(var(--white))' 
+          colors: 'hsl(var(--white))'
         }
       },
       fill: {

@@ -352,7 +352,7 @@
 <section class="smart-solutions my-120">
     <div class="container">
         <div class="row g-5 justify-content-between align-items-center">
-            <div class="col-lg-8">
+            <div class="col-lg-7 col-xxl-8">
                 <div class="section-heading style-left">
                     <h2 class="section-heading__title">Building the Future of smart-solutions</h2>
                     <p class="section-heading__desc">Connect one or several exchange accounts to Commas Smart automation
@@ -404,10 +404,10 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4">
+            <div class="col-lg-5 col-xxl-4">
                 <div class="smart-solutions__banner">
                     <div class="svg-wrapper">
-                        <svg id="motionSvg" viewBox="0 0 332 412" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <svg id="motionSvg" viewBox="0 0 332 412" fill="none">
                             <path d="M0.5 149.5V183.5L129 201.5" stroke="#726E6E" stroke-dasharray="2 2"/>
                             <path d="M331 237L275 283.5L227 241" stroke="#726E6E" stroke-dasharray="2 2"/>
                             <path d="M100 411.5L182.5 364.5L192 274" stroke="#726E6E" stroke-dasharray="2 2"/>
@@ -418,6 +418,15 @@
                         </svg>                                   
                     </div>
                     <div class="smart-solutions__center"><i class="fa-solid fa-users"></i></div>
+                    <div class="smart-solithins__badges">
+                        <span class="badge bg--orange">Grid</span>
+                        <span class="badge bg--warning">Short Period</span>
+                        <span class="badge bg--success">Profit</span>
+                        <span class="badge bg--danger">Trailing up</span>
+                        <span class="badge bg--info">Investment</span>
+                        <span class="badge bg--purple">Investment</span>
+                        <span class="badge bg--pink">Short Period</span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -433,25 +442,36 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="work-process__inner">
-                    <div class="work-process__card">
-                        <span class="work-process__count">01</span>
-                        <span class="work-process__indicator"><i class="fa-solid fa-angles-right"></i></span>
-                        <h5 class="work-process__title">Link your exchange account</h5>
-                        <p class="work-process__desc">Connect one or several exchange accounts to 3Commas</p>
-                    </div>
-                    <div class="work-process__card">
-                        <span class="work-process__count">02</span>
-                        <span class="work-process__indicator"><i class="fa-solid fa-angles-right"></i></span>
-                        <h5 class="work-process__title">Build, backtest, and refine your strategy</h5>
-                        <p class="work-process__desc">Connect one or several exchange accounts to 3Commas</p>
-                    </div>
-                    <div class="work-process__card">
-                        <span class="work-process__count">03</span>
-                        <h5 class="work-process__title">Let your Bots work hard for your success</h5>
-                        <p class="work-process__desc">Connect one or several exchange accounts to 3Commas</p>
+                <div class="work-process__wrap">
+                    <div class="work-process__inner">
+                        <div class="work-process__card">
+                            <span class="work-process__count">01</span>
+                            <h5 class="work-process__title">Link your exchange account</h5>
+                            <p class="work-process__desc">Connect one or several exchange accounts to 3Commas</p>
+                            <div class="work-process__indicator">
+                                <span class="work-process__indicator-left"></span>
+                                <i class="fa-solid fa-angles-right"></i>
+                                <span class="work-process__indicator-right"></span>
+                            </div>
+                        </div>
+                        <div class="work-process__card">
+                            <span class="work-process__count">02</span>
+                            <h5 class="work-process__title">Build, backtest, and refine your strategy</h5>
+                            <p class="work-process__desc">Connect one or several exchange accounts to 3Commas</p>
+                            <div class="work-process__indicator">
+                                <span class="work-process__indicator-left"></span>
+                                <i class="fa-solid fa-angles-right"></i>
+                                <span class="work-process__indicator-right"></span>
+                            </div>
+                        </div>
+                        <div class="work-process__card">
+                            <span class="work-process__count">03</span>
+                            <h5 class="work-process__title">Let your Bots work hard for your success</h5>
+                            <p class="work-process__desc">Connect one or several exchange accounts to 3Commas</p>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </div>
@@ -1255,9 +1275,13 @@
 <script src="assets/js/apexcharts.js"></script>
 <!-- Matter js -->
 <script src="assets/js/matter.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/MotionPathPlugin.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
 <!-- main js -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/MotionPathPlugin.min.js"></script>
 <script src="assets/js/main.js"></script>
 </body>
 

@@ -1,7 +1,7 @@
 /* ======================  Work-process Start  ======================*/
 .work-process {
     position: relative;
-    z-index: 1;
+    // z-index: 1;
     --indicator-size: 130px;
     --icon-width: 30px;
     --card-gap: 200px;
@@ -25,6 +25,7 @@
         --icon-width: 20px;
 
     }
+
     .glove--base {
         position: absolute;
         left: auto;
@@ -84,16 +85,18 @@
 
     &__count {
         font-size: clamp(1.875rem, 1.594rem + 1.406vw, 3rem);
-        font-weight:500;
+        font-weight: 500;
         line-height: 1;
         color: transparent;
         -webkit-text-stroke: 2px hsl(var(--heading-color));
         margin-bottom: rem(28px);
         width: var(--count-size);
-        @include md-screen{
+
+        @include md-screen {
             font-weight: 700;
         }
-        @include sm-screen{
+
+        @include sm-screen {
             font-weight: 900;
         }
 
@@ -104,7 +107,89 @@
         margin-bottom: rem(20px);
     }
 
-    &__indicator {
+    // &__indicator {
+    //     display: inline-block;
+    //     position: absolute;
+    //     right: calc(((var(--card-size) + var(--card-gap)) / 2) * -1);
+    //     top: 15%;
+    //     height: 10px;
+
+    //     @include xl-screen {
+    //         right: 30%;
+    //     }
+
+    //     @include md-screen {
+    //         transform: translate(-50%) rotate(90deg);
+    //         top: auto;
+    //         bottom: -35%;
+    //         left: 50%;
+    //     }
+
+
+    //     i {
+    //         display: inline-block;
+    //         font-size: 20px;
+    //         position: absolute;
+    //         right: 0;
+    //         top: 50%;
+    //         transform: translate(50%, -50%);
+    //         width: var(--icon-width);
+    //         display: grid;
+    //         place-items: center;
+    //         animation: bodyToBase 1s ease infinite;
+    //         animation-delay: 3s;
+    //     }
+
+    //     &-right {
+    //         position: absolute;
+    //         right: calc(-100% - var(--icon-width) / 2);
+    //         top: 50%;
+    //         transform: translateX(100%);
+    //         width: var(--indicator-size);
+    //         height: 1px;
+    //         background-color: hsl(var(--body-color)/ 0.5);
+
+    //         @include md-screen {
+    //             display: none;
+    //         }
+
+    //         &::before {
+    //             content: '';
+    //             position: absolute;
+    //             left: 0;
+    //             background-color: hsl(var(--base));
+    //             width: 0px;
+    //             height: 1px;
+    //             animation: leftToRight 2s ease infinite;
+    //             animation-delay: 3s;
+    //         }
+    //     }
+
+    //     &-left {
+    //         content: '';
+    //         position: absolute;
+    //         right: calc(var(--icon-width) / 2);
+    //         top: 50%;
+    //         width: var(--indicator-size);
+    //         height: 1px;
+    //         background-color: hsl(var(--body-color)/ 0.5);
+    //         &::after {
+    //             content: '';
+    //             position: absolute;
+    //             left: 0;
+    //             background-color: hsl(var(--base));
+    //             width: 0px;
+    //             height: 1px;
+    //             animation: leftToRight 2s ease infinite;   
+    //         }
+
+    //         @include md-screen {
+    //             right: calc(var(--icon-width) / 4);
+    //             top: calc(50% - 1px);
+    //         }
+    //     }
+    // }
+    .work-process__indicator {
         display: inline-block;
         position: absolute;
         right: calc(((var(--card-size) + var(--card-gap)) / 2) * -1);
@@ -122,7 +207,6 @@
             left: 50%;
         }
 
-
         i {
             display: inline-block;
             font-size: 20px;
@@ -133,31 +217,51 @@
             width: var(--icon-width);
             display: grid;
             place-items: center;
+          color: hsl(var(--color, var(--body-color)));
+          transition: 0.3s;
         }
 
-        &::after {
-            content: '';
+        &-right {
             position: absolute;
             right: calc(-100% - var(--icon-width) / 2);
             top: 50%;
             transform: translateX(100%);
             width: var(--indicator-size);
             height: 1px;
-            background-color: hsl(var(--body-color)/ 0.5);
+            background-color: hsl(var(--body-color)/0.5);
 
             @include md-screen {
                 display: none;
             }
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                background-color: hsl(var(--base));
+                width: var(--line-width, 0%);
+                height: 1px;
+            }
         }
 
-        &::before {
+        &-left {
             content: '';
             position: absolute;
             right: calc(var(--icon-width) / 2);
             top: 50%;
             width: var(--indicator-size);
             height: 1px;
-            background-color: hsl(var(--body-color)/ 0.5);
+            background-color: hsl(var(--body-color)/0.5);
+
+            &::before {
+                content: '';
+                position: absolute;
+                left: 0;
+                top: 0;
+                height: 2px;
+                width: var(--line-width, 0%);
+                background-color: hsl(var(--base));
+            }
 
             @include md-screen {
                 right: calc(var(--icon-width) / 4);
@@ -166,6 +270,11 @@
         }
     }
 
+   
+
+
 }
+
+
 
 /* ======================  Work-process End  ======================*/

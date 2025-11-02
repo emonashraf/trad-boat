@@ -65,11 +65,12 @@
   /* Info Color */
   @include colorVariable(--info, #00bbff, 5);
   /* Purple Color */
-  @include colorVariable(--purple, #E50BC8);
+  @include colorVariable(--purple, #8b42ff);
   /* Aqua  Color */
   @include colorVariable(--aqua, #03AEC0);
     /* Orange  Color */
   @include colorVariable(--orange, #e6710b);
+  @include colorVariable(--pink, #e60bc8);
   /* ============================== Bootstrap Modifier End ============================== */
 
   /* ============================== Dark Mood Color Modify Start ============================== */

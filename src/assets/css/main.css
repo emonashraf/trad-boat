@@ -156,11 +156,12 @@
     --info-l-400: var(--info-h) calc(var(--info-s)) calc(var(--info-l) + (100% - var(--info-l)) * 0.4);
     --info-l-500: var(--info-h) calc(var(--info-s)) calc(var(--info-l) + (100% - var(--info-l)) * 0.5);
   /* Purple Color */
-    --purple: 308 91% 47%;
+    --purple: 263 100% 63%;
   /* Aqua  Color */
     --aqua: 186 97% 38%;
   /* Orange  Color */
     --orange: 28 91% 47%;
+    --pink: 308 91% 47%;
   /* ============================== Bootstrap Modifier End ============================== */
   /* ============================== Dark Mood Color Modify Start ============================== */
   /* ============================== Dark Mood Color Modify End ============================== */
@@ -855,6 +856,10 @@ button:focus {
 
 .bg--orange {
     background-color: hsl(var(--orange)) !important;
+}
+
+.bg--pink {
+    background-color: hsl(var(--pink)) !important;
 }
 
 .hover-bg--base:hover {
@@ -6512,6 +6517,8 @@ input[type=number] {
     background-color: hsl(var(--base-two));
     max-width: clamp(15.625rem, 11.719rem + 19.531vw, 31.25rem);
     aspect-ratio: 1/1;
+    width: 100%;
+    height: 100%;
     border-radius: 50%;
     display: flex;
     flex-direction: column;
@@ -6555,7 +6562,7 @@ input[type=number] {
     border-radius: 50%;
     z-index: 2;
     transform: translate(-50%, -50%);
-    width: 6.25rem;
+    width: clamp(5rem, 3.214rem + 4.762vw, 7.5rem);
     aspect-ratio: 1/1;
     background-color: hsl(var(--base-two));
     border-radius: 50%;
@@ -6571,8 +6578,7 @@ input[type=number] {
 
 .smart-solutions .svg-wrapper {
     position: relative;
-    width: 400px;
-    height: 400px;
+    max-width: 21.25rem;
 }
 
 .smart-solutions svg {
@@ -6601,11 +6607,49 @@ input[type=number] {
     pointer-events: none;
 }
 
+.smart-solutions .badge {
+    position: absolute;
+}
+
+.smart-solutions .badge:nth-child(1) {
+    top: 0;
+    left: 33%;
+}
+
+.smart-solutions .badge:nth-child(2) {
+    top: 13%;
+    right: 5%;
+}
+
+.smart-solutions .badge:nth-child(3) {
+    top: 50%;
+    right: 3%;
+}
+
+.smart-solutions .badge:nth-child(4) {
+    bottom: 5%;
+    right: 9%;
+}
+
+.smart-solutions .badge:nth-child(5) {
+    bottom: 0;
+    left: 18%;
+}
+
+.smart-solutions .badge:nth-child(6) {
+    bottom: 30%;
+    left: 7%;
+}
+
+.smart-solutions .badge:nth-child(7) {
+    top: 33%;
+    left: 0;
+}
+
 /* ======================  Features End  ======================*/
 /* ======================  Work-process Start  ======================*/
 .work-process {
     position: relative;
-    z-index: 1;
     --indicator-size: 130px;
     --icon-width: 30px;
     --card-gap: 200px;
@@ -6721,7 +6765,7 @@ input[type=number] {
     margin-bottom: 1.25rem;
 }
 
-.work-process__indicator {
+.work-process .work-process__indicator {
     display: inline-block;
     position: absolute;
     right: calc((var(--card-size) + var(--card-gap)) / 2 * -1);
@@ -6730,13 +6774,13 @@ input[type=number] {
 }
 
 @media screen and (max-width: 1399px) {
-    .work-process__indicator {
+    .work-process .work-process__indicator {
         right: 30%;
     }
 }
 
 @media screen and (max-width: 991px) {
-    .work-process__indicator {
+    .work-process .work-process__indicator {
         transform: translate(-50%) rotate(90deg);
         top: auto;
         bottom: -35%;
@@ -6744,7 +6788,7 @@ input[type=number] {
     }
 }
 
-.work-process__indicator i {
+.work-process .work-process__indicator i {
     display: inline-block;
     font-size: 20px;
     position: absolute;
@@ -6754,10 +6798,11 @@ input[type=number] {
     width: var(--icon-width);
     display: grid;
     place-items: center;
+    color: hsl(var(--color, var(--body-color)));
+    transition: 0.3s;
 }
 
-.work-process__indicator::after {
-    content: "";
+.work-process .work-process__indicator-right {
     position: absolute;
     right: calc(-100% - var(--icon-width) / 2);
     top: 50%;
@@ -6768,12 +6813,21 @@ input[type=number] {
 }
 
 @media screen and (max-width: 991px) {
-    .work-process__indicator::after {
+    .work-process .work-process__indicator-right {
         display: none;
     }
 }
 
-.work-process__indicator::before {
+.work-process .work-process__indicator-right::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    background-color: hsl(var(--base));
+    width: var(--line-width, 0%);
+    height: 1px;
+}
+
+.work-process .work-process__indicator-left {
     content: "";
     position: absolute;
     right: calc(var(--icon-width) / 2);
@@ -6783,8 +6837,18 @@ input[type=number] {
     background-color: hsl(var(--body-color)/0.5);
 }
 
+.work-process .work-process__indicator-left::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 2px;
+    width: var(--line-width, 0%);
+    background-color: hsl(var(--base));
+}
+
 @media screen and (max-width: 991px) {
-    .work-process__indicator::before {
+    .work-process .work-process__indicator-left {
         right: calc(var(--icon-width) / 4);
         top: calc(50% - 1px);
     }

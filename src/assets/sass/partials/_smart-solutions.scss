@@ -16,6 +16,7 @@
         display: grid;
         place-items: center;
         background-image: linear-gradient(180deg, hsl(var(--base)) 0%, transparent 100%);
+
         img {
             max-width: 80%;
         }
@@ -60,7 +61,7 @@
         &::before {
             content: '';
             position: absolute;
-            width: 140px;
+            width: clamp(5.625rem, 4.531rem + 5.469vw, 10rem);
             border-radius: 50%;
             aspect-ratio: 1 / 1;
             background-color: hsl(var(--base));
@@ -92,12 +93,20 @@
 
     .svg-wrapper {
         position: relative;
-        max-width: rem(340px);
+        max-width: clamp(12.5rem, 10.156rem + 11.719vw, 21.875rem);
     }
 
-    svg {
+    &__chart {
         width: 100%;
         height: 100%;
+        fill: none;
+
+        path {
+            stroke: hsl(var(--white)/0.6);
+            stroke-width: 1.2;
+            stroke-dasharray: 4 4;
+            stroke-linecap: round;
+        }
     }
 
     .dot {
@@ -125,38 +134,83 @@
         position: absolute;
 
         &:nth-child(1) {
-            top: 0;
+            top: 6%;
             left: 33%;
+
+            @include lg-screen {
+                top: 0;
+                left: 25%;
+            }
+
         }
 
         &:nth-child(2) {
-            top: 13%;
-            right: 5%;
+            top: 18%;
+            right: 10%;
+
+            @include lg-screen {
+                top: 15%;
+                right: 0%;
+            }
         }
 
         &:nth-child(3) {
-            top: 50%;
-            right: 3%;
+            top: 47%;
+            right: 7%;
+
+            @include lg-screen {
+                top: 46%;
+                right: 0%;
+            }
         }
 
         &:nth-child(4) {
-            bottom: 5%;
-            right: 9%;
+            bottom: 9%;
+            right: 15%;
+
+            @include lg-screen {
+                bottom: 0;
+                right: 10%;
+            }
         }
 
         &:nth-child(5) {
-            bottom: 0;
+            bottom: 6%;
             left: 18%;
+
+            @include lg-screen {
+                bottom: 0%;
+                left: 6%;
+            }
         }
 
         &:nth-child(6) {
-            bottom: 30%;
-            left: 7%;
+            bottom: 35%;
+            left: 5%;
+
+            @include lg-screen {
+                bottom: 31%;
+                left: 3%;
+            }
+
+            @include sm-screen {
+                bottom: 32%;
+                left: -5%;
+            }
         }
 
         &:nth-child(7) {
             top: 33%;
             left: 0;
+
+            @include lg-screen {
+                top: 29%;
+            }
+
+            @include sm-screen {
+                top: 30%;
+                left: -5%;
+            }
         }
 
     }

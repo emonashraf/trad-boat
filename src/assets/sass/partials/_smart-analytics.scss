@@ -20,6 +20,7 @@
             top: -30%;
             right: -30%;
             max-width: 180px;
+            animation: scal 2s ease-in-out infinite;
         }
 
         .mask-box {
@@ -37,6 +38,8 @@
             fill: none;
             z-index: 1;
             position: relative;
+            fill: none;
+            animation: scal 2s ease-in-out infinite;
 
 
             circle {

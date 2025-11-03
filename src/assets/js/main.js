@@ -207,47 +207,10 @@
 
   // ========================= Swiper Js End ===================
   // ========================= Select2 Js Start =====================
-  function startSelect2() {
-    $(".select-2").each(function () {
-      var $select = $(this);
-      var tags = $select.data('tags') === true;
-      var noSearch = $select.data('search') === false;
-
-      $select.select2({
-        width: '100%',
-        containerCssClass: ":all:",
-        tags: tags,
-        templateResult: resultState,
-        templateSelection: formatSelection,
-        minimumResultsForSearch: noSearch ? Infinity : 0,
-        tokenSeparators: [','],
-      });
-      let $searchInput = $select.data('select2')?.$dropdown?.find('.select2-search__field');
-      if ($searchInput) {
-        $searchInput.removeClass('form-control').addClass('form--control');
-      }
-      $select.on('select2:open', function () {
-        $('.select2-search__field').removeClass('form-control').addClass('form--control');
-      });
-    });
-
-    function resultState(data, container) {
-      if (data.element) {
-        $(container).addClass($(data.element).attr("class"));
-      }
-      return data.text;
-    }
-
-    function formatSelection(selected) {
-      if (Array.isArray(selected)) {
-        return selected.map(item => item.text).join(', ');
-      }
-      return selected.text;
-    }
+  if ($('.select2').length) {
+    $('.select2').select2();
   }
-
-  startSelect2();
-
+  
   // ========================= Select2 Js End =====================
 
 
@@ -441,11 +404,11 @@
   gsap.registerPlugin(ScrollTrigger);
   gsap.registerPlugin(SplitText);
 
-// banner title
+  // banner title
   const splitTop = new SplitText(".banner__title", { type: "chars" });
   gsap.from(splitTop.chars, {
     duration: 0.5,
-    y: -50,       
+    y: -50,
     opacity: 0,
     scale: 0.8,
     stagger: 0.04,
@@ -454,9 +417,10 @@
 
 
   //--------------smart-solutions__banner Start------------
+
   const paths = document.querySelectorAll("#motionSvg path");
   const wrapper = document.querySelector(".svg-wrapper");
-  const colors = ["hsl(var(--warning))", "hsl(var(--success))", "hsl(var(--info))", "hsl(var(--danger))", "hsl(var(--orange))", "hsl(var(--purple))"];
+  const colors = ["hsl(var(--warning))", "hsl(var(--orange))", "hsl(var(--success))", "hsl(var(--danger))", "hsl(var(--info))", "hsl(var(--purple))", "hsl(var(--pink))"];
 
   paths.forEach((path, i) => {
     const color = colors[i % colors.length];
@@ -579,18 +543,18 @@
   });
   // scroll trigger
   gsap.fromTo(".work-process__wrap",
-      { scale: 0.95, opacity: 0.8 },
-      {
-          scale: 1.05,
-          opacity: 1,
-          ease: "power2.out",
-          scrollTrigger: {
-              trigger: ".work-process",
-              start: "top 80%",
-              end: "bottom 20%",
-              scrub: 1.5,
-          }
+    { scale: 0.95, opacity: 0.8 },
+    {
+      scale: 1.05,
+      opacity: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: ".work-process",
+        start: "top 80%",
+        end: "bottom 20%",
+        scrub: 1.5,
       }
+    }
   );
   //-------------- Work Process End ------------  
   // ========================== GSAP Animation End =====================

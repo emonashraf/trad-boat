@@ -189,27 +189,16 @@
   &__form {
     position: relative;
 
-    .form--control {
+    .form-control {
       border: 1px solid hsl(var(--white)/ 0.15);
       color: hsl(var(--base));
 
       ~button {
         background: linear-gradient(180deg, hsl(var(--base)), transparent);
-        border-radius: var(--b-radius-6);
+        border-radius: var(--b-radius-6) !important;
         padding-block: calc(clamp(0.813rem, 0.75rem + 0.313vw, 1.063rem) - 10px);
         margin: 5px;
-        position: relative;
         z-index: 1;
-
-        &::before {
-          content: '';
-          position: absolute;
-          inset: -5px;
-          background-color: hsl(var(--white)/ 0.04);
-          border-radius: inherit;
-          z-index: -1;
-        }
-
         i {
           color: hsl(var(--white));
           transition: 0.3s;

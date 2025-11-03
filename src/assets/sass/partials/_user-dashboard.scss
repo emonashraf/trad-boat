@@ -36,11 +36,12 @@
   height: 100vh;
   z-index: 2;
   background-color: hsl(var(--base-l-300)/ 0.15);
+  backdrop-filter: blur(10px);
   overflow-y: auto;
   scrollbar-width: none;
 
   @include md-screen {
-    background-color: hsl(var(--base-l-300)/ 0.15);
+    background-color: hsl(var(--base-two));
     left: -100%;
     z-index: 13;
     transition: 0.3s;
@@ -228,6 +229,7 @@
   justify-content: space-between;
   padding: clamp(0.75rem, 0.563rem + 0.938vw, 1.5rem);
   padding-bottom: 0;
+  --widgets-size: clamp(2.188rem, 2.031rem + 0.781vw, 2.813rem);
 
   @include sm-screen {
     flex-direction: column;
@@ -298,13 +300,13 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 45px;
-  height: 45px;
+  width: var(--widgets-size);
+  height: var(--widgets-size);
   background-color: hsl(var(--white) / 0.1);
   border: 1px solid hsl(var(--white)/ 0.08);
   color: hsl(var(--white));
   border-radius: 50%;
-  font-size: 26px;
+  font-size: clamp(1.125rem, 1rem + 0.625vw, 1.625rem);
   transition: 0.3s;
 
   &:hover {
@@ -330,8 +332,8 @@
   z-index: 2;
   background-color: hsl(var(--base));
   line-height: 1;
-  width: 22px;
-  height: 22px;
+  width: clamp(1.125rem, 1.063rem + 0.313vw, 1.375rem);
+  height: clamp(1.125rem, 1.063rem + 0.313vw, 1.375rem);
   border-radius: 50%;
   color: hsl(var(--white));
   font-size: 10px;
@@ -342,15 +344,10 @@
 }
 
 .profile__dropdown img {
-  width: 45px;
-  height: 45px;
+  width: var(--widgets-size);
+  height: var(--widgets-size);
   object-fit: cover;
   border-radius: 50%;
-
-  @include md-screen {
-    width: 38px;
-    height: 38px;
-  }
 }
 
 .dash__dropdown {
@@ -578,9 +575,13 @@
 .table__topbar__right {
   display: flex;
   align-items: center;
-  @include xxsm-screen{
+
+  @include xxsm-screen {
     flex-wrap: wrap;
+    margin-left: auto;
+    justify-content: end;
   }
+
   gap: 10px;
 
   @include sm-screen {
@@ -600,23 +601,6 @@
   }
 }
 
-@include lg-screen {
-  .table__topbar__right {
-    .btn.filter__btn {
-      font-size: 14px;
-      padding: 18px 20px;
-    }
-  }
-}
-
-.table__topbar__right .search__box .form-control {
-  padding: 15px 16px;
-  padding-right: 44px;
-
-  @include sm-screen {
-    width: 100%;
-  }
-}
 
 .btn.open__ticket {
   font-size: 14px;
@@ -856,7 +840,7 @@
     background: hsl(var(--base));
   }
 
-  .form--check {
+  .form-check {
     margin-bottom: 18px;
     justify-content: space-between;
 

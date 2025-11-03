@@ -13,28 +13,13 @@
   &__title {
     margin-bottom: clamp(0.75rem, 0.563rem + 0.938vw, 1.5rem);
   }
-
-  &__left {
-
-    &-title {
-      color: hsl(var(--white));
-      margin: 0;
-    }
-
-    &-logo {
-      margin-bottom: rem(32px);
-    }
-
-  }
-
-
   &__form-wrap {
     max-width: 550px;
     margin-inline: auto;
     text-align: center;
 
     .logo {
-      margin-bottom: clamp(2.5rem, 1.875rem + 3.125vw, 5rem);
+      margin-bottom: clamp(1.25rem, 0.313rem + 4.688vw, 5rem);
     }
   }
 

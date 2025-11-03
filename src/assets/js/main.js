@@ -481,7 +481,6 @@
   //-------------- Work Process Start------------
 
   const indicators = document.querySelectorAll(".work-process__indicator");
-
   const bodyColor = getComputedStyle(document.documentElement).getPropertyValue("--body-color").trim();
   const baseColor = getComputedStyle(document.documentElement).getPropertyValue("--base").trim();
 
@@ -556,7 +555,183 @@
       }
     }
   );
-  //-------------- Work Process End ------------  
+  //-------------- Work Process End ------------
+// Perspective for 3D rotation
+gsap.set(".smart-analytics", { perspective: 1200 });
+
+// Function to animate cards
+function animateCard(card, fromX, rotateY, rotateZ) {
+  gsap.fromTo(card,
+    {
+      x: fromX,
+      opacity: 0,
+      rotateY: rotateY,
+      rotateZ: rotateZ,
+      scale: 0.85,
+      filter: "blur(8px)",
+    },
+    {
+      x: 0,
+      opacity: 1,
+      rotateY: 0,
+      rotateZ: 0,
+      scale: 1,
+      filter: "blur(0px)",
+      duration: 2,
+      ease: "power4.out",
+      scrollTrigger: {
+        trigger: card,
+        start: "top 90%",
+        end: "bottom 40%",
+        scrub: 1.2,
+        toggleActions: "play reverse play reverse",
+      },
+      onComplete: () => {
+        // subtle bounce after entry
+        gsap.fromTo(card, 
+          { scale: 1 }, 
+          { scale: 1.03, duration: 0.3, yoyo: true, repeat: 1, ease: "power1.inOut" }
+        );
+      }
+    }
+  );
+}
+
+// Animate left cards
+gsap.utils.toArray(".left-card").forEach(card => {
+  animateCard(card, -400, -70, -15);
+});
+
+// Animate right cards
+gsap.utils.toArray(".right-card").forEach(card => {
+  animateCard(card, 400, 70, 15);
+});
+
+// Animate center profit-cart (fixed, smooth rise)
+gsap.fromTo(".profit-cart",
+  {
+    y: 250,
+    opacity: 0,
+    scale: 0.85,
+    filter: "blur(8px)",
+  },
+  {
+    y: 0,
+    opacity: 1,
+    scale: 1,
+    filter: "blur(0px)",
+    duration: 1.8,
+    ease: "power4.out",
+    scrollTrigger: {
+      trigger: ".profit-cart",
+      start: "top 85%",
+      toggleActions: "play none none none", // only show once
+    }
+  }
+);
+  //-------------- smart-analytics Start ------------
+  
+  //-------------- smart-analytics End ------------
+  
+  // GSAP Animation
+// gsap.registerPlugin(ScrollTrigger);
+
+// const cards = gsap.utils.toArray(".trad__card");
+
+// // Scroll-trigger animation with nth-child logic
+// cards.forEach((card, i) => {
+//   const pos = i % 3; // 0 = left, 1 = center, 2 = right
+//   let startX = 0, startRotate = 0;
+
+//   if(pos === 0) { startX = -300; startRotate = -20; } // left
+//   else if(pos === 2) { startX = 300; startRotate = 20; } // right
+
+//   gsap.fromTo(card,
+//     { opacity: 0, x: startX, rotate: startRotate },
+//     {
+//       opacity: 1,
+//       x: 0,
+//       rotate: 0,
+//       duration: 1,
+//       ease: "power2.out",
+//       scrollTrigger: {
+//         trigger: card,
+//         start: "top 85%",
+//         toggleActions: "play none none reverse"
+//       }
+//     }
+//   );
+// });
+
+// // Hover effect: zoom in hovered card, blur others
+// cards.forEach(card => {
+//   card.addEventListener("mouseenter", () => {
+//     gsap.to(card, { scale: 1.1, duration: 0.3, ease: "power2.out" });
+//     cards.forEach(other => {
+//       if(other !== card) gsap.to(other, { filter: "blur(3px)", scale: 1, duration: 0.3 });
+//     });
+//   });
+
+//   card.addEventListener("mouseleave", () => {
+//     gsap.to(card, { scale: 1, duration: 0.3, ease: "power2.out" });
+//     cards.forEach(other => {
+//       if(other !== card) gsap.to(other, { filter: "blur(0px)", scale: 1, duration: 0.3 });
+//     });
+//   });
+// });
+
+  gsap.registerPlugin(ScrollTrigger);
+
+const cards = gsap.utils.toArray(".trad__card");
+
+// Media query check (mobile vs desktop)
+const isDesktop = window.matchMedia("(min-width: 768px)").matches;
+
+if(isDesktop) {
+  // Scroll-trigger animation with nth-child logic
+  cards.forEach((card, i) => {
+    const pos = i % 3; // 0 = left, 1 = center, 2 = right
+    let startX = 0, startRotate = 0;
+
+    if(pos === 0) { startX = -300; startRotate = -20; } // left
+    else if(pos === 2) { startX = 300; startRotate = 20; } // right
+
+    gsap.fromTo(card,
+      { opacity: 0, x: startX, rotate: startRotate },
+      {
+        opacity: 1,
+        x: 0,
+        rotate: 0,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+  });
+
+  // Hover effect: zoom in hovered card, blur others
+  cards.forEach(card => {
+    card.addEventListener("mouseenter", () => {
+      gsap.to(card, { scale: 1.1, duration: 0.3, ease: "power2.out" });
+      cards.forEach(other => {
+        if(other !== card) gsap.to(other, { filter: "blur(3px)", scale: 1, duration: 0.3 });
+      });
+    });
+
+    card.addEventListener("mouseleave", () => {
+      gsap.to(card, { scale: 1, duration: 0.3, ease: "power2.out" });
+      cards.forEach(other => {
+        if(other !== card) gsap.to(other, { filter: "blur(0px)", scale: 1, duration: 0.3 });
+      });
+    });
+  });
+}
+
+  
   // ========================== GSAP Animation End =====================
 
 
@@ -682,8 +857,6 @@
     var chart = new ApexCharts(document.querySelector("#profitChart"), profitChart);
     chart.render();
   }
-
-
   // chart 2
   if ($('#reportChart').length) {
     var options = {

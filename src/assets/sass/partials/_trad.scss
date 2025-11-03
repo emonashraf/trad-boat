@@ -2,8 +2,20 @@
 .trad {
     position: relative;
     z-index: 2;
+  
 
     .col-md-6 {
+        // &:nth-child(3n+1){}
+        // &:nth-child(3n+3){}
+        
+        // &:nth-child(odd){
+        //     transform: rotate(-3deg);
+        //     transform-origin: center center;
+        // }
+        // &:nth-child(even){
+        //     transform: rotate(3deg);
+        //     transform-origin: center center;
+        // }
         &:nth-child(2) {
             .trad__graph {
                 background-color: hsl(var(--aqua));
@@ -60,6 +72,10 @@
         padding: rem(28px);
         background-color: hsl(var(--base-two));
         border-radius: var(--b-radius-16);
+        transition: 0.3s;
+        &:hover{
+            transform: scale(1.1);
+        }
 
         &::after {
             content: '';
@@ -124,5 +140,50 @@
 
 
 }
+// .trad__card {
+//   opacity: 0;
+//   transform: translateX(0) rotate(0deg);
+//   transition: all 1s ease-out;
+// }
+
+// /* প্রতিটি row-এ প্রথম item → left থেকে আসবে */
+// .col-md-6:nth-child(3n+1) .trad__card {
+//   transform: translateX(-300px) rotate(-20deg);
+// }
+
+// /* প্রতিটি row-এ শেষ item → right থেকে আসবে */
+// .col-md-6:nth-child(3n+3) .trad__card {
+//   transform: translateX(300px) rotate(20deg);
+// }
+
+// /* যখন scroll করে visible হবে → transform reset করা */
+// .trad__card.visible {
+//   transform: translateX(0) rotate(0deg);
+//   opacity: 1;
+// }
+
+/* Basic card styling */
+.trad__card {
+
+  transition: all 0.3s ease;
+  opacity: 0; 
+  transform-origin: center center;
+}
+/* Initial state for desktop animation */
+.trad__card {
+  opacity: 0;
+  transform: translateX(0) rotate(0deg);
+  transition: all 1s ease-out;
+}
+
+/* Mobile override */
+@media (max-width: 767px) {
+  .trad__card {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+}
+
 
 /* ======================  Trad End  ======================*/

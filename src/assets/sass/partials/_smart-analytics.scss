@@ -85,7 +85,6 @@
         .tradInfo-pattern {
             position: absolute;
             inset: 0;
-
         }
     }
 
@@ -187,9 +186,6 @@
             font-weight: 400;
         }
     }
-
-
-
     &__title {
         margin-bottom: clamp(0.938rem, 0.781rem + 0.781vw, 1.563rem);
     }

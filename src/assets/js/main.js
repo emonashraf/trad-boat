@@ -337,40 +337,40 @@
   // ========================= Custom Dropzone End ==========
 
   // ========================= Scroll Reveal Js Start ===================
-  const sr = ScrollReveal({
-    origin: 'top',
-    distance: '60px',
-    duration: 1200,
-    delay: 100,
-    reset: false,
-  })
-  sr.reveal('.bottom-reveal,  .section-heading__title, .pricing, .footer__item', {
-    delay: 60,
-    interval: 100,
-    origin: 'bottom',
-  })
-  sr.reveal('.banner__desc, .section-heading__desc, .testimonial, .blog__card', {
-    delay: 150,
-    interval: 100,
-    origin: 'bottom',
-  })
-  sr.reveal('.banner__btns', {
-    delay: 200,
-    origin: 'bottom',
-  })
-  sr.reveal('.right-reveal, .faq__thumb-wrap', {
-    delay: 60,
-    origin: 'right',
-  })
-  sr.reveal('.left-reveal, .faq__content-wrap', {
-    delay: 60,
-    interval: 100,
-    origin: 'left',
-  })
-  sr.reveal('.banner__subtitle, .section-heading__name', {
-    delay: 60,
-    origin: 'top',
-  })
+  // const sr = ScrollReveal({
+  //   origin: 'top',
+  //   distance: '60px',
+  //   duration: 1200,
+  //   delay: 100,
+  //   reset: false,
+  // })
+  // sr.reveal('.bottom-reveal,  .section-heading__title, .pricing, .footer__item', {
+  //   delay: 60,
+  //   interval: 100,
+  //   origin: 'bottom',
+  // })
+  // sr.reveal('.banner__desc, .section-heading__desc, .testimonial, .blog__card', {
+  //   delay: 150,
+  //   interval: 100,
+  //   origin: 'bottom',
+  // })
+  // sr.reveal('.banner__btns', {
+  //   delay: 200,
+  //   origin: 'bottom',
+  // })
+  // sr.reveal('.right-reveal, .faq__thumb-wrap', {
+  //   delay: 60,
+  //   origin: 'right',
+  // })
+  // sr.reveal('.left-reveal, .faq__content-wrap', {
+  //   delay: 60,
+  //   interval: 100,
+  //   origin: 'left',
+  // })
+  // sr.reveal('.banner__subtitle, .section-heading__name', {
+  //   delay: 60,
+  //   origin: 'top',
+  // })
 
 
   // ========================= Scroll Reveal Js End ===================
@@ -556,10 +556,10 @@
     }
   );
   //-------------- Work Process End ------------
-// Perspective for 3D rotation
-gsap.set(".smart-analytics", { perspective: 1200 });
 
-// Function to animate cards
+  //-------------- smart-analytics Start ------------
+  gsap.set(".smart-analytics", { perspective: 1200 });
+
 function animateCard(card, fromX, rotateY, rotateZ) {
   gsap.fromTo(card,
     {
@@ -597,17 +597,15 @@ function animateCard(card, fromX, rotateY, rotateZ) {
   );
 }
 
-// Animate left cards
+
 gsap.utils.toArray(".left-card").forEach(card => {
   animateCard(card, -400, -70, -15);
 });
 
-// Animate right cards
 gsap.utils.toArray(".right-card").forEach(card => {
   animateCard(card, 400, 70, 15);
 });
 
-// Animate center profit-cart (fixed, smooth rise)
 gsap.fromTo(".profit-cart",
   {
     y: 250,
@@ -625,113 +623,187 @@ gsap.fromTo(".profit-cart",
     scrollTrigger: {
       trigger: ".profit-cart",
       start: "top 85%",
-      toggleActions: "play none none none", // only show once
+      toggleActions: "play none none none", 
     }
   }
 );
-  //-------------- smart-analytics Start ------------
-  
-  //-------------- smart-analytics End ------------
-  
-  // GSAP Animation
-// gsap.registerPlugin(ScrollTrigger);
+//-------------- smart-analytics End ------------
 
-// const cards = gsap.utils.toArray(".trad__card");
 
-// // Scroll-trigger animation with nth-child logic
-// cards.forEach((card, i) => {
-//   const pos = i % 3; // 0 = left, 1 = center, 2 = right
-//   let startX = 0, startRotate = 0;
-
-//   if(pos === 0) { startX = -300; startRotate = -20; } // left
-//   else if(pos === 2) { startX = 300; startRotate = 20; } // right
-
-//   gsap.fromTo(card,
-//     { opacity: 0, x: startX, rotate: startRotate },
-//     {
-//       opacity: 1,
-//       x: 0,
-//       rotate: 0,
-//       duration: 1,
-//       ease: "power2.out",
-//       scrollTrigger: {
-//         trigger: card,
-//         start: "top 85%",
-//         toggleActions: "play none none reverse"
-//       }
-//     }
-//   );
-// });
-
-// // Hover effect: zoom in hovered card, blur others
-// cards.forEach(card => {
-//   card.addEventListener("mouseenter", () => {
-//     gsap.to(card, { scale: 1.1, duration: 0.3, ease: "power2.out" });
-//     cards.forEach(other => {
-//       if(other !== card) gsap.to(other, { filter: "blur(3px)", scale: 1, duration: 0.3 });
-//     });
-//   });
-
-//   card.addEventListener("mouseleave", () => {
-//     gsap.to(card, { scale: 1, duration: 0.3, ease: "power2.out" });
-//     cards.forEach(other => {
-//       if(other !== card) gsap.to(other, { filter: "blur(0px)", scale: 1, duration: 0.3 });
-//     });
-//   });
-// });
-
-  gsap.registerPlugin(ScrollTrigger);
-
+//-------------- Trad Card STart ------------
 const cards = gsap.utils.toArray(".trad__card");
-
-// Media query check (mobile vs desktop)
 const isDesktop = window.matchMedia("(min-width: 768px)").matches;
 
-if(isDesktop) {
-  // Scroll-trigger animation with nth-child logic
-  cards.forEach((card, i) => {
-    const pos = i % 3; // 0 = left, 1 = center, 2 = right
-    let startX = 0, startRotate = 0;
+cards.forEach((card, i) => {
+  const pos = i % 3; // 0 = left, 1 = center, 2 = right
+  let startX = 0, startRotate = 0;
 
-    if(pos === 0) { startX = -300; startRotate = -20; } // left
-    else if(pos === 2) { startX = 300; startRotate = 20; } // right
+  if (pos === 0) {
+    startX = -300;
+    startRotate = -20;
+  } else if (pos === 2) {
+    startX = 300;
+    startRotate = 20;
+  }
 
-    gsap.fromTo(card,
-      { opacity: 0, x: startX, rotate: startRotate },
-      {
-        opacity: 1,
-        x: 0,
-        rotate: 0,
-        duration: 1,
-        ease: "power2.out",
-        scrollTrigger: {
-          trigger: card,
-          start: "top 85%",
-          toggleActions: "play none none reverse"
-        }
+  gsap.fromTo(card,
+    { opacity: 0, x: startX, rotate: startRotate },
+    {
+      opacity: 1,
+      x: 0,
+      rotate: 0,
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: card,
+        start: "top 85%",
+        toggleActions: "play none none reverse"
       }
-    );
-  });
+    }
+  );
+});
 
-  // Hover effect: zoom in hovered card, blur others
+
+if (isDesktop) {
   cards.forEach(card => {
     card.addEventListener("mouseenter", () => {
-      gsap.to(card, { scale: 1.1, duration: 0.3, ease: "power2.out" });
+      gsap.to(card, { 
+        scale: 1.1, 
+        duration: 0.1,    // faster zoom
+        ease: "power3.out" // snappier easing
+      });
       cards.forEach(other => {
-        if(other !== card) gsap.to(other, { filter: "blur(3px)", scale: 1, duration: 0.3 });
+        if (other !== card)
+          gsap.to(other, { filter: "blur(3px)", scale: 1, duration: 0.1 });
       });
     });
 
     card.addEventListener("mouseleave", () => {
-      gsap.to(card, { scale: 1, duration: 0.3, ease: "power2.out" });
+      gsap.to(card, { 
+        scale: 1, 
+        duration: 0.1, 
+        ease: "power3.out" 
+      });
       cards.forEach(other => {
-        if(other !== card) gsap.to(other, { filter: "blur(0px)", scale: 1, duration: 0.3 });
+        if (other !== card)
+          gsap.to(other, { filter: "blur(0px)", scale: 1, duration: 0.1 });
       });
     });
   });
 }
+//-------------- Trad Card End ------------
+
+//-------------- Features Card Start ------------
+  gsap.registerPlugin(ScrollTrigger);
+
+  const rows = gsap.utils.toArray(".row.justify-content-center");
+
+  rows.forEach(row => {
+    const cards = row.querySelectorAll(".features__card");
+
+    gsap.fromTo(cards,
+      {
+        opacity: 0,
+        y: 50,
+        scale: 0.95
+      },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 1,
+        ease: "power2.out",
+        stagger: 0.4,   // bigger stagger for sequential reveal
+        scrollTrigger: {
+          trigger: row,
+          start: "top 80%",
+          toggleActions: "play none none none"
+        }
+      }
+    );
+  });
+//-------------- Features Card End ------------
+
+//-------------- Faq Start ------------
+// Left side heading + text
+  gsap.from(".faq .col-xl-6:first-child", {
+    opacity: 0,
+    x: -300,          // left বাইরে থেকে আসবে
+    duration: 1.2,
+    ease: "power2.out",
+    scrollTrigger: {
+      trigger: ".faq",
+      start: "top 80%",
+      toggleActions: "play none none none"
+    }
+  });
+
+  // Right side accordion items
+  const accordionItems = gsap.utils.toArray(".faq .accordion-item");
+  accordionItems.forEach((item, i) => {
+    gsap.from(item, {
+      opacity: 0,
+      x: 300,          // right বাইরে থেকে আসবে
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: item,
+        start: "top 85%",
+        toggleActions: "play none none none"
+      },
+      delay: i * 0.2    // staggered
+    });
+  });
+ 
+
+//-------------- Faq End ------------
+//-------------- Blog Start-------
+
+
+
+    const section = document.querySelector('.blog.section-bg-2');
+
+    const blogCard = section.querySelectorAll('.blog__card'); 
+
+    if (section && blogCard.length >= 3) {
+        
+        const tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: section,
+                start: "top 80%",   
+              
+                toggleActions: "play none none none"
+            }
+        });
 
   
+        tl.from(blogCard[0], {
+           
+            x: '100vw', 
+            opacity: 0,
+            duration: 1.2,
+            ease: "power3.out"
+        }, 0); 
+        
+        // 2. ডানের কার্ড (blogCard[2])
+        tl.from(blogCard[2], {
+            x: '-100vw', // পরীক্ষামূলকভাবে বড় মান সেট করা হলো
+            opacity: 0,
+            duration: 1.2,
+            ease: "power3.out"
+        }, 0); 
+        
+        // 3. মাঝের কার্ড (blogCard[1]) - জুম ইন অ্যানিমেশন
+        tl.from(blogCard[1], {
+             scale: 0.9,
+             opacity: 0.8,
+             duration: 1.2,
+             ease: "power3.out"
+        }, 0.2); 
+
+    }
+//-------------- Blog End -------
+
   // ========================== GSAP Animation End =====================
 
 

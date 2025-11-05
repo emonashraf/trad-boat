@@ -176,14 +176,6 @@
   transition: all 1s ease-out;
 }
 
-/* Mobile override */
-@media (max-width: 767px) {
-  .trad__card {
-    opacity: 1 !important;
-    transform: none !important;
-    transition: none !important;
-  }
-}
 
 
 /* ======================  Trad End  ======================*/

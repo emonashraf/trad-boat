@@ -400,11 +400,10 @@
   // ========================== Label Required Js End =====================
 
   // ========================== GSAP Animation START =====================
-  gsap.registerPlugin(MotionPathPlugin);
-  gsap.registerPlugin(ScrollTrigger);
-  gsap.registerPlugin(SplitText);
+gsap.registerPlugin(MotionPathPlugin, ScrollTrigger, SplitText);
 
-  // banner title
+// ========== Banner Title ==========
+if ($('.banner__title').length) {
   const splitTop = new SplitText(".banner__title", { type: "chars" });
   gsap.from(splitTop.chars, {
     duration: 0.5,
@@ -414,25 +413,50 @@
     stagger: 0.04,
     ease: "back.out(1.7)"
   });
-
-
-  //--------------smart-solutions__banner Start------------
-
+}
+if ($('.banner__desc').length) {
+  const splitBottom = new SplitText(".banner__desc", { type: "chars" });
+  gsap.from(splitBottom.chars, {
+    duration: 0.3,
+    y: 50,
+    opacity: 0,
+    scale: 0.5,
+    stagger: 0.02,
+    ease: "back.out(1.3)"
+  });
+}
+if ($('.banner').length) {
+    gsap.utils.toArray(".section-heading__title").forEach((title) => {
+    gsap.fromTo(title,
+      { y: 80, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1.2,
+        ease: "power3.out",
+        scrollTrigger: {
+          trigger: title,
+          start: "top 80%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+  });
+}
+// ========== Smart Solutions Banner ==========
+if ($('#motionSvg').length && $('.svg-wrapper').length) {
   const paths = document.querySelectorAll("#motionSvg path");
   const wrapper = document.querySelector(".svg-wrapper");
   const colors = ["hsl(var(--warning))", "hsl(var(--orange))", "hsl(var(--success))", "hsl(var(--danger))", "hsl(var(--info))", "hsl(var(--purple))", "hsl(var(--pink))"];
 
   paths.forEach((path, i) => {
     const color = colors[i % colors.length];
-
-    // Create dot
     const dot = document.createElement("div");
     dot.classList.add("dot");
-    dot.style.background = `radial-gradient(circle, ${color}, #00000000)`;
+    dot.style.background = `radial-gradient(circle, ${color}, #0000)`;
     dot.style.filter = `drop-shadow(0 0 12px ${color})`;
     wrapper.appendChild(dot);
 
-    // Create trail
     const trail = document.createElement("div");
     trail.classList.add("trail");
     trail.style.background = `linear-gradient(90deg, ${color}, transparent)`;
@@ -440,13 +464,12 @@
 
     const duration = 3 + Math.random();
 
-
     gsap.to(trail, {
-      duration: duration,
+      duration,
       repeat: -1,
       ease: "power2.inOut",
       motionPath: {
-        path: path,
+        path,
         align: path,
         alignOrigin: [0.5, 0.5],
         autoRotate: true
@@ -455,13 +478,12 @@
       opacity: 0.4
     });
 
-    // Animate dot
     gsap.to(dot, {
-      duration: duration,
+      duration,
       repeat: -1,
       ease: "power2.inOut",
       motionPath: {
-        path: path,
+        path,
         align: path,
         alignOrigin: [0.5, 0.5],
         autoRotate: true
@@ -476,71 +498,48 @@
     yoyo: true,
     ease: "sine.inOut"
   });
-  //--------------smart-solutions__banner End------------
+}
 
-  //-------------- Work Process Start------------
-
+// ========== Work Process ==========
+if ($('.work-process').length) {
   const indicators = document.querySelectorAll(".work-process__indicator");
-  const bodyColor = getComputedStyle(document.documentElement).getPropertyValue("--body-color").trim();
-  const baseColor = getComputedStyle(document.documentElement).getPropertyValue("--base").trim();
+  const root = document.documentElement;
+  const bodyColor = getComputedStyle(root).getPropertyValue("--body-color").trim();
+  const baseColor = getComputedStyle(root).getPropertyValue("--base").trim();
 
   indicators.forEach(indicator => {
     const leftLine = indicator.querySelector(".work-process__indicator-left");
     const rightLine = indicator.querySelector(".work-process__indicator-right");
     const arrow = indicator.querySelector("i");
+    if (!leftLine || !rightLine || !arrow) return;
 
     leftLine.style.setProperty("--line-width", "0%");
     rightLine.style.setProperty("--line-width", "0%");
     arrow.style.setProperty("--color", bodyColor);
-    arrow.style.transformOrigin = "50% 50%";
 
     const tl = gsap.timeline({ repeat: -1, repeatDelay: 0.5 });
-
-    // Left line grow
-    tl.to(leftLine, {
-      "--line-width": "100%",
-      duration: 1,
-      ease: "sine.inOut"
-    });
-
-    // Arrow color + scale
-    tl.to({}, {
-      duration: 0.4,
-      onStart: () => {
-        // Color change
-        gsap.to(arrow, {
-          duration: 0.4,
-          "--color": baseColor,
-          ease: "sine.inOut"
-        });
-
-        // Scale up
-        gsap.to(arrow, {
-          duration: 0.4,
-          scale: 1.3,
-          ease: "sine.inOut",
-          yoyo: true,
-          repeat: 1
-        });
-      }
-    }, ">");
-
-    // Right line grow
-    tl.to(rightLine, {
-      "--line-width": "100%",
-      duration: 1,
-      ease: "sine.inOut"
-    }, ">");
-
-    // Reset
-    tl.add(() => {
-      leftLine.style.setProperty("--line-width", "0%");
-      rightLine.style.setProperty("--line-width", "0%");
-      arrow.style.setProperty("--color", bodyColor);
-      arrow.style.scale = 1;
-    }, ">");
+    tl.to(leftLine, { "--line-width": "100%", duration: 1, ease: "sine.inOut" })
+      .to({}, {
+        duration: 0.4,
+        onStart: () => {
+          gsap.to(arrow, {
+            duration: 0.4,
+            "--color": baseColor,
+            scale: 1.3,
+            ease: "sine.inOut",
+            yoyo: true,
+            repeat: 1
+          });
+        }
+      }, ">")
+      .to(rightLine, { "--line-width": "100%", duration: 1, ease: "sine.inOut" }, ">")
+      .add(() => {
+        leftLine.style.setProperty("--line-width", "0%");
+        rightLine.style.setProperty("--line-width", "0%");
+        arrow.style.setProperty("--color", bodyColor);
+      }, ">");
   });
-  // scroll trigger
+
   gsap.fromTo(".work-process__wrap",
     { scale: 0.95, opacity: 0.8 },
     {
@@ -555,257 +554,177 @@
       }
     }
   );
-  //-------------- Work Process End ------------
+}
 
-  //-------------- smart-analytics Start ------------
+// ========== Smart Analytics ==========
+if ($('.smart-analytics').length) {
   gsap.set(".smart-analytics", { perspective: 1200 });
 
-function animateCard(card, fromX, rotateY, rotateZ) {
-  gsap.fromTo(card,
-    {
-      x: fromX,
-      opacity: 0,
-      rotateY: rotateY,
-      rotateZ: rotateZ,
-      scale: 0.85,
-      filter: "blur(8px)",
-    },
-    {
-      x: 0,
-      opacity: 1,
-      rotateY: 0,
-      rotateZ: 0,
-      scale: 1,
-      filter: "blur(0px)",
-      duration: 2,
-      ease: "power4.out",
-      scrollTrigger: {
-        trigger: card,
-        start: "top 90%",
-        end: "bottom 40%",
-        scrub: 1.2,
-        toggleActions: "play reverse play reverse",
-      },
-      onComplete: () => {
-        // subtle bounce after entry
-        gsap.fromTo(card, 
-          { scale: 1 }, 
-          { scale: 1.03, duration: 0.3, yoyo: true, repeat: 1, ease: "power1.inOut" }
-        );
-      }
-    }
-  );
-}
-
-
-gsap.utils.toArray(".left-card").forEach(card => {
-  animateCard(card, -400, -70, -15);
-});
-
-gsap.utils.toArray(".right-card").forEach(card => {
-  animateCard(card, 400, 70, 15);
-});
-
-gsap.fromTo(".profit-cart",
-  {
-    y: 250,
-    opacity: 0,
-    scale: 0.85,
-    filter: "blur(8px)",
-  },
-  {
-    y: 0,
-    opacity: 1,
-    scale: 1,
-    filter: "blur(0px)",
-    duration: 1.8,
-    ease: "power4.out",
-    scrollTrigger: {
-      trigger: ".profit-cart",
-      start: "top 85%",
-      toggleActions: "play none none none", 
-    }
-  }
-);
-//-------------- smart-analytics End ------------
-
-
-//-------------- Trad Card STart ------------
-const cards = gsap.utils.toArray(".trad__card");
-const isDesktop = window.matchMedia("(min-width: 768px)").matches;
-
-cards.forEach((card, i) => {
-  const pos = i % 3; // 0 = left, 1 = center, 2 = right
-  let startX = 0, startRotate = 0;
-
-  if (pos === 0) {
-    startX = -300;
-    startRotate = -20;
-  } else if (pos === 2) {
-    startX = 300;
-    startRotate = 20;
-  }
-
-  gsap.fromTo(card,
-    { opacity: 0, x: startX, rotate: startRotate },
-    {
-      opacity: 1,
-      x: 0,
-      rotate: 0,
-      duration: 1,
-      ease: "power2.out",
-      scrollTrigger: {
-        trigger: card,
-        start: "top 85%",
-        toggleActions: "play none none reverse"
-      }
-    }
-  );
-});
-
-
-if (isDesktop) {
-  cards.forEach(card => {
-    card.addEventListener("mouseenter", () => {
-      gsap.to(card, { 
-        scale: 1.1, 
-        duration: 0.1,    // faster zoom
-        ease: "power3.out" // snappier easing
-      });
-      cards.forEach(other => {
-        if (other !== card)
-          gsap.to(other, { filter: "blur(3px)", scale: 1, duration: 0.1 });
-      });
-    });
-
-    card.addEventListener("mouseleave", () => {
-      gsap.to(card, { 
-        scale: 1, 
-        duration: 0.1, 
-        ease: "power3.out" 
-      });
-      cards.forEach(other => {
-        if (other !== card)
-          gsap.to(other, { filter: "blur(0px)", scale: 1, duration: 0.1 });
-      });
-    });
-  });
-}
-//-------------- Trad Card End ------------
-
-//-------------- Features Card Start ------------
-  gsap.registerPlugin(ScrollTrigger);
-
-  const rows = gsap.utils.toArray(".row.justify-content-center");
-
-  rows.forEach(row => {
-    const cards = row.querySelectorAll(".features__card");
-
-    gsap.fromTo(cards,
+  function animateCard(card, fromX, rotateY, rotateZ) {
+    gsap.fromTo(card,
+      { x: fromX, opacity: 0, rotateY, rotateZ, scale: 0.85, filter: "blur(8px)" },
       {
-        opacity: 0,
-        y: 50,
-        scale: 0.95
-      },
+        x: 0,
+        opacity: 1,
+        rotateY: 0,
+        rotateZ: 0,
+        scale: 1,
+        filter: "blur(0px)",
+        duration: 2,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 90%",
+          end: "bottom 40%",
+          scrub: 1.2,
+        },
+        onComplete: () => {
+          gsap.fromTo(card, { scale: 1 }, {
+            scale: 1.03,
+            duration: 0.3,
+            yoyo: true,
+            repeat: 1,
+            ease: "power1.inOut"
+          });
+        }
+      }
+    );
+  }
+
+  gsap.utils.toArray(".left-card").forEach(card => animateCard(card, -400, -70, -15));
+  gsap.utils.toArray(".right-card").forEach(card => animateCard(card, 400, 70, 15));
+
+  if ($('.profit-cart').length) {
+    gsap.fromTo(".profit-cart",
+      { y: 250, opacity: 0, scale: 0.85, filter: "blur(8px)" },
+      {
+        y: 0,
+        opacity: 1,
+        scale: 1,
+        filter: "blur(0px)",
+        duration: 1.3,
+        ease: "power4.out",
+        scrollTrigger: {
+          trigger: ".profit-cart",
+          start: "top 85%",
+          toggleActions: "play none none none",
+        }
+      }
+    );
+  }
+}
+
+// ========== Trad Cards ==========
+if ($('.trad__card').length) {
+  const cards = gsap.utils.toArray(".trad__card");
+  cards.forEach((card, i) => {
+    const pos = i % 3;
+    let startX = 0, startRotate = 0;
+    if (pos === 0) { startX = -300; startRotate = -20; }
+    else if (pos === 2) { startX = 300; startRotate = 20; }
+
+    gsap.fromTo(card,
+      { opacity: 0, x: startX, rotate: startRotate },
+      {
+        opacity: 1,
+        x: 0,
+        rotate: 0,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: card,
+          start: "top 85%",
+          toggleActions: "play none none reverse"
+        }
+      }
+    );
+  });
+
+  if (window.matchMedia("(min-width: 768px)").matches) {
+    cards.forEach(card => {
+      card.addEventListener("mouseenter", () => {
+        gsap.to(card, { scale: 1.1, duration: 0.1 });
+        cards.forEach(other => {
+          if (other !== card)
+            gsap.to(other, { filter: "blur(3px)", scale: 1, duration: 0.1 });
+        });
+      });
+      card.addEventListener("mouseleave", () => {
+        gsap.to(card, { scale: 1, duration: 0.1 });
+        cards.forEach(other => {
+          if (other !== card)
+            gsap.to(other, { filter: "blur(0px)", scale: 1, duration: 0.1 });
+        });
+      });
+    });
+  }
+}
+
+// ========== Features ==========
+if ($('.features__card').length) {
+  gsap.utils.toArray(".row.justify-content-center").forEach(row => {
+    const cards = row.querySelectorAll(".features__card");
+    if (!cards.length) return;
+    gsap.fromTo(cards,
+      { opacity: 0, y: 50, scale: 0.95 },
       {
         opacity: 1,
         y: 0,
         scale: 1,
         duration: 1,
         ease: "power2.out",
-        stagger: 0.4,   // bigger stagger for sequential reveal
+        stagger: 0.4,
         scrollTrigger: {
           trigger: row,
           start: "top 80%",
-          toggleActions: "play none none none"
         }
       }
     );
   });
-//-------------- Features Card End ------------
+}
 
-//-------------- Faq Start ------------
-// Left side heading + text
+// ========== FAQ ==========
+if ($('.faq').length) {
   gsap.from(".faq .col-xl-6:first-child", {
     opacity: 0,
-    x: -300,          // left বাইরে থেকে আসবে
+    x: -300,
     duration: 1.2,
     ease: "power2.out",
     scrollTrigger: {
       trigger: ".faq",
       start: "top 80%",
-      toggleActions: "play none none none"
     }
   });
 
-  // Right side accordion items
-  const accordionItems = gsap.utils.toArray(".faq .accordion-item");
-  accordionItems.forEach((item, i) => {
+  gsap.utils.toArray(".faq .accordion-item").forEach((item, i) => {
     gsap.from(item, {
       opacity: 0,
-      x: 300,          // right বাইরে থেকে আসবে
+      x: 300,
       duration: 1,
       ease: "power2.out",
       scrollTrigger: {
         trigger: item,
         start: "top 85%",
-        toggleActions: "play none none none"
       },
-      delay: i * 0.2    // staggered
+      delay: i * 0.2
     });
   });
- 
+}
 
-//-------------- Faq End ------------
-//-------------- Blog Start-------
-
-
-
-    const section = document.querySelector('.blog.section-bg-2');
-
-    const blogCard = section.querySelectorAll('.blog__card'); 
-
-    if (section && blogCard.length >= 3) {
-        
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: section,
-                start: "top 80%",   
-              
-                toggleActions: "play none none none"
-            }
-        });
-
-  
-        tl.from(blogCard[0], {
-           
-            x: '100vw', 
-            opacity: 0,
-            duration: 1.2,
-            ease: "power3.out"
-        }, 0); 
-        
-        // 2. ডানের কার্ড (blogCard[2])
-        tl.from(blogCard[2], {
-            x: '-100vw', // পরীক্ষামূলকভাবে বড় মান সেট করা হলো
-            opacity: 0,
-            duration: 1.2,
-            ease: "power3.out"
-        }, 0); 
-        
-        // 3. মাঝের কার্ড (blogCard[1]) - জুম ইন অ্যানিমেশন
-        tl.from(blogCard[1], {
-             scale: 0.9,
-             opacity: 0.8,
-             duration: 1.2,
-             ease: "power3.out"
-        }, 0.2); 
-
+// ========== Blog ==========
+if ($('.blog').length && $('.blog__card').length >= 3) {
+  const blogCards = document.querySelectorAll(".blog__card");
+  const tl = gsap.timeline({
+    scrollTrigger: {
+      trigger: ".blog",
+      start: "top 95%",
     }
-//-------------- Blog End -------
-
-  // ========================== GSAP Animation End =====================
-
+  });
+  tl.from(blogCards[0], { x: "100vw", opacity: 0, duration: 1.2, ease: "power3.out" }, 0)
+    .from(blogCards[2], { x: "-100vw", opacity: 0, duration: 1.2, ease: "power3.out" }, 0)
+    .from(blogCards[1], { scale: 0.9, opacity: 0.8, duration: 1.2, ease: "power3.out" }, 0.2);
+}
+// ========================== GSAP Animation END =====================
 
   // ========================= Apex chart Js Start =====================
   if ($('#profitChart').length) {

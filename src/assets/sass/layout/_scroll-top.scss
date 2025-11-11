@@ -13,8 +13,9 @@
     transition: 0.5s;
     cursor: pointer;
     transform: scale(0);
-    background-color: hsl(var(--white));
+    background-color: hsl(var(--black));
     border: 1px solid hsl(var(--base));
+    border-radius: var(--b-radius-6);
 
 
     &:hover {

@@ -335,46 +335,6 @@
     }
   });
   // ========================= Custom Dropzone End ==========
-
-  // ========================= Scroll Reveal Js Start ===================
-  // const sr = ScrollReveal({
-  //   origin: 'top',
-  //   distance: '60px',
-  //   duration: 1200,
-  //   delay: 100,
-  //   reset: false,
-  // })
-  // sr.reveal('.bottom-reveal,  .section-heading__title, .pricing, .footer__item', {
-  //   delay: 60,
-  //   interval: 100,
-  //   origin: 'bottom',
-  // })
-  // sr.reveal('.banner__desc, .section-heading__desc, .testimonial, .blog__card', {
-  //   delay: 150,
-  //   interval: 100,
-  //   origin: 'bottom',
-  // })
-  // sr.reveal('.banner__btns', {
-  //   delay: 200,
-  //   origin: 'bottom',
-  // })
-  // sr.reveal('.right-reveal, .faq__thumb-wrap', {
-  //   delay: 60,
-  //   origin: 'right',
-  // })
-  // sr.reveal('.left-reveal, .faq__content-wrap', {
-  //   delay: 60,
-  //   interval: 100,
-  //   origin: 'left',
-  // })
-  // sr.reveal('.banner__subtitle, .section-heading__name', {
-  //   delay: 60,
-  //   origin: 'top',
-  // })
-
-
-  // ========================= Scroll Reveal Js End ===================
-
   // ========================== Table Data Label Js Start =====================
   if ($('th').length) {
     Array.from(document.querySelectorAll('table')).forEach(table => {
@@ -416,33 +376,55 @@ if ($('.banner__title').length) {
 }
 if ($('.banner__desc').length) {
   const splitBottom = new SplitText(".banner__desc", { type: "chars" });
+
   gsap.from(splitBottom.chars, {
-    duration: 0.3,
-    y: 50,
-    opacity: 0,
-    scale: 0.5,
-    stagger: 0.02,
-    ease: "back.out(1.3)"
+    duration: 0.3,      
+    y: 20,            
+    opacity: 0,        
+    scale: 0,          
+    stagger: 0.02,      
+    ease: "back.out(1.)", 
   });
 }
-if ($('.banner').length) {
-    gsap.utils.toArray(".section-heading__title").forEach((title) => {
-    gsap.fromTo(title,
+if (document.querySelector('.banner .btn')) {
+  const btn = document.querySelector('.banner .btn');
+  
+  gsap.fromTo(btn,
+    { y: 70, opacity: 0 },   
+    { 
+      y: 0, 
+      opacity: 1, 
+      duration: 0.3,       
+      ease: "power3.out",   
+      delay: 0.5
+    }
+  );
+}
+
+
+
+if ($('.section-heading').length) {
+  gsap.utils.toArray(".section-heading").forEach((section) => {
+    let elements = $(section).find(".section-heading__title, .section-heading__desc");
+
+    gsap.fromTo(elements,
       { y: 80, opacity: 0 },
       {
         y: 0,
         opacity: 1,
         duration: 1.2,
         ease: "power3.out",
+        stagger: 0.2,
         scrollTrigger: {
-          trigger: title,
-          start: "top 80%",
-          toggleActions: "play none none reverse"
+          trigger: section,  
+          start: "top 85%",  
+          toggleActions: "play none none reverse",
         }
       }
     );
   });
 }
+
 // ========== Smart Solutions Banner ==========
 if ($('#motionSvg').length && $('.svg-wrapper').length) {
   const paths = document.querySelectorAll("#motionSvg path");

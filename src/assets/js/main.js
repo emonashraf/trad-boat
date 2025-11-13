@@ -401,8 +401,6 @@ if (document.querySelector('.banner .btn')) {
   );
 }
 
-
-
 if ($('.section-heading').length) {
   gsap.utils.toArray(".section-heading").forEach((section) => {
     let elements = $(section).find(".section-heading__title, .section-heading__desc");
@@ -426,13 +424,83 @@ if ($('.section-heading').length) {
 }
 
 // ========== Smart Solutions Banner ==========
-if ($('#motionSvg').length && $('.svg-wrapper').length) {
-  const paths = document.querySelectorAll("#motionSvg path");
+// if ($('#motionSvg').length && $('.svg-wrapper').length) {
+//   const paths = document.querySelectorAll("#motionSvg path");
+//   const wrapper = document.querySelector(".svg-wrapper");
+//   const colors = ["hsl(var(--warning))", "hsl(var(--orange))", "hsl(var(--success))", "hsl(var(--danger))", "hsl(var(--info))", "hsl(var(--purple))", "hsl(var(--pink))"];
+
+//   paths.forEach((path, i) => {
+//     const color = colors[i % colors.length];
+//     const dot = document.createElement("div");
+//     dot.classList.add("dot");
+//     dot.style.background = `radial-gradient(circle, ${color}, #0000)`;
+//     dot.style.filter = `drop-shadow(0 0 12px ${color})`;
+//     wrapper.appendChild(dot);
+
+//     const trail = document.createElement("div");
+//     trail.classList.add("trail");
+//     trail.style.background = `linear-gradient(90deg, ${color}, transparent)`;
+//     wrapper.appendChild(trail);
+
+//     const duration = 3 + Math.random();
+
+//     gsap.to(trail, {
+//       duration,
+//       repeat: -1,
+//       ease: "power2.inOut",
+//       motionPath: {
+//         path,
+//         align: path,
+//         alignOrigin: [0.5, 0.5],
+//         autoRotate: true
+//       },
+//       scaleX: gsap.utils.wrap([0.2, 1]),
+//       opacity: 0.4
+//     });
+
+//     gsap.to(dot, {
+//       duration,
+//       repeat: -1,
+//       ease: "power2.inOut",
+//       motionPath: {
+//         path,
+//         align: path,
+//         alignOrigin: [0.5, 0.5],
+//         autoRotate: true
+//       }
+//     });
+//   });
+
+//   gsap.to(".smart-solutions__center", {
+//     scale: 1.05,
+//     duration: 1.5,
+//     repeat: -1,
+//     yoyo: true,
+//     ease: "sine.inOut"
+//   });
+// }
+// ===============================
+// SMART SOLUTIONS ANIMATION (GSAP)
+// ===============================
+
+function initSmartSolutionsAnimation() {
+  const svg = document.querySelector("#motionSvg");
   const wrapper = document.querySelector(".svg-wrapper");
-  const colors = ["hsl(var(--warning))", "hsl(var(--orange))", "hsl(var(--success))", "hsl(var(--danger))", "hsl(var(--info))", "hsl(var(--purple))", "hsl(var(--pink))"];
+
+  if (!svg || !wrapper) return;
+
+  wrapper.querySelectorAll(".dot, .trail").forEach(el => el.remove());
+
+  const paths = svg.querySelectorAll("path");
+  const colors = [
+    "hsl(var(--warning))", "hsl(var(--orange))", "hsl(var(--success))",
+    "hsl(var(--danger))", "hsl(var(--info))", "hsl(var(--purple))", "hsl(var(--pink))"
+  ];
 
   paths.forEach((path, i) => {
     const color = colors[i % colors.length];
+
+
     const dot = document.createElement("div");
     dot.classList.add("dot");
     dot.style.background = `radial-gradient(circle, ${color}, #0000)`;
@@ -473,6 +541,7 @@ if ($('#motionSvg').length && $('.svg-wrapper').length) {
     });
   });
 
+  // Center icon animation
   gsap.to(".smart-solutions__center", {
     scale: 1.05,
     duration: 1.5,
@@ -481,6 +550,29 @@ if ($('#motionSvg').length && $('.svg-wrapper').length) {
     ease: "sine.inOut"
   });
 }
+
+initSmartSolutionsAnimation();
+
+
+// FIX: RESPONSIVE BREAK ISSUE
+let resizeTimer;
+
+window.addEventListener("resize", () => {
+  clearTimeout(resizeTimer);
+
+  resizeTimer = setTimeout(() => {
+
+    const banner = document.querySelector(".smart-solutions__banner");
+    if (banner) {
+      banner.style.display = "none";
+      void banner.offsetHeight; 
+      banner.style.display = "";
+    }
+    gsap.globalTimeline.clear();
+    initSmartSolutionsAnimation();
+
+  }, 250);
+});
 
 // ========== Work Process ==========
 if ($('.work-process').length) {
@@ -782,7 +874,7 @@ if ($('.blog').length && $('.blog__card').length >= 3) {
         }
       },
 
-      // ✅ Responsive
+      //  Responsive
       responsive: [
         {
           breakpoint: 1200,
@@ -831,80 +923,87 @@ if ($('.blog').length && $('.blog__card').length >= 3) {
     chart.render();
   }
   // chart 2
-  if ($('#reportChart').length) {
-    var options = {
-      series: [20, 30, 15, 20],
-      chart: {
-        type: 'pie',
-        width: "100%",
-        height: "270",
-      },
-      labels: ['Investment', 'Profit', 'Loss', 'Reserve Fund'],
-      colors: [
-        'hsl(var(--base))',
-        'hsl(var(--success))',
-        'hsl(var(--danger))',
-        'hsl(var(--info))'
-      ],
-      dataLabels: {
-        enabled: true,
-        style: {
-          fontSize: '12px'
+ if ($('#reportChart').length) {
+  var options = {
+    series: [20, 30, 15, 20],
+    chart: {
+      type: 'pie',
+      width: "100%",   
+      height: 270,     
+    },
+    labels: ['Investment', 'Profit', 'Loss', 'Reserve Fund'],
+    colors: [
+      'hsl(var(--base))',
+      'hsl(var(--success))',
+      'hsl(var(--danger))',
+      'hsl(var(--info))'
+    ],
+    dataLabels: {
+      enabled: true,
+      style: {
+        fontSize: '12px'
+      }
+    },
+    legend: {
+      position: 'bottom',
+      fontSize: '12px',
+      markers: { width: 8, height: 8 }
+    },
+    tooltip: {
+      y: {
+        formatter: function (val) {
+          return val + "% allocation";
+        }
+      }
+    },
+    responsive: [
+      {
+        breakpoint: 1500,
+        options: {
+          chart: { height: 250 },
+          legend: { fontSize: 13 },
+          dataLabels: { style: { fontSize: '12px' } }
         }
       },
-      legend: {
-        position: 'bottom',
-        fontSize: '12px',
-        markers: { width: 8, height: 8 }
-      },
-      tooltip: {
-        y: {
-          formatter: function (val) {
-            return val + "% allocation";
-          }
+      {
+        breakpoint: 1200,
+        options: {
+          chart: { height: 220 },
+          legend: { fontSize: 11 },
+          dataLabels: { style: { fontSize: '11px' } }
         }
       },
-      // 🔹 Responsive breakpoints
-      responsive: [
-        {
-          breakpoint: 1500,
-          options: {
-            chart: { height: 250 },
-            legend: { fontSize: 13 },
-            xaxis: { labels: { style: { fontSize: 12 } } },
-            yaxis: { labels: { style: { fontSize: 12 } } }
-          }
-        },
-        {
-          breakpoint: 1200,
-          options: {
-            chart: { width: "100%" },
-            legend: { position: 'bottom' },
-            dataLabels: { style: { fontSize: '11px' } }
-          }
-        },
-        {
-          breakpoint: 768,
-          options: {
-            chart: { width: "100%" },
-            legend: { fontSize: '10px' },
-            dataLabels: { style: { fontSize: '10px' } }
-          }
-        },
-        {
-          breakpoint: 480,
-          options: {
-            chart: { width: "100%" },
-            legend: { position: 'bottom', fontSize: '9px' },
-            dataLabels: { style: { fontSize: '9px' } }
-          }
+      {
+        breakpoint: 992,
+        options: {
+          chart: { height: 200 },
+          legend: { fontSize: 10 },
+          dataLabels: { style: { fontSize: '10px' } }
         }
-      ]
-    };
+      },
+      {
+        breakpoint: 768,
+        options: {
+          chart: { height: 180 },
+          legend: { fontSize: 9, position: 'bottom' },
+          dataLabels: { style: { fontSize: '9px' } }
+        }
+      },
+      {
+        breakpoint: 480,
+        options: {
+          chart: { height: 150 },
+          legend: { fontSize: 8, position: 'bottom' },
+          dataLabels: { style: { fontSize: '8px' } }
+        }
+      }
+    ]
+  };
 
-    var chart = new ApexCharts(document.querySelector("#reportChart"), options);
-    chart.render();
-  }
+  var chart = new ApexCharts(document.querySelector("#reportChart"), options);
+  chart.render();
+}
+
   // overall Report chart
   if ($('#overallReportsChart').length) {
     var options = {

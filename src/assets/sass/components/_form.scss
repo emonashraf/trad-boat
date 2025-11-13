@@ -44,7 +44,7 @@ label.required:after {
   outline: none;
   width: 100%;
   padding: var(--common-p);
-  border-radius: var(--b-radius-8);
+  border-radius: var(--common-radius);
   background-color: hsl(var(--white)/ 0.04) !important;
   border: 1px solid hsl(var(--white)/ 0.12);
   color: hsl(var(--body-color)) !important;
@@ -345,7 +345,7 @@ input[type='number'] {
 /* --======================Custom Input group Start ======================*/
 
 .input-group {
-  border-radius: var(--b-radius-8);
+  border-radius: var(--common-radius);
   border: 1px solid hsl(var(--white) / 0.12);
 
   &> :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
@@ -377,7 +377,7 @@ input[type='number'] {
     padding: 13px;
     padding-right: 0;
     border-width: 0px;
-    border-radius: 8px;
+    border-radius: var(--common-radius);
     background-color: hsl(var(--white)/ 0.04);
     color: hsl(var(--white));
   }

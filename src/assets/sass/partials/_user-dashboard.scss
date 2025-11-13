@@ -234,11 +234,13 @@
   @include sm-screen {
     flex-direction: column;
     gap: 24px;
-
-    .search__box {
-      width: 100%;
-    }
   }
+  .search__box {
+      max-width: 300px;
+       @include sm-screen{
+        max-width: 100%;
+       }
+    }
 }
 
 .dashboard__header h2 {
@@ -267,7 +269,8 @@
 
   @include sm-screen {
     width: 100%;
-    justify-content: flex-end;
+    // justify-content: flex-end;
+    justify-content: space-between;
     gap: 14px;
 
     .upload__file {

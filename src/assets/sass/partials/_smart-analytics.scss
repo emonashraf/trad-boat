@@ -44,24 +44,8 @@
 
             circle {
                 fill: none;
-                cx: 68;
-                cy: 68.5;
                 stroke-width: 2;
-
-                &:nth-child(1) {
-                    r: 67;
-                }
-
-                &:nth-child(2) {
-                    r: 48.5;
-                }
-
-                &:nth-child(3) {
-                    r: 31.5;
-                }
-
                 &:nth-child(4) {
-                    r: 23.5;
                     fill: hsl(var(--base));
                     filter: blur(8px);
 

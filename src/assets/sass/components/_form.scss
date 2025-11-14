@@ -94,6 +94,9 @@ label.required:after {
       }
     }
   }
+  &-sm{
+    padding: var(--common-p-sm);
+  }
 }
 
 /* Form Control End */
@@ -358,6 +361,7 @@ input[type='number'] {
     border-width: 0px !important;
     padding-right: 0;
     box-shadow: unset;
+    background-color: transparent;
 
     &:focus {
       border: none !important;
@@ -370,7 +374,7 @@ input[type='number'] {
   }
 
   &:focus-within {
-    border: 1px solid hsl(var(--white) / 0.1);
+    border: 1px solid hsl(var(--base));
   }
 
   .input-group-text {
@@ -380,6 +384,10 @@ input[type='number'] {
     border-radius: var(--common-radius);
     background-color: hsl(var(--white)/ 0.04);
     color: hsl(var(--white));
+  }
+  .btn{
+  background-color: hsl(var(--white)/ 0.04) !important;
+
   }
 
   .form-control[readonly] {

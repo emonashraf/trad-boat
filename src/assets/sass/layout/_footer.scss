@@ -8,30 +8,46 @@
   overflow: hidden;
   background: linear-gradient(180deg, hsl(var(--base-two)) 0%, transparent 59.04%);
 
-  &__shape {
-    position: absolute;
-    max-width: clamp(9.375rem, 7.344rem + 10.156vw, 17.5rem);
-    z-index: -1;
+.glove--base {
+  width: clamp(18.75rem, 13.594rem + 25.781vw, 39.375rem);
+  height: clamp(18.75rem, 13.594rem + 25.781vw, 39.375rem);
+  border-radius: 50%;
+  filter: blur(260px);
+  background-color: hsl(var(--base)/ 0.42);
+  position: absolute;
+  z-index: -2;
 
-    &:nth-child(1) {
-      top: -5%;
-      left: -3%;
-      animation: rotateIn 90s linear infinite;
-    }
-
-    &:nth-child(2) {
-      right: -2%;
-      bottom: -10%;
-      animation: rotateOut 90s linear infinite;
-    }
+  &:nth-child(1) {
+    top: 100%;
+    left: 0;
+    transform: translateX(-50%);
 
   }
 
-  &__bg_top {
-    position: absolute;
-    top: -2px;
-    transform: rotate(-180deg);
+  &:nth-child(2) {
+    top: 100%;
+    left: auto;
+    right: 0;
   }
+}
+
+.common__shape {
+  max-width: clamp(9.375rem, 3.531rem + 29.219vw, 32.75rem);
+  position: absolute;
+  top: auto;
+  bottom: 0;
+  left: 0;
+  z-index: -2;
+
+  &:nth-child(2) {
+    left: auto;
+    right: 0;
+    top: auto;
+
+  }
+}
+
+
 
   &__item_left {
     @include lg-screen {
@@ -105,9 +121,6 @@
       }
     }
   }
-
-
-
   &__logo {
     margin-bottom: 20px;
 
@@ -192,6 +205,7 @@
     .form-control {
       border: 1px solid hsl(var(--white)/ 0.15);
       color: hsl(var(--base));
+      padding-right: 16px;
 
       ~button {
         background: linear-gradient(180deg, hsl(var(--base)), transparent);

@@ -11,7 +11,40 @@
         height: 100%;
         z-index: 2;
         border: 1px solid hsl(var(--white)/0.12);
-        overflow: hidden;
+        background-color: hsl(var(--black));
+        &:hover{
+            &::before{
+                  inset: 20px 20px -10px 20px;
+            }
+            img{
+                transform: scale(1.05);
+            }
+        }
+
+
+         &::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-color: hsl(var(--black));
+            border-radius: inherit;
+            z-index: -1;
+        }
+
+        &::before {
+            content: '';
+            position: absolute;
+            inset: 20px;
+            border-radius: inherit;
+            background-color: hsl(var(--base));
+            filter: blur(10px);
+            transition: 0.3s;
+            z-index: -2;
+        }
+
+        @include md-screen {
+            flex-direction: column;
+        }
         
     }
 
@@ -23,12 +56,17 @@
     &__thumb-wrap {
         position: relative;
         z-index: 1;
-
     }
     &__thumb {
         display: block;
         width: 100%;
+        border-radius: var(--b-radius-12) var(--b-radius-12) 0 0;
+        overflow: hidden;
+        img{
+            border-radius: inherit;
+            transition: 0.3s;
 
+        }
     }
 
     &__date {

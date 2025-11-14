@@ -6,16 +6,34 @@
   --icon-size: clamp(3.125rem, 2.813rem + 1.563vw, 4.375rem);
 
   &__card {
+    position: relative;
     transition: 0.3s;
     width: 100%;
     border-radius: var(--b-radius-12);
     overflow: hidden;
     max-width: rem(420px);
     margin-inline: auto;
-    background-image: linear-gradient(180deg, hsl(var(--base)/ 0.2), transparent);
+    background-image: linear-gradient(hsl(var(--base)/ 0.2), transparent);
     border: 1px solid hsl(var(--base)/ 0.2);
     padding-inline: clamp(0.625rem, 0.391rem + 1.172vw, 1.563rem);
     padding-block: clamp(1.875rem, 1.563rem + 1.563vw, 3.125rem);
+    transition: 0.3s;
+    &::before{
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background-image: linear-gradient( hsl(var(--base)),  transparent 10%);
+      transition: 0.3s;
+      z-index: -1;
+    }
+    &:hover{
+      &::before{
+        height: 100%;
+      }
+    }
   }
 
   &__thumb {

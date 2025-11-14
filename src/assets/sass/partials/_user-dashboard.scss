@@ -241,6 +241,15 @@
         max-width: 100%;
        }
     }
+    &-right{
+     display: flex;
+      gap: clamp(0.875rem, 0.594rem + 1.406vw, 2rem);
+
+      @include sm-screen{
+      width: 100%;
+      justify-content: space-between;
+      }
+    }
 }
 
 .dashboard__header h2 {
@@ -261,22 +270,7 @@
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 32px;
-
-  @include md-screen {
-    gap: 20px;
-  }
-
-  @include sm-screen {
-    width: 100%;
-    // justify-content: flex-end;
-    justify-content: space-between;
-    gap: 14px;
-
-    .upload__file {
-      margin-right: auto;
-    }
-  }
+  gap: clamp(0.875rem, 0.594rem + 1.406vw, 2rem);
 }
 
 .upload__file__sb {
